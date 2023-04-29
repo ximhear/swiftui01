@@ -10,6 +10,30 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
+            NavigationView {
+                VStack {
+                    NavigationLink {
+                        Test01()
+                    } label: {
+                        Text("Test01")
+                    }
+                    NavigationLink {
+                        Test02()
+                    } label: {
+                        Text("Test02")
+                    }
+                    NavigationStack {
+                        Group {
+                            NavigationLink("Test01", value: "hello")
+                            NavigationLink("Text", value: "great")
+                        }
+                        .navigationDestination(for: String.self) { value in
+                            Text(value)
+                        }
+                    }
+                }
+            }
+            Test02()
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
