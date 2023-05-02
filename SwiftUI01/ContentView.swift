@@ -7,7 +7,21 @@
 
 import SwiftUI
 
+struct AAAView: View {
+    @State var value: Int = 0
+    var body: some View {
+        VStack {
+            Text("\(value)")
+                .font(.title)
+            Button("inc") {
+                value &+= 1
+            }
+            ContentView()
+        }
+    }
+}
 struct ContentView: View {
+    @StateObject var vm = ViewModel(value: 10)
     var body: some View {
         VStack {
             NavigationView {
@@ -18,7 +32,7 @@ struct ContentView: View {
                         Text("Test01")
                     }
                     NavigationLink {
-                        Test02()
+                        Test02(vm: vm)
                     } label: {
                         Text("Test02")
                     }
@@ -33,7 +47,16 @@ struct ContentView: View {
                     }
                 }
             }
-            Test02()
+            .onAppear {
+                GZLogFunc()
+            }
+            .onDisappear {
+                GZLogFunc()
+            }
+            .task {
+                GZLogFunc()
+            }
+            Test02(vm: vm)
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
