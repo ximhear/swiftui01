@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		965BCA032A03610B004A3494 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA022A03610B004A3494 /* MyScene.swift */; };
 		965BCA292A03934F004A3494 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361229FD793B007F6107 /* ContentView.swift */; };
+		965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2A2A039D39004A3494 /* ZStackTest.swift */; };
 		ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361029FD793B007F6107 /* SwiftUI01App.swift */; };
 		ECB7361529FD793C007F6107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7361429FD793C007F6107 /* Assets.xcassets */; };
 		ECB7361829FD793C007F6107 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7361729FD793C007F6107 /* Preview Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		965BCA022A03610B004A3494 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
+		965BCA2A2A039D39004A3494 /* ZStackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStackTest.swift; sourceTree = "<group>"; };
 		ECB7360D29FD793B007F6107 /* SwiftUI01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7361029FD793B007F6107 /* SwiftUI01App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI01App.swift; sourceTree = "<group>"; };
 		ECB7361229FD793B007F6107 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				ECB7361029FD793B007F6107 /* SwiftUI01App.swift */,
 				965BCA022A03610B004A3494 /* MyScene.swift */,
 				ECB7361229FD793B007F6107 /* ContentView.swift */,
+				965BCA2A2A039D39004A3494 /* ZStackTest.swift */,
 				ECB7362429FD827A007F6107 /* Test03.swift */,
 				ECB7362229FD7FBA007F6107 /* Test02.swift */,
 				ECBA61AF2A0160A400CF0B12 /* ViewModel.swift */,
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB7362329FD7FBA007F6107 /* Test02.swift in Sources */,
+				965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */,
 				965BCA032A03610B004A3494 /* MyScene.swift in Sources */,
 				ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */,
 				ECB7362529FD827A007F6107 /* Test03.swift in Sources */,
