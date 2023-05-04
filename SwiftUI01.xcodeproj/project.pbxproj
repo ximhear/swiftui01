@@ -10,6 +10,7 @@
 		965BCA032A03610B004A3494 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA022A03610B004A3494 /* MyScene.swift */; };
 		965BCA292A03934F004A3494 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361229FD793B007F6107 /* ContentView.swift */; };
 		965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2A2A039D39004A3494 /* ZStackTest.swift */; };
+		965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */; };
 		ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361029FD793B007F6107 /* SwiftUI01App.swift */; };
 		ECB7361529FD793C007F6107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7361429FD793C007F6107 /* Assets.xcassets */; };
 		ECB7361829FD793C007F6107 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7361729FD793C007F6107 /* Preview Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		965BCA022A03610B004A3494 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		965BCA2A2A039D39004A3494 /* ZStackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStackTest.swift; sourceTree = "<group>"; };
+		965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSizeModifier.swift; sourceTree = "<group>"; };
 		ECB7360D29FD793B007F6107 /* SwiftUI01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7361029FD793B007F6107 /* SwiftUI01App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI01App.swift; sourceTree = "<group>"; };
 		ECB7361229FD793B007F6107 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		ECB7360429FD793B007F6107 = {
 			isa = PBXGroup;
 			children = (
+				965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */,
 				ECB7360F29FD793B007F6107 /* SwiftUI01 */,
 				ECB7360E29FD793B007F6107 /* Products */,
 			);
@@ -164,6 +167,7 @@
 				ECB7362329FD7FBA007F6107 /* Test02.swift in Sources */,
 				965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */,
 				965BCA032A03610B004A3494 /* MyScene.swift in Sources */,
+				965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */,
 				ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */,
 				ECB7362529FD827A007F6107 /* Test03.swift in Sources */,
 				ECB7362129FD7F3D007F6107 /* NavigationManager.swift in Sources */,
