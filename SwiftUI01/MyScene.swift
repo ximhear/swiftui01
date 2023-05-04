@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MyScene<Content>: Scene where Content: View {
-    let content: () -> Content
+    @ViewBuilder let content: () -> Content
     init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
         

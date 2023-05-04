@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		965BCA012A035FAB004A3494 /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA002A035FAB004A3494 /* SceneManager.swift */; };
 		965BCA032A03610B004A3494 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA022A03610B004A3494 /* MyScene.swift */; };
 		965BCA292A03934F004A3494 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361229FD793B007F6107 /* ContentView.swift */; };
 		ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361029FD793B007F6107 /* SwiftUI01App.swift */; };
@@ -22,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		965BCA002A035FAB004A3494 /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		965BCA022A03610B004A3494 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		ECB7360D29FD793B007F6107 /* SwiftUI01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7361029FD793B007F6107 /* SwiftUI01App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI01App.swift; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 				ECB7362629FD82F6007F6107 /* GZLog.swift */,
 				ECB7361029FD793B007F6107 /* SwiftUI01App.swift */,
 				965BCA022A03610B004A3494 /* MyScene.swift */,
-				965BCA002A035FAB004A3494 /* SceneManager.swift */,
 				ECB7361229FD793B007F6107 /* ContentView.swift */,
 				ECB7362429FD827A007F6107 /* Test03.swift */,
 				ECB7362229FD7FBA007F6107 /* Test02.swift */,
@@ -165,7 +162,6 @@
 				965BCA032A03610B004A3494 /* MyScene.swift in Sources */,
 				ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */,
 				ECB7362529FD827A007F6107 /* Test03.swift in Sources */,
-				965BCA012A035FAB004A3494 /* SceneManager.swift in Sources */,
 				ECB7362129FD7F3D007F6107 /* NavigationManager.swift in Sources */,
 				965BCA292A03934F004A3494 /* ContentView.swift in Sources */,
 				ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */,
