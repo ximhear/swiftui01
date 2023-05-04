@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct SwiftUI01App: App {
+    @ObservedObject var sceneManager: SceneManager = .shared
     var body: some Scene {
-        WindowGroup {
-            AAAView()
-        }
+//        if sceneManager.type == .c1 {
+            MyScene {
+                AAAView()
+            }
+//        }
+//        else {
+//            MyScene {
+//                AAAView()
+//            }
+//        }
     }
 }

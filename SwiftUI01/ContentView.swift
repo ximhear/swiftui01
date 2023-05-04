@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AAAView: View {
-    @State var value: Int = 0
+    @AppStorage("aaaValue") var value: Int = 0
     var body: some View {
         VStack {
             Text("\(value)")
@@ -20,7 +20,9 @@ struct AAAView: View {
         }
     }
 }
+
 struct ContentView: View {
+    @AppStorage("aaaValue") var value: Int = 0
     @StateObject var vm = ViewModel(value: 10)
     var body: some View {
         VStack {
@@ -61,8 +63,20 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+            hello()
         }
         .padding()
+    }
+    
+    @ViewBuilder func hello() -> some View {
+        if value % 2 == 0 {
+            Text("Hello 0")
+            Image(systemName: "star")
+                .foregroundColor(.red)
+        }
+        else {
+            Image(systemName: "star")
+        }
     }
 }
 
