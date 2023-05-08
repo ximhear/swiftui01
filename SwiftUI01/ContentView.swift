@@ -28,6 +28,21 @@ struct ContentView: View {
                     } label: {
                         Text("NavigationStack")
                     }
+                    NavigationLink {
+                        SystemImageTest()
+                    } label: {
+                        Text("System Image")
+                    }
+                    NavigationLink {
+                        ImageTest()
+                    } label: {
+                        Text("Image")
+                    }
+                    NavigationLink {
+                        ButtonTest()
+                    } label: {
+                        Text("Button")
+                    }
                 }
                 .listStyle(.plain)
             }
