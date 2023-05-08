@@ -58,6 +58,25 @@ struct SystemImageTest: View {
                 .foregroundStyle(.red, .green, .blue)
             }
             .font(.system(.largeTitle))
+            Image(systemName: "multiply")
+                  .symbolVariant(.circle.fill)
+                  .font(.system(.largeTitle))
+            HStack {
+                Group {
+                    Image(systemName: "cloud.sun.rain.fill")
+                        .symbolRenderingMode(.monochrome)
+                    Image(systemName: "cloud.sun.rain.fill")
+                        .symbolRenderingMode(.hierarchical)
+                    Image(systemName: "cloud.sun.rain.fill")
+                        .symbolRenderingMode(.palette)
+                    Image(systemName: "cloud.sun.rain.fill")
+                        .symbolRenderingMode(.multicolor)
+                }
+                .foregroundStyle(.cyan, .green, .red)
+                .font(.largeTitle)
+            }
+            .padding()
+            .background(.black.opacity(0.9))
         }
     }
 }
