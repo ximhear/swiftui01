@@ -77,6 +77,41 @@ struct SystemImageTest: View {
             }
             .padding()
             .background(.black.opacity(0.9))
+            VStack {
+                Group {
+                    Group {
+                        HStack() {
+                            Image(systemName: "menucard")
+                                .font(.largeTitle)
+                            Text("SF Symbols")
+                                .font(.callout)
+                        }
+                        HStack(alignment: .firstTextBaseline) {
+                            Image(systemName: "menucard")
+                                .font(.largeTitle)
+                            Text("SF Symbols")
+                                .font(.callout)
+                        }
+                    }
+                    HStack() {
+                        Image(systemName: "menucard")
+                        Text("SF Symbols\nSF Symbols")
+                            .multilineTextAlignment(.leading)
+                    }
+                    HStack(alignment: .firstTextBaseline) {
+                        Image(systemName: "menucard")
+                        Text("SF Symbols\nSF Symbols")
+                            .multilineTextAlignment(.leading)
+                    }
+                    HStack(alignment: .lastTextBaseline) {
+                        Image(systemName: "menucard")
+                        Text("SF Symbols\nSF Symbols")
+                            .multilineTextAlignment(.leading)
+                    }
+                }
+                .padding(4)
+            }
+            .font(.title)
         }
     }
 }
