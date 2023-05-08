@@ -11,6 +11,7 @@
 		965BCA292A03934F004A3494 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361229FD793B007F6107 /* ContentView.swift */; };
 		965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2A2A039D39004A3494 /* ZStackTest.swift */; };
 		965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */; };
+		9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F4AA2A0884C900ADAE4A /* AppStorageTest.swift */; };
 		ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361029FD793B007F6107 /* SwiftUI01App.swift */; };
 		ECB7361529FD793C007F6107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7361429FD793C007F6107 /* Assets.xcassets */; };
 		ECB7361829FD793C007F6107 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7361729FD793C007F6107 /* Preview Assets.xcassets */; };
@@ -26,6 +27,7 @@
 		965BCA022A03610B004A3494 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		965BCA2A2A039D39004A3494 /* ZStackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStackTest.swift; sourceTree = "<group>"; };
 		965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSizeModifier.swift; sourceTree = "<group>"; };
+		9693F4AA2A0884C900ADAE4A /* AppStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageTest.swift; sourceTree = "<group>"; };
 		ECB7360D29FD793B007F6107 /* SwiftUI01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7361029FD793B007F6107 /* SwiftUI01App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI01App.swift; sourceTree = "<group>"; };
 		ECB7361229FD793B007F6107 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				ECB7361029FD793B007F6107 /* SwiftUI01App.swift */,
 				965BCA022A03610B004A3494 /* MyScene.swift */,
 				ECB7361229FD793B007F6107 /* ContentView.swift */,
+				9693F4AA2A0884C900ADAE4A /* AppStorageTest.swift */,
 				965BCA2A2A039D39004A3494 /* ZStackTest.swift */,
 				ECB7362429FD827A007F6107 /* Test03.swift */,
 				ECB7362229FD7FBA007F6107 /* Test02.swift */,
@@ -173,6 +176,7 @@
 				ECB7362129FD7F3D007F6107 /* NavigationManager.swift in Sources */,
 				965BCA292A03934F004A3494 /* ContentView.swift in Sources */,
 				ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */,
+				9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */,
 				ECBA61B02A0160A400CF0B12 /* ViewModel.swift in Sources */,
 				ECB7361F29FD7D6E007F6107 /* Test01.swift in Sources */,
 			);

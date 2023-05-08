@@ -17,12 +17,12 @@ struct ZStackTest: View {
             VStack {
                 Text(size1.dimension)
                 Button("animate") {
-                    withAnimation(.interpolatingSpring(stiffness: 29.9, damping: 0.3)) {
+                    withAnimation(.interpolatingSpring(stiffness: 29.9, damping: 0.95)) {
                         move = !move
                     }
                 }
-                ZStack {
-                    GeometryReader { proxy in
+                ZStack(alignment: .bottomTrailing) {
+                    Group {
                         Group {
                             Rectangle()
                                 .fill(move ? .blue.opacity(0.3) : .red.opacity(0.3))
@@ -33,22 +33,29 @@ struct ZStackTest: View {
                                             .preference(key: SizePreferenceKey.self, value: proxy.size)
                                     }
                                 )
+                                .scaleEffect(move ? .init(width: 0.5, height: 0.5) : .init(width: 1, height: 1), anchor: .bottomTrailing)
                                 .offset(move ? .init(width: 100, height: 100) : .zero)
+                                .onTapGesture {
+                                    GZLogFunc("Rectangle")
+                                }
                         }
                         .onPreferenceChange(SizePreferenceKey.self) { preferences in
                             self.size1 = preferences
                         }
                         Capsule()
                             .fill(.cyan.opacity(0.3))
-                            .frame(width: 100, height: 200)
+                            .frame(width: 150, height: 200)
                             .offset(.init(width: 200, height: 100))
+                            .onTapGesture {
+                                GZLogFunc("Capsule")
+                            }
                         Group {
                             Ellipse()
                                 .fill(.orange.opacity(0.3))
-                                .frame(width: 100, height: 250)
+                                .frame(width: 200, height: 250)
                                 .offset(.init(width: 100, height: 100))
                                 .onTapGesture {
-                                    GZLogFunc()
+                                    GZLogFunc("Ellipse")
                                 }
                                 .modifier(GetSizeModifier(size: $size2))
                         }

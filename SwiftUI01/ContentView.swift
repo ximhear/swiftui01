@@ -7,21 +7,7 @@
 
 import SwiftUI
 
-struct AAAView: View {
-    @AppStorage("aaaValue") var value: Int = 0
-    var body: some View {
-        VStack {
-            Text("\(value)")
-                .font(.title)
-            Button("inc") {
-                value &+= 1
-            }
-        }
-    }
-}
-
 struct ContentView: View {
-    @AppStorage("aaaValue") var value: Int = 0
     @StateObject var vm = ViewModel(value: 10)
     var body: some View {
         VStack {
@@ -33,7 +19,7 @@ struct ContentView: View {
                         Text("ZStack")
                     }
                     NavigationLink {
-                        AAAView()
+                        AppStorageTest()
                     } label: {
                         Text("AppStorage")
                     }
