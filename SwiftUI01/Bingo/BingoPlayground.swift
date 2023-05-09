@@ -9,11 +9,18 @@ import SwiftUI
 import Combine
 
 struct BingoPlayground: View {
-    @StateObject var vmUser: BingoGameViewModel = BingoGameViewModel(player: .user)
-    @StateObject var vmComputer: BingoGameViewModel = BingoGameViewModel(player: .computer)
-    @StateObject var manager: BingoDataManager = .init()
+    @StateObject var vmUser: BingoGameViewModel
+    @StateObject var vmComputer: BingoGameViewModel
+    @StateObject var manager: BingoDataManager
+    @StateObject var computer: ComputerPlayer
     @State var player: BingoPlayer = .user
-    @StateObject var computer: ComputerPlayer = .init()
+    
+    init() {
+        _vmUser = StateObject(wrappedValue: .init(player: .user))
+        _vmComputer = StateObject(wrappedValue: .init(player: .computer))
+        _manager = StateObject(wrappedValue: .init())
+        _computer = StateObject(wrappedValue: .init())
+    }
     
     var body: some View {
         VStack {

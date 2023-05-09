@@ -13,7 +13,8 @@ class BingoCellViewModel: ObservableObject, Identifiable {
     var id: Int
     
     var displayText: String {
-        return isMarked ? "✅" : text
+        return text
+//        return isMarked ? "✅" : text
     }
     
     init(text: String) {
