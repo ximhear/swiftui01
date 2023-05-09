@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		964ECAC62A09DC99009356DA /* AsyncImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC52A09DC99009356DA /* AsyncImageTest.swift */; };
 		964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC92A0A031F009356DA /* BingoGameView.swift */; };
+		964ECACC2A0A13A8009356DA /* BingoPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECACB2A0A13A8009356DA /* BingoPlayground.swift */; };
+		964ECACF2A0A2B98009356DA /* BingoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECACE2A0A2B98009356DA /* BingoPlayer.swift */; };
+		964ECAD12A0A2BC6009356DA /* BingoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAD02A0A2BC6009356DA /* BingoData.swift */; };
+		964ECAD32A0A2BE7009356DA /* BingoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAD22A0A2BE7009356DA /* BingoDataManager.swift */; };
+		964ECAD52A0A2C18009356DA /* BingoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAD42A0A2C18009356DA /* BingoCellViewModel.swift */; };
+		964ECAD72A0A2C34009356DA /* BingoBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAD62A0A2C34009356DA /* BingoBoard.swift */; };
+		964ECAD92A0A2C52009356DA /* BingoGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAD82A0A2C52009356DA /* BingoGameViewModel.swift */; };
+		964ECADB2A0A2C9C009356DA /* BingoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECADA2A0A2C9C009356DA /* BingoCellView.swift */; };
+		964ECADD2A0A2CD1009356DA /* ComputerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECADC2A0A2CD1009356DA /* ComputerPlayer.swift */; };
 		965BCA032A03610B004A3494 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA022A03610B004A3494 /* MyScene.swift */; };
 		965BCA292A03934F004A3494 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361229FD793B007F6107 /* ContentView.swift */; };
 		965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2A2A039D39004A3494 /* ZStackTest.swift */; };
@@ -31,6 +40,15 @@
 /* Begin PBXFileReference section */
 		964ECAC52A09DC99009356DA /* AsyncImageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageTest.swift; sourceTree = "<group>"; };
 		964ECAC92A0A031F009356DA /* BingoGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGameView.swift; sourceTree = "<group>"; };
+		964ECACB2A0A13A8009356DA /* BingoPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoPlayground.swift; sourceTree = "<group>"; };
+		964ECACE2A0A2B98009356DA /* BingoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoPlayer.swift; sourceTree = "<group>"; };
+		964ECAD02A0A2BC6009356DA /* BingoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoData.swift; sourceTree = "<group>"; };
+		964ECAD22A0A2BE7009356DA /* BingoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoDataManager.swift; sourceTree = "<group>"; };
+		964ECAD42A0A2C18009356DA /* BingoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoCellViewModel.swift; sourceTree = "<group>"; };
+		964ECAD62A0A2C34009356DA /* BingoBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoBoard.swift; sourceTree = "<group>"; };
+		964ECAD82A0A2C52009356DA /* BingoGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGameViewModel.swift; sourceTree = "<group>"; };
+		964ECADA2A0A2C9C009356DA /* BingoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoCellView.swift; sourceTree = "<group>"; };
+		964ECADC2A0A2CD1009356DA /* ComputerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPlayer.swift; sourceTree = "<group>"; };
 		965BCA022A03610B004A3494 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		965BCA2A2A039D39004A3494 /* ZStackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStackTest.swift; sourceTree = "<group>"; };
 		965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSizeModifier.swift; sourceTree = "<group>"; };
@@ -62,6 +80,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		964ECACD2A0A2B75009356DA /* Bingo */ = {
+			isa = PBXGroup;
+			children = (
+				964ECACB2A0A13A8009356DA /* BingoPlayground.swift */,
+				964ECACE2A0A2B98009356DA /* BingoPlayer.swift */,
+				964ECAD02A0A2BC6009356DA /* BingoData.swift */,
+				964ECAD22A0A2BE7009356DA /* BingoDataManager.swift */,
+				964ECAC92A0A031F009356DA /* BingoGameView.swift */,
+				964ECADC2A0A2CD1009356DA /* ComputerPlayer.swift */,
+				964ECADA2A0A2C9C009356DA /* BingoCellView.swift */,
+				964ECAD62A0A2C34009356DA /* BingoBoard.swift */,
+				964ECAD42A0A2C18009356DA /* BingoCellViewModel.swift */,
+				964ECAD82A0A2C52009356DA /* BingoGameViewModel.swift */,
+			);
+			path = Bingo;
+			sourceTree = "<group>";
+		};
 		ECB7360429FD793B007F6107 = {
 			isa = PBXGroup;
 			children = (
@@ -89,7 +124,6 @@
 				9693F4AE2A08914800ADAE4A /* SystemImageTest.swift */,
 				9693F4B02A089B3000ADAE4A /* ImageTest.swift */,
 				964ECAC52A09DC99009356DA /* AsyncImageTest.swift */,
-				964ECAC92A0A031F009356DA /* BingoGameView.swift */,
 				9693F4AC2A0890E500ADAE4A /* ButtonTest.swift */,
 				9693F4AA2A0884C900ADAE4A /* AppStorageTest.swift */,
 				965BCA2A2A039D39004A3494 /* ZStackTest.swift */,
@@ -98,6 +132,7 @@
 				ECB7361E29FD7D6E007F6107 /* Test01.swift */,
 				ECB7362229FD7FBA007F6107 /* Test02.swift */,
 				ECB7362429FD827A007F6107 /* Test03.swift */,
+				964ECACD2A0A2B75009356DA /* Bingo */,
 				ECB7361429FD793C007F6107 /* Assets.xcassets */,
 				ECB7361629FD793C007F6107 /* Preview Content */,
 			);
@@ -184,17 +219,26 @@
 			files = (
 				964ECAC62A09DC99009356DA /* AsyncImageTest.swift in Sources */,
 				9693F4B12A089B3000ADAE4A /* ImageTest.swift in Sources */,
+				964ECAD52A0A2C18009356DA /* BingoCellViewModel.swift in Sources */,
+				964ECACC2A0A13A8009356DA /* BingoPlayground.swift in Sources */,
+				964ECAD72A0A2C34009356DA /* BingoBoard.swift in Sources */,
 				ECB7362329FD7FBA007F6107 /* Test02.swift in Sources */,
 				965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */,
+				964ECACF2A0A2B98009356DA /* BingoPlayer.swift in Sources */,
 				965BCA032A03610B004A3494 /* MyScene.swift in Sources */,
+				964ECADD2A0A2CD1009356DA /* ComputerPlayer.swift in Sources */,
 				965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */,
 				ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */,
 				ECB7362529FD827A007F6107 /* Test03.swift in Sources */,
 				ECB7362129FD7F3D007F6107 /* NavigationManager.swift in Sources */,
+				964ECADB2A0A2C9C009356DA /* BingoCellView.swift in Sources */,
 				964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */,
 				965BCA292A03934F004A3494 /* ContentView.swift in Sources */,
 				9693F4AD2A0890E500ADAE4A /* ButtonTest.swift in Sources */,
+				964ECAD92A0A2C52009356DA /* BingoGameViewModel.swift in Sources */,
 				ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */,
+				964ECAD12A0A2BC6009356DA /* BingoData.swift in Sources */,
+				964ECAD32A0A2BE7009356DA /* BingoDataManager.swift in Sources */,
 				9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */,
 				9693F4AF2A08914800ADAE4A /* SystemImageTest.swift in Sources */,
 				ECBA61B02A0160A400CF0B12 /* ViewModel.swift in Sources */,

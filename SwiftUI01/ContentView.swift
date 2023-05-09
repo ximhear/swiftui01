@@ -14,7 +14,7 @@ struct ContentView: View {
             NavigationView {
                 List {
                     NavigationLink {
-                        BingoGameView()
+                        BingoPlayground()
                     } label: {
                         Text("Bingo")
                     }
