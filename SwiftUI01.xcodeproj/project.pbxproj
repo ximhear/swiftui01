@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		964ECAC62A09DC99009356DA /* AsyncImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC52A09DC99009356DA /* AsyncImageTest.swift */; };
+		964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC92A0A031F009356DA /* BingoGameView.swift */; };
 		965BCA032A03610B004A3494 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA022A03610B004A3494 /* MyScene.swift */; };
 		965BCA292A03934F004A3494 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361229FD793B007F6107 /* ContentView.swift */; };
 		965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2A2A039D39004A3494 /* ZStackTest.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		964ECAC52A09DC99009356DA /* AsyncImageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageTest.swift; sourceTree = "<group>"; };
+		964ECAC92A0A031F009356DA /* BingoGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGameView.swift; sourceTree = "<group>"; };
 		965BCA022A03610B004A3494 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		965BCA2A2A039D39004A3494 /* ZStackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStackTest.swift; sourceTree = "<group>"; };
 		965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSizeModifier.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				9693F4AE2A08914800ADAE4A /* SystemImageTest.swift */,
 				9693F4B02A089B3000ADAE4A /* ImageTest.swift */,
 				964ECAC52A09DC99009356DA /* AsyncImageTest.swift */,
+				964ECAC92A0A031F009356DA /* BingoGameView.swift */,
 				9693F4AC2A0890E500ADAE4A /* ButtonTest.swift */,
 				9693F4AA2A0884C900ADAE4A /* AppStorageTest.swift */,
 				965BCA2A2A039D39004A3494 /* ZStackTest.swift */,
@@ -188,6 +191,7 @@
 				ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */,
 				ECB7362529FD827A007F6107 /* Test03.swift in Sources */,
 				ECB7362129FD7F3D007F6107 /* NavigationManager.swift in Sources */,
+				964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */,
 				965BCA292A03934F004A3494 /* ContentView.swift in Sources */,
 				9693F4AD2A0890E500ADAE4A /* ButtonTest.swift in Sources */,
 				ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */,
