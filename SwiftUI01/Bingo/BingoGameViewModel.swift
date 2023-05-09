@@ -9,16 +9,18 @@ import Foundation
 import Combine
 
 class BingoGameViewModel: ObservableObject {
+    static var value: Int = 0
     @Published var cellViewModels = [BingoCellViewModel]()
     @Published var showingWinAlert = false
     var subject: PassthroughSubject<BingoData, Never>?
-    var subscriptions = Set<AnyCancellable>()
+    var cancellable: AnyCancellable?
     let player: BingoPlayer
+    var value: Int
     
     let bingoBoard = BingoBoard()
     
     deinit {
-        GZLogFunc()
+        GZLogFunc(value)
     }
     
     var boardSize: Int {
@@ -27,6 +29,8 @@ class BingoGameViewModel: ObservableObject {
     
     init(player: BingoPlayer) {
         GZLogFunc()
+        Self.value += 1
+        value = Self.value
         self.player = player
         self.initialize()
     }
@@ -89,7 +93,7 @@ class BingoGameViewModel: ObservableObject {
             return
         }
         let player = self.player
-        subject.sink {[weak self] data in
+        cancellable = subject.sink {[weak self] data in
             GZLogFunc(data)
             guard let self else {
                 return
@@ -101,7 +105,6 @@ class BingoGameViewModel: ObservableObject {
                 changeMark(at: index)
             }
         }
-        .store(in: &subscriptions)
     }
     
     func headerText(for column: Int) -> String {

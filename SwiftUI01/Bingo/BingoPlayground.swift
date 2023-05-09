@@ -51,6 +51,12 @@ struct BingoPlayground: View {
         }
         .onDisappear {
             GZLogFunc("onDisappear")
+            manager.cancellable?.cancel()
+            vmUser.cancellable?.cancel()
+            vmComputer.cancellable?.cancel()
+            manager.cancellable = nil
+            vmUser.cancellable = nil
+            vmComputer.cancellable = nil
         }
         .onChange(of: player) { newValue in
             GZLogFunc(newValue)

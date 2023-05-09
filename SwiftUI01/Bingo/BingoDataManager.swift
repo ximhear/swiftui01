@@ -10,9 +10,10 @@ import Combine
 import SwiftUI
 
 class BingoDataManager: ObservableObject {
+    typealias ReceivedBlock = (BingoData) -> Void
     var vms: [BingoGameViewModel] = []
     let subject = PassthroughSubject<BingoData, Never>.init()
-    var subscriptions = Set<AnyCancellable>()
+    var cancellable: AnyCancellable?
     
     deinit {
         GZLogFunc()
@@ -22,13 +23,12 @@ class BingoDataManager: ObservableObject {
         GZLogFunc()
     }
     
-    func run(received: @escaping (BingoData) -> Void) {
-        subject.sink { data in
+    func run(received: ReceivedBlock?) {
+        cancellable = subject.sink { data in
             GZLogFunc(data)
-            received(data)
+            received?(data)
         }
-        .store(in: &subscriptions)
-        
+
         for x in vms {
             x.subject = subject
             x.runSubject()
