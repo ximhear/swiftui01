@@ -13,7 +13,7 @@ struct BingoPlayground: View {
     @StateObject var vmComputer: BingoGameViewModel = BingoGameViewModel(player: .computer)
     @StateObject var manager: BingoDataManager = .init()
     @State var player: BingoPlayer = .user
-    let computer: ComputerPlayer = .init()
+    @StateObject var computer: ComputerPlayer = .init()
     
     var body: some View {
         VStack {

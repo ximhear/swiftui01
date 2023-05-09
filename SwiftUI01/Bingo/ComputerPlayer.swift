@@ -10,6 +10,15 @@ import Foundation
 class ComputerPlayer: ObservableObject {
     var viewModel: BingoGameViewModel?
     
+    init(viewModel: BingoGameViewModel? = nil) {
+        GZLogFunc()
+        self.viewModel = viewModel
+    }
+    
+    deinit {
+        GZLogFunc()
+    }
+    
     func takeTurn() {
         guard let viewModel else {
             return

@@ -25,16 +25,14 @@ struct BingoGameView: View {
                         .background(Color.yellow)
                 }
             }
-            ScrollView {
-                VStack(spacing: 0) {
-                    ForEach(0..<viewModel.boardSize) { row in
-                        HStack(spacing: 0) {
-                            ForEach(0..<viewModel.boardSize) { column in
-                                BingoCellView(viewModel: viewModel.cellViewModels[row * viewModel.boardSize + column])
-                                    .onTapGesture {
-                                        viewModel.didTapCell(at: row * viewModel.boardSize + column)
-                                    }
-                            }
+            VStack(spacing: 0) {
+                ForEach(0..<viewModel.boardSize) { row in
+                    HStack(spacing: 0) {
+                        ForEach(0..<viewModel.boardSize) { column in
+                            BingoCellView(viewModel: viewModel.cellViewModels[row * viewModel.boardSize + column])
+                                .onTapGesture {
+                                    viewModel.didTapCell(at: row * viewModel.boardSize + column)
+                                }
                         }
                     }
                 }

@@ -9,18 +9,16 @@ import Foundation
 import Combine
 
 class BingoGameViewModel: ObservableObject {
-    static var value: Int = 0
     @Published var cellViewModels = [BingoCellViewModel]()
     @Published var showingWinAlert = false
     var subject: PassthroughSubject<BingoData, Never>?
     var cancellable: AnyCancellable?
     let player: BingoPlayer
-    var value: Int
     
     let bingoBoard = BingoBoard()
     
     deinit {
-        GZLogFunc(value)
+        GZLogFunc()
     }
     
     var boardSize: Int {
@@ -29,8 +27,6 @@ class BingoGameViewModel: ObservableObject {
     
     init(player: BingoPlayer) {
         GZLogFunc()
-        Self.value += 1
-        value = Self.value
         self.player = player
         self.initialize()
     }
