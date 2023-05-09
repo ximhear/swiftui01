@@ -14,6 +14,26 @@ struct ContentView: View {
             NavigationView {
                 List {
                     NavigationLink {
+                        ButtonTest()
+                    } label: {
+                        Text("Button")
+                    }
+                    NavigationLink {
+                        AsyncImageTest()
+                    } label: {
+                        Text("Async Image")
+                    }
+                    NavigationLink {
+                        ImageTest()
+                    } label: {
+                        Text("Image")
+                    }
+                    NavigationLink {
+                        SystemImageTest()
+                    } label: {
+                        Text("System Image")
+                    }
+                    NavigationLink {
                         ZStackTest()
                     } label: {
                         Text("ZStack")
@@ -27,21 +47,6 @@ struct ContentView: View {
                         Test02(vm: vm)
                     } label: {
                         Text("NavigationStack")
-                    }
-                    NavigationLink {
-                        SystemImageTest()
-                    } label: {
-                        Text("System Image")
-                    }
-                    NavigationLink {
-                        ImageTest()
-                    } label: {
-                        Text("Image")
-                    }
-                    NavigationLink {
-                        ButtonTest()
-                    } label: {
-                        Text("Button")
                     }
                 }
                 .listStyle(.plain)
