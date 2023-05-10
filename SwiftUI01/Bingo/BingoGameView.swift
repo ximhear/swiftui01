@@ -38,9 +38,6 @@ struct BingoGameView: View {
                 }
             }
         }
-        .alert(isPresented: $viewModel.showingWinAlert) {
-            Alert(title: Text("Congratulations!"), message: Text("You won the game!"), dismissButton: .default(Text("OK")))
-        }
     }
 }
 

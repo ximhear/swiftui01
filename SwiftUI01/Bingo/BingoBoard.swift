@@ -115,7 +115,7 @@ class BingoBoard {
     
     func isBingo() -> Bool {
         let bingoCount = self.bingoCount
-        return bingoCount > 0 && bingoCount <= 3
+        return bingoCount >= 3
     }
     
     func mark(at index: Int) {

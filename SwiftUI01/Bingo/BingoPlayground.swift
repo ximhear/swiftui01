@@ -25,7 +25,7 @@ struct BingoPlayground: View {
     var body: some View {
         VStack {
             BingoGameView(viewModel: vmUser)
-                .disabled(player == .computer)
+                .disabled(player == .computer || manager.bingoResult != .none)
                 .overlay(player == .computer ? Color.red.opacity(0.3) : Color.clear)
             BingoGameView(viewModel: vmComputer)
                 .disabled(player == .user)
@@ -39,15 +39,29 @@ struct BingoPlayground: View {
                 else {
                     player = .computer
                 }
+                manager.initialize()
                 vmUser.initialize()
                 vmComputer.initialize()
             }
         }
+        .alert(isPresented: $manager.showingWinAlert) {
+            let messageText: String
+            switch manager.bingoResult {
+            case .both:
+                messageText = "You and Computer won the game!"
+            case .computer:
+                messageText = "Computer won the game!"
+            case .user:
+                messageText = "You won the game!"
+            case .none:
+                messageText = ""
+            }
+            return Alert(title: Text("Congratulations!"), message: Text(messageText), dismissButton: .default(Text("OK")))
+        }
         .onAppear {
             GZLogFunc("onAppear")
             computer.viewModel = vmComputer
-            manager.vms = [vmUser, vmComputer]
-            manager.run { data in
+            manager.run(vmUser: vmUser, vmComputer: vmComputer) { data in
                 if data.player == .user {
                     player = .computer
                 }
@@ -59,9 +73,11 @@ struct BingoPlayground: View {
         .onDisappear {
             GZLogFunc("onDisappear")
             manager.cancellable?.cancel()
+            manager.finishedCancellable?.cancel()
             vmUser.cancellable?.cancel()
             vmComputer.cancellable?.cancel()
             manager.cancellable = nil
+            manager.finishedCancellable = nil
             vmUser.cancellable = nil
             vmComputer.cancellable = nil
         }
@@ -70,7 +86,7 @@ struct BingoPlayground: View {
             if newValue == .computer {
                 Task {
                     do {
-                        try await Task.sleep(for: .seconds(1))
+                        try await Task.sleep(for: .seconds(0.5))
                     } catch {
                     }
                     await MainActor.run {

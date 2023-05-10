@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct GGGView: View {
+   @ObservedObject var vm = GGGViewModel()
     var body: some View {
-        NavigationLink("gg") {
-            BingoPlayground()
+        VStack {
+            NavigationLink("gg") {
+                BingoPlayground()
+            }
+            .padding()
+            Button("run") {
+                vm.run()
+            }
+            .padding()
         }
     }
 }

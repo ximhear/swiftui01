@@ -10,8 +10,8 @@ import Combine
 
 class BingoGameViewModel: ObservableObject {
     @Published var cellViewModels = [BingoCellViewModel]()
-    @Published var showingWinAlert = false
     var subject: PassthroughSubject<BingoData, Never>?
+    var bingoSublect: PassthroughSubject<Bool, Never>!
     var cancellable: AnyCancellable?
     let player: BingoPlayer
     
@@ -65,13 +65,15 @@ class BingoGameViewModel: ObservableObject {
     }
     
     func changeMark(at index: Int) {
+        GZLogFunc()
         cellViewModels[index].isMarked = true
         bingoBoard.mark(at: index)
         
         if bingoBoard.isBingo() {
-            if bingoBoard.bingoCount == 3 {
-                showingWinAlert = true
-            }
+            bingoSublect.send(true)
+        }
+        else {
+            bingoSublect.send(false)
         }
     }
     
