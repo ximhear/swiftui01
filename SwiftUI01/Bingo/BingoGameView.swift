@@ -11,6 +11,7 @@ import Combine
 
 
 struct BingoGameView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: BingoGameViewModel
     
     var body: some View {
@@ -22,7 +23,7 @@ struct BingoGameView: View {
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 8)
-                        .background(Color.yellow)
+                        .background(colorScheme == .dark ? Color.purple : Color.yellow)
                 }
             }
             VStack(spacing: 0) {

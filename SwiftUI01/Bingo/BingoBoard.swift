@@ -31,6 +31,7 @@ class BingoBoard {
                 count += 1
             }
         }
+        GZLogFunc("rowBingo : \(count)")
         
         // check columns
         for i in 0..<size {
@@ -47,6 +48,7 @@ class BingoBoard {
                 count += 1
             }
         }
+        GZLogFunc("colBingo : \(count)")
         
         // check diagonal from top-left to bottom-right
         var diagonal1Bingo = true
@@ -59,6 +61,7 @@ class BingoBoard {
         if diagonal1Bingo {
             count += 1
         }
+        GZLogFunc("diagonal1Bingo : \(count)")
         
         // check diagonal from bottom-left to top-right
         var diagonal2Bingo = true
@@ -71,6 +74,7 @@ class BingoBoard {
         if diagonal2Bingo {
             count += 1
         }
+        GZLogFunc("diagonal2Bingo : \(count)")
         
         return count
     }

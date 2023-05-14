@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 struct BingoPlayground: View {
+    @Environment(\.colorScheme) var colorScheme
     @StateObject var vmUser: BingoGameViewModel
     @StateObject var vmComputer: BingoGameViewModel
     @StateObject var manager: BingoDataManager
@@ -26,22 +27,26 @@ struct BingoPlayground: View {
         VStack {
             BingoGameView(viewModel: vmUser)
                 .disabled(player == .computer || manager.bingoResult != .none)
-                .overlay(player == .computer ? Color.red.opacity(0.3) : Color.clear)
+                .overlay(player == .computer ? overlayColor : Color.clear)
             BingoGameView(viewModel: vmComputer)
                 .disabled(player == .user)
-                .overlay(player == .user ? Color.red.opacity(0.3) : Color.green.opacity(0.1))
-                .overlay(Color.green.opacity(0.1))
+                .overlay(player == .user ? overlayColor : Color.green.opacity(0.1))
+                .overlay(colorScheme == .light ? Color.green.opacity(0.1) : Color.gray.opacity(0.1))
             Button("New game") {
+                manager.initialize()
+                vmUser.initialize()
+                vmComputer.initialize()
                 let who = [0, 1].shuffled()[0]
+                let oldPlayer = player
                 if who == 0 {
                     player = .user
                 }
                 else {
                     player = .computer
+                    if oldPlayer == player {
+                        doComputer()
+                    }
                 }
-                manager.initialize()
-                vmUser.initialize()
-                vmComputer.initialize()
             }
         }
         .alert(isPresented: $manager.showingWinAlert) {
@@ -84,17 +89,28 @@ struct BingoPlayground: View {
         .onChange(of: player) { newValue in
             GZLogFunc(newValue)
             if newValue == .computer {
-                Task {
-                    do {
-                        try await Task.sleep(for: .seconds(0.5))
-                    } catch {
-                    }
-                    await MainActor.run {
-                        computer.takeTurn()
-                    }
-                }
+                doComputer()
             }
         }
+    }
+    
+    private func doComputer() {
+        Task {
+            do {
+                try await Task.sleep(for: .seconds(0.5))
+            } catch {
+            }
+            await MainActor.run {
+                computer.takeTurn()
+            }
+        }
+    }
+    
+    private var overlayColor: Color {
+        if colorScheme == .light {
+            return Color.red.opacity(0.3)
+        }
+        return Color.gray.opacity(0.3)
     }
 }
 

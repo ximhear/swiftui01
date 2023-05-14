@@ -65,7 +65,6 @@ class BingoGameViewModel: ObservableObject {
     }
     
     func changeMark(at index: Int) {
-        GZLogFunc()
         cellViewModels[index].isMarked = true
         bingoBoard.mark(at: index)
         

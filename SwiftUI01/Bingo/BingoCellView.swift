@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BingoCellView: View {
+    @Environment(\.colorScheme) var colorScheme
     @ObservedObject var viewModel: BingoCellViewModel
     let borderWidth: Double = 1
     let cornerRadius: Double = 8
@@ -18,11 +19,23 @@ struct BingoCellView: View {
             .fontWeight(.semibold)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(4)
-            .background(viewModel.isMarked ? Color.green : Color.white)
+            .background(viewModel.isMarked ? markColor : defaultBgColor)
             .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(Color.black, lineWidth: borderWidth))
+                    .stroke(borderColor, lineWidth: borderWidth))
+    }
+    
+    var defaultBgColor: Color {
+        colorScheme == .dark ? .black : .white
+    }
+    
+    var borderColor: Color {
+        colorScheme == .dark ? .white : .black
+    }
+    
+    var markColor: Color {
+        colorScheme == .dark ? Color(red: 0, green: 0.5, blue: 0) : .green
     }
 }
 
