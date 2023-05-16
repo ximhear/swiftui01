@@ -14,6 +14,11 @@ struct ContentView: View {
             NavigationView {
                 List {
                     NavigationLink {
+                        FontTest()
+                    } label: {
+                        Text("Text")
+                    }
+                    NavigationLink {
                         GGGView()
                     } label: {
                         Text("Bingo")
@@ -58,6 +63,9 @@ struct ContentView: View {
             }
             .onAppear {
                 GZLogFunc()
+                var array = [1, 2, 3]
+                array[0...1] = [6, 7, 8, 9, 10]  // Now array is [6, 7, 8, 9, 10]
+                GZLogFunc(array)
             }
             .onDisappear {
                 GZLogFunc()
