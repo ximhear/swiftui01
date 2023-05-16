@@ -80,6 +80,7 @@ struct ButtonTest: View {
                 }
                 .buttonStyle(CircleButtonStyle())
             }
+            .padding()
         }
     }
 }
@@ -93,6 +94,7 @@ struct CircleButtonStyle: ButtonStyle {
             .overlay(Circle().stroke(lineWidth: 14).foregroundColor(configuration.isPressed ? Color.green.opacity(0.5) : Color.red.opacity(0.5)))
             .foregroundColor(.white)
             .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
+            .scaleEffect(x: configuration.isPressed ? -1.0 : 1.0)
             .animation(.easeInOut, value: configuration.isPressed)
     }
 }
