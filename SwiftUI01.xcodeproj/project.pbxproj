@@ -20,6 +20,7 @@
 		964ECAD92A0A2C52009356DA /* BingoGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAD82A0A2C52009356DA /* BingoGameViewModel.swift */; };
 		964ECADB2A0A2C9C009356DA /* BingoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECADA2A0A2C9C009356DA /* BingoCellView.swift */; };
 		964ECADD2A0A2CD1009356DA /* ComputerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECADC2A0A2CD1009356DA /* ComputerPlayer.swift */; };
+		965531D12A14AD1200732BBE /* ScrollViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965531D02A14AD1200732BBE /* ScrollViewTest.swift */; };
 		965BCA032A03610B004A3494 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA022A03610B004A3494 /* MyScene.swift */; };
 		965BCA292A03934F004A3494 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361229FD793B007F6107 /* ContentView.swift */; };
 		965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2A2A039D39004A3494 /* ZStackTest.swift */; };
@@ -56,6 +57,7 @@
 		964ECAD82A0A2C52009356DA /* BingoGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGameViewModel.swift; sourceTree = "<group>"; };
 		964ECADA2A0A2C9C009356DA /* BingoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoCellView.swift; sourceTree = "<group>"; };
 		964ECADC2A0A2CD1009356DA /* ComputerPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPlayer.swift; sourceTree = "<group>"; };
+		965531D02A14AD1200732BBE /* ScrollViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewTest.swift; sourceTree = "<group>"; };
 		965BCA022A03610B004A3494 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		965BCA2A2A039D39004A3494 /* ZStackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStackTest.swift; sourceTree = "<group>"; };
 		965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSizeModifier.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				965BCA2A2A039D39004A3494 /* ZStackTest.swift */,
 				96B0A9BB2A136CA400B2C90E /* FontTest.swift */,
 				96B0A9BD2A137C8000B2C90E /* TextTest.swift */,
+				965531D02A14AD1200732BBE /* ScrollViewTest.swift */,
 				ECBA61AF2A0160A400CF0B12 /* ViewModel.swift */,
 				ECB7362029FD7F3D007F6107 /* NavigationManager.swift */,
 				ECB7361E29FD7D6E007F6107 /* Test01.swift */,
@@ -265,6 +268,7 @@
 				ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */,
 				96B0A9BE2A137C8000B2C90E /* TextTest.swift in Sources */,
 				964ECAD12A0A2BC6009356DA /* BingoData.swift in Sources */,
+				965531D12A14AD1200732BBE /* ScrollViewTest.swift in Sources */,
 				960969102A0B2EC0004D2041 /* GGGViewModel.swift in Sources */,
 				964ECAD32A0A2BE7009356DA /* BingoDataManager.swift in Sources */,
 				9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */,

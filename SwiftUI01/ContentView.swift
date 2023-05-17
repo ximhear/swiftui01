@@ -14,6 +14,11 @@ struct ContentView: View {
             NavigationView {
                 List {
                     NavigationLink {
+                        ScrollViewTest()
+                    } label: {
+                        Text("ScrollView")
+                    }
+                    NavigationLink {
                         FontTest()
                     } label: {
                         Text("Text")
