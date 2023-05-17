@@ -79,6 +79,13 @@ struct ButtonTest: View {
                         .padding()
                 }
                 .buttonStyle(CircleButtonStyle())
+                CustomButton {
+                    GZLogFunc()
+                } content: {
+                    Text("CLICK")
+                        .font(.title)
+                }
+
             }
             .padding()
         }

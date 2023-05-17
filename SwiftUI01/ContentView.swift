@@ -64,7 +64,7 @@ struct ContentView: View {
             .onAppear {
                 GZLogFunc()
                 var array = [1, 2, 3]
-                array[0...1] = [6, 7, 8, 9, 10]  // Now array is [6, 7, 8, 9, 10]
+                array[1...] = [6, 7, 8, 9, 10]  // Now array is [6, 7, 8, 9, 10]
                 GZLogFunc(array)
             }
             .onDisappear {
