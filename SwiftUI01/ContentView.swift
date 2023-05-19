@@ -13,25 +13,32 @@ struct ContentView: View {
         VStack {
             NavigationView {
                 List {
-                    NavigationLink {
-                        ScrollViewTest()
-                    } label: {
-                        Text("ScrollView")
-                    }
-                    NavigationLink {
-                        FontTest()
-                    } label: {
-                        Text("Text")
-                    }
-                    NavigationLink {
-                        GGGView()
-                    } label: {
-                        Text("Bingo")
-                    }
-                    NavigationLink {
-                        ButtonTest()
-                    } label: {
-                        Text("Button")
+                    Group {
+                        NavigationLink {
+                            DragGestureTest()
+                        } label: {
+                            Text("Drag Gesture")
+                        }
+                        NavigationLink {
+                            ScrollViewTest()
+                        } label: {
+                            Text("ScrollView")
+                        }
+                        NavigationLink {
+                            FontTest()
+                        } label: {
+                            Text("Text")
+                        }
+                        NavigationLink {
+                            GGGView()
+                        } label: {
+                            Text("Bingo")
+                        }
+                        NavigationLink {
+                            ButtonTest()
+                        } label: {
+                            Text("Button")
+                        }
                     }
                     NavigationLink {
                         AsyncImageTest()

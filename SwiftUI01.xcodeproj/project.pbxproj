@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9605E22B2A0A4AA400EF0D05 /* GGGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9605E22A2A0A4AA400EF0D05 /* GGGView.swift */; };
 		960969102A0B2EC0004D2041 /* GGGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609690F2A0B2EC0004D2041 /* GGGViewModel.swift */; };
+		961442532A1756910003643B /* DragGestureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961442522A1756910003643B /* DragGestureTest.swift */; };
+		961442562A17638A0003643B /* UIViewWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961442552A17638A0003643B /* UIViewWrap.swift */; };
 		964ECAC62A09DC99009356DA /* AsyncImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC52A09DC99009356DA /* AsyncImageTest.swift */; };
 		964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC92A0A031F009356DA /* BingoGameView.swift */; };
 		964ECACC2A0A13A8009356DA /* BingoPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECACB2A0A13A8009356DA /* BingoPlayground.swift */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		9605E22A2A0A4AA400EF0D05 /* GGGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGGView.swift; sourceTree = "<group>"; };
 		9609690F2A0B2EC0004D2041 /* GGGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGGViewModel.swift; sourceTree = "<group>"; };
+		961442522A1756910003643B /* DragGestureTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragGestureTest.swift; sourceTree = "<group>"; };
+		961442552A17638A0003643B /* UIViewWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewWrap.swift; sourceTree = "<group>"; };
 		964ECAC52A09DC99009356DA /* AsyncImageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageTest.swift; sourceTree = "<group>"; };
 		964ECAC92A0A031F009356DA /* BingoGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGameView.swift; sourceTree = "<group>"; };
 		964ECACB2A0A13A8009356DA /* BingoPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoPlayground.swift; sourceTree = "<group>"; };
@@ -92,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		961442542A17635A0003643B /* Drag */ = {
+			isa = PBXGroup;
+			children = (
+				961442522A1756910003643B /* DragGestureTest.swift */,
+				961442552A17638A0003643B /* UIViewWrap.swift */,
+			);
+			path = Drag;
+			sourceTree = "<group>";
+		};
 		964ECACD2A0A2B75009356DA /* Bingo */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +150,7 @@
 		ECB7360F29FD793B007F6107 /* SwiftUI01 */ = {
 			isa = PBXGroup;
 			children = (
+				961442542A17635A0003643B /* Drag */,
 				96D99E3B2A1463180048D63E /* Button */,
 				ECB7361029FD793B007F6107 /* SwiftUI01App.swift */,
 				965BCA022A03610B004A3494 /* MyScene.swift */,
@@ -259,9 +273,11 @@
 				ECB7362529FD827A007F6107 /* Test03.swift in Sources */,
 				ECB7362129FD7F3D007F6107 /* NavigationManager.swift in Sources */,
 				964ECADB2A0A2C9C009356DA /* BingoCellView.swift in Sources */,
+				961442562A17638A0003643B /* UIViewWrap.swift in Sources */,
 				964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */,
 				967A92312A14A03600C0D733 /* CustomButton.swift in Sources */,
 				965BCA292A03934F004A3494 /* ContentView.swift in Sources */,
+				961442532A1756910003643B /* DragGestureTest.swift in Sources */,
 				9693F4AD2A0890E500ADAE4A /* ButtonTest.swift in Sources */,
 				9605E22B2A0A4AA400EF0D05 /* GGGView.swift in Sources */,
 				964ECAD92A0A2C52009356DA /* BingoGameViewModel.swift in Sources */,
