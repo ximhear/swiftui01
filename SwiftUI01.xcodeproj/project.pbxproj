@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9602C4752A1D963300EF38E3 /* GestureMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9602C4742A1D963300EF38E3 /* GestureMain.swift */; };
+		9602C4772A1D971300EF38E3 /* MagnificationGestureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9602C4762A1D971300EF38E3 /* MagnificationGestureTest.swift */; };
 		9605E22B2A0A4AA400EF0D05 /* GGGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9605E22A2A0A4AA400EF0D05 /* GGGView.swift */; };
 		960969102A0B2EC0004D2041 /* GGGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609690F2A0B2EC0004D2041 /* GGGViewModel.swift */; };
 		961442532A1756910003643B /* DragGestureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961442522A1756910003643B /* DragGestureTest.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9602C4742A1D963300EF38E3 /* GestureMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureMain.swift; sourceTree = "<group>"; };
+		9602C4762A1D971300EF38E3 /* MagnificationGestureTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagnificationGestureTest.swift; sourceTree = "<group>"; };
 		9605E22A2A0A4AA400EF0D05 /* GGGView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGGView.swift; sourceTree = "<group>"; };
 		9609690F2A0B2EC0004D2041 /* GGGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGGViewModel.swift; sourceTree = "<group>"; };
 		961442522A1756910003643B /* DragGestureTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragGestureTest.swift; sourceTree = "<group>"; };
@@ -96,6 +100,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9602C4722A1D960400EF38E3 /* Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				9602C4732A1D961700EF38E3 /* Magnification */,
+				961442542A17635A0003643B /* Drag */,
+				9602C4742A1D963300EF38E3 /* GestureMain.swift */,
+			);
+			path = Gesture;
+			sourceTree = "<group>";
+		};
+		9602C4732A1D961700EF38E3 /* Magnification */ = {
+			isa = PBXGroup;
+			children = (
+				9602C4762A1D971300EF38E3 /* MagnificationGestureTest.swift */,
+			);
+			path = Magnification;
+			sourceTree = "<group>";
+		};
 		961442542A17635A0003643B /* Drag */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +172,7 @@
 		ECB7360F29FD793B007F6107 /* SwiftUI01 */ = {
 			isa = PBXGroup;
 			children = (
-				961442542A17635A0003643B /* Drag */,
+				9602C4722A1D960400EF38E3 /* Gesture */,
 				96D99E3B2A1463180048D63E /* Button */,
 				ECB7361029FD793B007F6107 /* SwiftUI01App.swift */,
 				965BCA022A03610B004A3494 /* MyScene.swift */,
@@ -266,12 +288,14 @@
 				965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */,
 				964ECACF2A0A2B98009356DA /* BingoPlayer.swift in Sources */,
 				965BCA032A03610B004A3494 /* MyScene.swift in Sources */,
+				9602C4772A1D971300EF38E3 /* MagnificationGestureTest.swift in Sources */,
 				964ECADD2A0A2CD1009356DA /* ComputerPlayer.swift in Sources */,
 				965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */,
 				96B0A9BC2A136CA400B2C90E /* FontTest.swift in Sources */,
 				ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */,
 				ECB7362529FD827A007F6107 /* Test03.swift in Sources */,
 				ECB7362129FD7F3D007F6107 /* NavigationManager.swift in Sources */,
+				9602C4752A1D963300EF38E3 /* GestureMain.swift in Sources */,
 				964ECADB2A0A2C9C009356DA /* BingoCellView.swift in Sources */,
 				961442562A17638A0003643B /* UIViewWrap.swift in Sources */,
 				964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */,

@@ -15,9 +15,9 @@ struct ContentView: View {
                 List {
                     Group {
                         NavigationLink {
-                            DragGestureTest()
+                            GestureMain()
                         } label: {
-                            Text("Drag Gesture")
+                            Text("Gesture")
                         }
                         NavigationLink {
                             ScrollViewTest()
