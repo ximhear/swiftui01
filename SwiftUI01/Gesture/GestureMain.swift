@@ -13,6 +13,11 @@ struct GestureMain: View {
             NavigationLink {
                 MagnificationGestureTest()
             } label: {
+                Text("Rotation")
+            }
+            NavigationLink {
+                MagnificationGestureTest()
+            } label: {
                 Text("Magnification")
             }
             NavigationLink {
