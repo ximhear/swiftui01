@@ -10,9 +10,11 @@ import SwiftUI
 struct GenericsMain: View {
     var body: some View {
         VStack {
-            NavigationLink("Protocol", destination: ProtocolGenerics())
-            Text("any? some?")
-            Text("any? some?")
+            List {
+                NavigationLink("associatedtype", destination: ProtocolGenerics())
+                NavigationLink("Protocol", destination: ProtocolTest())
+                Text("any? some?")
+            }
         }
     }
 }
