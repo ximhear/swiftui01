@@ -32,7 +32,9 @@ class IcedAmericano<A, B> {
 class AIcedAmaericano: IcedAmericano<Float, Float> {
 }
 
-protocol AA {
+protocol AA<TYPE> {
+    associatedtype TYPE where TYPE == Int
+    
     // associatedtype을 TTT: XXX 형식으로 할 경우, XXX는 class나 protocol이어야 한다.
     // where Self.TTT == XXX로 할 경우, XXX는 명확해야 한다.
     
