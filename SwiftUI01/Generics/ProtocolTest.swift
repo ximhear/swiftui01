@@ -19,6 +19,40 @@ protocol Language {
     func getAuthor() -> AuthorProtocol
 }
 
+protocol Language1 {
+    var name: String { get }
+    associatedtype AUTHOR: AuthorProtocol
+    mutating func setAuthor(author: AUTHOR)
+    func getAuthor() -> AUTHOR
+}
+
+extension Language1 where AUTHOR == CppAuthor  {
+    func say() {
+        print("C++ is great!")
+    }
+}
+
+struct Cpp1: Language1 {
+    var name = "C++"
+    var author: CppAuthor?
+    mutating func setAuthor(author: CppAuthor) {
+        self.author = author
+    }
+    func getAuthor() -> CppAuthor {
+        return author!
+    }
+}
+struct Python1: Language1 {
+    var name = "Python"
+    var author: PythonAuthor?
+    mutating func setAuthor(author: PythonAuthor) {
+        self.author = author
+    }
+    func getAuthor() -> PythonAuthor {
+        return author!
+    }
+}
+
 struct CppAuthor: AuthorProtocol {
     var name: String {
         "Bjarne Stroustrup"
@@ -137,6 +171,13 @@ struct ProtocolTest: View {
             for x in languages {
                 authors.append(x.getAuthor())
             }
+            
+            var ccc = Cpp1()
+            ccc.setAuthor(author: CppAuthor())
+            ccc.say()
+            
+            var ppp = Python1()
+            ppp.setAuthor(author: PythonAuthor())
         }
     }
 }
