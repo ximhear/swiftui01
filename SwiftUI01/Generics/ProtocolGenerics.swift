@@ -20,6 +20,18 @@ struct Greet<A, B> {
     let b: B
 }
 
+class Coffee {
+    
+}
+
+class IcedAmericano<A, B> {
+    var a: A?
+    var b: B?
+}
+
+class AIcedAmaericano: IcedAmericano<Float, Float> {
+}
+
 protocol AA {
     // associatedtype을 TTT: XXX 형식으로 할 경우, XXX는 class나 protocol이어야 한다.
     // where Self.TTT == XXX로 할 경우, XXX는 명확해야 한다.
@@ -44,6 +56,18 @@ protocol AA {
     associatedtype EEE: CustomViewProtocol
     // AnyCustomView은 명확하다.
     associatedtype FFF where Self.FFF == AnyCustomView
+    
+    // class는 명확하기도 하고 상속도 가능해서인지 둘다 가능하다.
+    associatedtype GGG where Self.GGG == Coffee
+    associatedtype HHH: Coffee
+    
+    // class이지만 generics param이 없어서 불명확하다.
+//    associatedtype III: IcedAmericano
+//    associatedtype JJJ where Self.JJJ == IcedAmericano
+    
+    // generics argument를 모두 제공하여 명확해졌다.
+    associatedtype KKK where Self.KKK == IcedAmericano<NSObject, Float>
+    associatedtype LLL: IcedAmericano<NSObject, Float>
 }
 
 // ID 타입을 지정해줄 때는 타입 정의에 where로 붙여주거나 associatedtype + where로 할 수 있다.
