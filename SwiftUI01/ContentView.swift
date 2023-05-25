@@ -7,68 +7,33 @@
 
 import SwiftUI
 
+struct ViewLink: Identifiable {
+    let id = UUID()
+    let title: AnyView
+    let destination: AnyView
+    
+    init(title: any View, destination: any View) {
+        self.title = AnyView(title)
+        self.destination = AnyView(destination)
+    }
+    
+    init(title: String, destination: any View) {
+        self.title = AnyView(Text(title))
+        self.destination = AnyView(destination)
+    }
+}
+
 struct ContentView: View {
     @StateObject var vm = ViewModel(value: 10)
+    @State var viewLinks: [ViewLink] = []
     var body: some View {
         VStack {
             NavigationView {
                 List {
-                    Group {
-                        NavigationLink {
-                            GestureMain()
-                        } label: {
-                            Text("Gesture")
+                    ForEach(viewLinks) { link in
+                        NavigationLink(destination: link.destination) {
+                            link.title
                         }
-                        NavigationLink {
-                            ScrollViewTest()
-                        } label: {
-                            Text("ScrollView")
-                        }
-                        NavigationLink {
-                            FontTest()
-                        } label: {
-                            Text("Text")
-                        }
-                        NavigationLink {
-                            GGGView()
-                        } label: {
-                            Text("Bingo")
-                        }
-                        NavigationLink {
-                            ButtonTest()
-                        } label: {
-                            Text("Button")
-                        }
-                    }
-                    NavigationLink {
-                        AsyncImageTest()
-                    } label: {
-                        Text("Async Image")
-                    }
-                    NavigationLink {
-                        ImageTest()
-                    } label: {
-                        Text("Image")
-                    }
-                    NavigationLink {
-                        SystemImageTest()
-                    } label: {
-                        Text("System Image")
-                    }
-                    NavigationLink {
-                        ZStackTest()
-                    } label: {
-                        Text("ZStack")
-                    }
-                    NavigationLink {
-                        AppStorageTest()
-                    } label: {
-                        Text("AppStorage")
-                    }
-                    NavigationLink {
-                        Test02(vm: vm)
-                    } label: {
-                        Text("NavigationStack")
                     }
                 }
                 .listStyle(.plain)
@@ -80,6 +45,20 @@ struct ContentView: View {
                 GZLogFunc(array)
                 let a = [Int](1..<100)
                 GZLogFunc(a)
+                viewLinks = [
+                    ViewLink(title: "Generics", destination: GenericsMain()),
+                    ViewLink(title: Label("Gesture", systemImage: "chart.bar.fill"), destination: GestureMain()),
+                    ViewLink(title: "ScrollView", destination: ScrollViewTest()),
+                    ViewLink(title: "Text", destination: FontTest()),
+                    ViewLink(title: "Bingo", destination: GGGView()),
+                    ViewLink(title: "Button", destination: ButtonTest()),
+                    ViewLink(title: "Async Image", destination: AsyncImageTest()),
+                    ViewLink(title: "Image", destination: ImageTest()),
+                    ViewLink(title: "System Image", destination: SystemImageTest()),
+                    ViewLink(title: "ZStack", destination: ZStackTest()),
+                    ViewLink(title: "AppStorage", destination: AppStorageTest()),
+                    ViewLink(title: "NavigationStack", destination: Test02(vm: vm))
+                ]
             }
             .onDisappear {
                 GZLogFunc()

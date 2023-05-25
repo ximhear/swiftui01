@@ -13,6 +13,8 @@
 		960969102A0B2EC0004D2041 /* GGGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609690F2A0B2EC0004D2041 /* GGGViewModel.swift */; };
 		961442532A1756910003643B /* DragGestureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961442522A1756910003643B /* DragGestureTest.swift */; };
 		961442562A17638A0003643B /* UIViewWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961442552A17638A0003643B /* UIViewWrap.swift */; };
+		962B7A712A1F070000A2633E /* GenericsMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A702A1F070000A2633E /* GenericsMain.swift */; };
+		962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */; };
 		964ECAC62A09DC99009356DA /* AsyncImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC52A09DC99009356DA /* AsyncImageTest.swift */; };
 		964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC92A0A031F009356DA /* BingoGameView.swift */; };
 		964ECACC2A0A13A8009356DA /* BingoPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECACB2A0A13A8009356DA /* BingoPlayground.swift */; };
@@ -54,6 +56,8 @@
 		9609690F2A0B2EC0004D2041 /* GGGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGGViewModel.swift; sourceTree = "<group>"; };
 		961442522A1756910003643B /* DragGestureTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragGestureTest.swift; sourceTree = "<group>"; };
 		961442552A17638A0003643B /* UIViewWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewWrap.swift; sourceTree = "<group>"; };
+		962B7A702A1F070000A2633E /* GenericsMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsMain.swift; sourceTree = "<group>"; };
+		962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGenerics.swift; sourceTree = "<group>"; };
 		964ECAC52A09DC99009356DA /* AsyncImageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageTest.swift; sourceTree = "<group>"; };
 		964ECAC92A0A031F009356DA /* BingoGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGameView.swift; sourceTree = "<group>"; };
 		964ECACB2A0A13A8009356DA /* BingoPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoPlayground.swift; sourceTree = "<group>"; };
@@ -127,6 +131,15 @@
 			path = Drag;
 			sourceTree = "<group>";
 		};
+		962B7A6F2A1F06F200A2633E /* Generics */ = {
+			isa = PBXGroup;
+			children = (
+				962B7A702A1F070000A2633E /* GenericsMain.swift */,
+				962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */,
+			);
+			path = Generics;
+			sourceTree = "<group>";
+		};
 		964ECACD2A0A2B75009356DA /* Bingo */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +185,7 @@
 		ECB7360F29FD793B007F6107 /* SwiftUI01 */ = {
 			isa = PBXGroup;
 			children = (
+				962B7A6F2A1F06F200A2633E /* Generics */,
 				9602C4722A1D960400EF38E3 /* Gesture */,
 				96D99E3B2A1463180048D63E /* Button */,
 				ECB7361029FD793B007F6107 /* SwiftUI01App.swift */,
@@ -291,6 +305,7 @@
 				9602C4772A1D971300EF38E3 /* MagnificationGestureTest.swift in Sources */,
 				964ECADD2A0A2CD1009356DA /* ComputerPlayer.swift in Sources */,
 				965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */,
+				962B7A712A1F070000A2633E /* GenericsMain.swift in Sources */,
 				96B0A9BC2A136CA400B2C90E /* FontTest.swift in Sources */,
 				ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */,
 				ECB7362529FD827A007F6107 /* Test03.swift in Sources */,
@@ -311,6 +326,7 @@
 				965531D12A14AD1200732BBE /* ScrollViewTest.swift in Sources */,
 				960969102A0B2EC0004D2041 /* GGGViewModel.swift in Sources */,
 				964ECAD32A0A2BE7009356DA /* BingoDataManager.swift in Sources */,
+				962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */,
 				9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */,
 				9693F4AF2A08914800ADAE4A /* SystemImageTest.swift in Sources */,
 				ECBA61B02A0160A400CF0B12 /* ViewModel.swift in Sources */,
