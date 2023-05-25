@@ -16,6 +16,7 @@
 		962B7A712A1F070000A2633E /* GenericsMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A702A1F070000A2633E /* GenericsMain.swift */; };
 		962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */; };
 		962B7A752A1F2ECF00A2633E /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */; };
+		962B7A772A1F494700A2633E /* GenericsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A762A1F494700A2633E /* GenericsTest.swift */; };
 		964ECAC62A09DC99009356DA /* AsyncImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC52A09DC99009356DA /* AsyncImageTest.swift */; };
 		964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC92A0A031F009356DA /* BingoGameView.swift */; };
 		964ECACC2A0A13A8009356DA /* BingoPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECACB2A0A13A8009356DA /* BingoPlayground.swift */; };
@@ -60,6 +61,7 @@
 		962B7A702A1F070000A2633E /* GenericsMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsMain.swift; sourceTree = "<group>"; };
 		962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGenerics.swift; sourceTree = "<group>"; };
 		962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
+		962B7A762A1F494700A2633E /* GenericsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsTest.swift; sourceTree = "<group>"; };
 		964ECAC52A09DC99009356DA /* AsyncImageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageTest.swift; sourceTree = "<group>"; };
 		964ECAC92A0A031F009356DA /* BingoGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGameView.swift; sourceTree = "<group>"; };
 		964ECACB2A0A13A8009356DA /* BingoPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoPlayground.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				962B7A702A1F070000A2633E /* GenericsMain.swift */,
+				962B7A762A1F494700A2633E /* GenericsTest.swift */,
 				962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */,
 				962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */,
 			);
@@ -309,6 +312,7 @@
 				964ECADD2A0A2CD1009356DA /* ComputerPlayer.swift in Sources */,
 				965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */,
 				962B7A712A1F070000A2633E /* GenericsMain.swift in Sources */,
+				962B7A772A1F494700A2633E /* GenericsTest.swift in Sources */,
 				96B0A9BC2A136CA400B2C90E /* FontTest.swift in Sources */,
 				ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */,
 				ECB7362529FD827A007F6107 /* Test03.swift in Sources */,

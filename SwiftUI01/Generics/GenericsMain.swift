@@ -13,6 +13,7 @@ struct GenericsMain: View {
             List {
                 NavigationLink("associatedtype", destination: ProtocolGenerics())
                 NavigationLink("Protocol", destination: ProtocolTest())
+                NavigationLink("Generics(Template)", destination: GenericsTest())
                 Text("any? some?")
             }
         }
