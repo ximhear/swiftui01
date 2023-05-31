@@ -156,8 +156,22 @@ struct RacingScore: Score {
   }
 }
 
-
-
+struct Date1 {
+    let year: Int
+    let month: Int
+    let day: Int
+}
+extension Date1: Comparable {
+    static func < (lhs: Date1, rhs: Date1) -> Bool {
+        if lhs.year != rhs.year {
+            return lhs.year < rhs.year
+        } else if lhs.month != rhs.month {
+            return lhs.month < rhs.month
+        } else {
+            return lhs.day < rhs.day
+        }
+    }
+}
 struct GenericsTest: View {
     let racers: [Racer] =
     [UnladenSwallow.african,
@@ -175,6 +189,7 @@ struct GenericsTest: View {
             Text("\(racers.topSpeed())")
             Text("\(racers[1...3].topSpeed())")
             Text("\(RacingScore(value: 130) == RacingScore(value: 130) ? "true" : "false")")
+            Text("\(Date1(year: 100, month: 200, day: 300) == Date1(year: 100, month: 200, day: 300) ? "true" : "false")")
         }
     }
     
