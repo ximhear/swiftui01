@@ -40,6 +40,7 @@
 		9693F4B12A089B3000ADAE4A /* ImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F4B02A089B3000ADAE4A /* ImageTest.swift */; };
 		96B0A9BC2A136CA400B2C90E /* FontTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0A9BB2A136CA400B2C90E /* FontTest.swift */; };
 		96B0A9BE2A137C8000B2C90E /* TextTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B0A9BD2A137C8000B2C90E /* TextTest.swift */; };
+		EC0D36D32A27B4DD009DF78B /* ModalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0D36D22A27B4DD009DF78B /* ModalTest.swift */; };
 		ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361029FD793B007F6107 /* SwiftUI01App.swift */; };
 		ECB7361529FD793C007F6107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7361429FD793C007F6107 /* Assets.xcassets */; };
 		ECB7361829FD793C007F6107 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7361729FD793C007F6107 /* Preview Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		9693F4B02A089B3000ADAE4A /* ImageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTest.swift; sourceTree = "<group>"; };
 		96B0A9BB2A136CA400B2C90E /* FontTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTest.swift; sourceTree = "<group>"; };
 		96B0A9BD2A137C8000B2C90E /* TextTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTest.swift; sourceTree = "<group>"; };
+		EC0D36D22A27B4DD009DF78B /* ModalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTest.swift; sourceTree = "<group>"; };
 		ECB7360D29FD793B007F6107 /* SwiftUI01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7361029FD793B007F6107 /* SwiftUI01App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI01App.swift; sourceTree = "<group>"; };
 		ECB7361229FD793B007F6107 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -172,6 +174,14 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
+		EC0D36D12A27B4CD009DF78B /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				EC0D36D22A27B4DD009DF78B /* ModalTest.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		ECB7360429FD793B007F6107 = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +201,7 @@
 		ECB7360F29FD793B007F6107 /* SwiftUI01 */ = {
 			isa = PBXGroup;
 			children = (
+				EC0D36D12A27B4CD009DF78B /* Modal */,
 				962B7A6F2A1F06F200A2633E /* Generics */,
 				9602C4722A1D960400EF38E3 /* Gesture */,
 				96D99E3B2A1463180048D63E /* Button */,
@@ -321,6 +332,7 @@
 				964ECADB2A0A2C9C009356DA /* BingoCellView.swift in Sources */,
 				961442562A17638A0003643B /* UIViewWrap.swift in Sources */,
 				964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */,
+				EC0D36D32A27B4DD009DF78B /* ModalTest.swift in Sources */,
 				967A92312A14A03600C0D733 /* CustomButton.swift in Sources */,
 				965BCA292A03934F004A3494 /* ContentView.swift in Sources */,
 				961442532A1756910003643B /* DragGestureTest.swift in Sources */,

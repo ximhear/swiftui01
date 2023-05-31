@@ -46,7 +46,8 @@ struct ContentView: View {
                 let a = [Int](1..<100)
                 GZLogFunc(a)
                 viewLinks = [
-                    ViewLink(title: "Number overflow...", destination: GenericsMain()),
+                    ViewLink(title: "Modal", destination: ModalTest()),
+                    ViewLink(title: "Number overflow", destination: GenericsMain()),
                     ViewLink(title: "UnsafeMutableBufferPointer", destination: GenericsMain()),
                     ViewLink(title: "Generics", destination: GenericsMain()),
                     ViewLink(title: Label("Gesture", systemImage: "chart.bar.fill"), destination: GestureMain()),
