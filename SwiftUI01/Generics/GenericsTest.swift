@@ -142,6 +142,19 @@ extension Sequence where Iterator.Element == Racer {
   func topSpeed() -> Double {
     self.max(by: { $0.speed < $1.speed })?.speed ?? 0.0
   }
+    func bottomSpeed() -> Double {
+      self.min(by: { $0.speed < $1.speed })?.speed ?? 0.0
+    }
+
+    func meanSpeed() -> Double {
+        var count: Int = 0
+        var sum: Double = 0.0
+        for racer in self {
+            count += 1
+            sum += racer.speed
+        }
+        return sum / Double(count)
+    }
 }
 
 protocol Score: Comparable {
@@ -188,6 +201,8 @@ struct GenericsTest: View {
             Text("\(topSpeed(of: racers[1...3]))")
             Text("\(racers.topSpeed())")
             Text("\(racers[1...3].topSpeed())")
+            Text("\(racers.bottomSpeed())")
+            Text("\(racers.meanSpeed())")
             Text("\(RacingScore(value: 130) == RacingScore(value: 130) ? "true" : "false")")
             Text("\(Date1(year: 100, month: 200, day: 300) == Date1(year: 100, month: 200, day: 300) ? "true" : "false")")
         }
