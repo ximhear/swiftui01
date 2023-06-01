@@ -34,6 +34,7 @@
 		965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2A2A039D39004A3494 /* ZStackTest.swift */; };
 		965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */; };
 		967A92312A14A03600C0D733 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A92302A14A03600C0D733 /* CustomButton.swift */; };
+		968475A02A283C29008068FB /* UnsafeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684759F2A283C29008068FB /* UnsafeTest.swift */; };
 		9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F4AA2A0884C900ADAE4A /* AppStorageTest.swift */; };
 		9693F4AD2A0890E500ADAE4A /* ButtonTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F4AC2A0890E500ADAE4A /* ButtonTest.swift */; };
 		9693F4AF2A08914800ADAE4A /* SystemImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F4AE2A08914800ADAE4A /* SystemImageTest.swift */; };
@@ -79,6 +80,7 @@
 		965BCA2A2A039D39004A3494 /* ZStackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStackTest.swift; sourceTree = "<group>"; };
 		965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSizeModifier.swift; sourceTree = "<group>"; };
 		967A92302A14A03600C0D733 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		9684759F2A283C29008068FB /* UnsafeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeTest.swift; sourceTree = "<group>"; };
 		9693F4AA2A0884C900ADAE4A /* AppStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageTest.swift; sourceTree = "<group>"; };
 		9693F4AC2A0890E500ADAE4A /* ButtonTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTest.swift; sourceTree = "<group>"; };
 		9693F4AE2A08914800ADAE4A /* SystemImageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImageTest.swift; sourceTree = "<group>"; };
@@ -165,6 +167,14 @@
 			path = Bingo;
 			sourceTree = "<group>";
 		};
+		9684759E2A283C17008068FB /* Unsafe */ = {
+			isa = PBXGroup;
+			children = (
+				9684759F2A283C29008068FB /* UnsafeTest.swift */,
+			);
+			path = Unsafe;
+			sourceTree = "<group>";
+		};
 		96D99E3B2A1463180048D63E /* Button */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +211,7 @@
 		ECB7360F29FD793B007F6107 /* SwiftUI01 */ = {
 			isa = PBXGroup;
 			children = (
+				9684759E2A283C17008068FB /* Unsafe */,
 				EC0D36D12A27B4CD009DF78B /* Modal */,
 				962B7A6F2A1F06F200A2633E /* Generics */,
 				9602C4722A1D960400EF38E3 /* Gesture */,
@@ -323,6 +334,7 @@
 				964ECADD2A0A2CD1009356DA /* ComputerPlayer.swift in Sources */,
 				965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */,
 				962B7A712A1F070000A2633E /* GenericsMain.swift in Sources */,
+				968475A02A283C29008068FB /* UnsafeTest.swift in Sources */,
 				962B7A772A1F494700A2633E /* GenericsTest.swift in Sources */,
 				96B0A9BC2A136CA400B2C90E /* FontTest.swift in Sources */,
 				ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */,

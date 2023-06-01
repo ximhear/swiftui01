@@ -48,7 +48,7 @@ struct ContentView: View {
                 viewLinks = [
                     ViewLink(title: "Modal", destination: ModalTest()),
                     ViewLink(title: "Number overflow", destination: GenericsMain()),
-                    ViewLink(title: "UnsafeMutableBufferPointer", destination: GenericsMain()),
+                    ViewLink(title: "UnsafeMutableBufferPointer", destination: UnsafeTest()),
                     ViewLink(title: "Generics", destination: GenericsMain()),
                     ViewLink(title: Label("Gesture", systemImage: "chart.bar.fill"), destination: GestureMain()),
                     ViewLink(title: "ScrollView", destination: ScrollViewTest()),
