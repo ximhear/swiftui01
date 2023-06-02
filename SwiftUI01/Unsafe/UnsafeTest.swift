@@ -66,6 +66,7 @@ struct UnsafeTest: View {
         //changeValues(&values)
         //print("\(values)")
         
+        //TODO: dangling pointer warning을 없애려면 전역함수 withUnsafePointer을 이용해야 한다.
         let pointer = UnsafePointer<Int8>(values)
         print("[2] \(pointer[2])")
         
@@ -109,6 +110,71 @@ struct UnsafeTest: View {
         printInt(atAddress: mm)
         printInt(atAddress: &mm[7])
         
+        printInt(atAddress: values)
+        var mutableValues = values
+        printInt(atAddress: mutableValues)
+        printInt(atAddress: &mutableValues)
+
+        //TODO: pointer(to:) 함수
+        class Temp: Codable {
+            let name: String
+            let address: String
+            init(name: String, address: String) {
+                self.name = name
+                self.address = address
+            }
+        }
+        var t = Temp(name: "ggg", address: "aaa")
+        var ptTemp = UnsafePointer(&t)
+        var ptTemp1 = UnsafePointer(&t)
+        //TODO: &이 있는 mutable 객체일 경우, UnsafePointer을 여러번 시도해도 항상 동일한 주소가 나온다. withUnsafePointer를 이용해도 동일한 주소.
+        print("\(ptTemp)")
+        print("\(ptTemp1)")
+        if let ptName = ptTemp.pointer(to: \.name) {
+            print("\(type(of: ptName))")
+            print("\(ptName[0])")
+            let mpt = UnsafeMutablePointer(mutating: ptName)
+            mpt[0] = "cccddd 점점 길어지는구나. 스마트케어"
+            print("\(mpt[0])")
+            print(t)
+        }
+        
+        print(Unmanaged.passUnretained(t).toOpaque())
+        withUnsafePointer(to: t) { ptTemp in
+            if let ptName = ptTemp.pointer(to: \.name) {
+                print("\(type(of: ptName))")
+                print("\(ptName[0])")
+                let mpt = UnsafeMutablePointer(mutating: ptName)
+                mpt[0] = "점점 길어지는구나. 스마트케어"
+                print("\(mpt[0])")
+                print(ptTemp[0])
+            }
+        }
+        withUnsafePointer(to: t) { ptTemp in
+            print("\(ptTemp)")
+            let mpt = UnsafeMutablePointer(mutating: ptTemp)
+            print("\(mpt)")
+        }
+        withUnsafePointer(to: t) { ptTemp in
+            print("\(ptTemp)")
+            let mpt = UnsafeMutablePointer(mutating: ptTemp)
+            print("\(mpt)")
+        }
+        withUnsafePointer(to: &t) { ptTemp in
+            print("\(ptTemp)")
+        }
+        withUnsafePointer(to: &t) { ptTemp in
+            print("\(ptTemp)")
+        }
+        print(t)
+        
+        if let ptII = pointer.pointer(to: \.self) {
+            let mpt = UnsafeMutablePointer(mutating: ptII)
+            mpt[2] = 3
+            print("\(mpt[2])")
+        }
+        print("\(values)")
+
         //FIXME: dangling pointer
         // https://developer.apple.com/forums/thread/674633
     }
