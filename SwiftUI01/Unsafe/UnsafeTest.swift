@@ -9,22 +9,102 @@ import SwiftUI
 
 struct UnsafeTest: View {
     @State var values: [Int32] = [1, 2, 3]
+    @State var value: Int32 = 200
+    @State var logs: [String] = []
     var body: some View {
         VStack {
-            Text("\(values[0])")
+            List {
+                ForEach(logs.reversed(), id: \.self) { log in
+                    Text(log)
+                }
+            }
         }
         .onAppear {
-            // convert values to UnsafePointer
-            var pointer = UnsafeMutablePointer<Int32>(&values)
-            pointer[0] = 2
-            print(values[0])
-            // print hex value
-            print(String(format: "%p", pointer))
+//            withUnsafePointer(to: values) { pt in
+//                addLog("\(pt.pointee[0])")
+//                addLog("\(pt.pointee[1])")
+//                addLog("\(pt.pointee[2])")
+//            }
+//            addLog("\(values)")
+//            withUnsafeMutablePointer(to: &values) { pt in
+//                pt.pointee[0] = 100
+//                addLog("\(pt.pointee[0])")
+//                addLog("\(pt.pointee[1])")
+//                addLog("\(pt.pointee[2])")
+//            }
+//            addLog("\(values)")
+//            withUnsafeMutablePointer(to: &value) { pt in
+//                pt.pointee = 10
+//            }
+//            addLog("\(value)")
+
+            unsafeMutablePointerTest()
         }
+    }
+
+    func clearLogs() {
+        logs.removeAll()
+    }
+
+    func addLog(_ log: String, lineNumber: Int = #line) {
+        logs.append("\(lineNumber) : \(log)")
     }
     
     func changeValues(values: inout [Int]) {
         values[0] = 2
+    }
+
+    func unsafeMutablePointerTest() {
+        var bytes: [UInt8] = [1, 2, 3, 4, 5, 6, 7, 0xff]
+        let uint8Pointer = UnsafeMutablePointer<UInt8>.allocate(capacity: 8)
+        uint8Pointer.initialize(from: &bytes, count: 8)
+        addLog("\(uint8Pointer[7])")
+        addLog("\(bytes)")
+        bytes.withUnsafeMutableBufferPointer { pt in
+            addLog("\(type(of: pt))")
+            addLog("\(pt.count)")
+        }
+        
+        var i32s: [Int32] = [1, 2, 3, 4, 5, 6, 7, 0xff]
+        i32s.withUnsafeMutableBytes { pt in
+            addLog("\(type(of: pt))")
+            addLog("\(pt.count)")
+            pt[1] = 1
+        }
+        addLog("\(i32s)")
+        i32s.withUnsafeMutableBufferPointer { pt in
+            addLog("\(type(of: pt))")
+            addLog("\(pt.count)")
+            pt[0] = 10
+        }
+        addLog("\(i32s)")
+        i32s.withUnsafeMutableBufferPointer { pt in
+            pt.withMemoryRebound(to: UInt64.self) { buffer in
+                addLog("\(type(of: buffer))")
+                buffer[0] = 0
+            }
+        }
+        addLog("\(i32s)")
+        addLog("\(uint8Pointer[0])")
+        let uint64Pointer = UnsafeMutableRawPointer(uint8Pointer).bindMemory(to: UInt64.self, capacity: 1)
+        uint64Pointer[0] = 0x0111000000000033
+        addLog("\(uint8Pointer[6])")
+        addLog("\(uint8Pointer[7])")
+        addLog("\(String(format: "%p", uint64Pointer[0]))")
+        let rawPointer = UnsafeMutableRawPointer(uint64Pointer)
+        let fullInteger = rawPointer.load(as: UInt64.self)   // OK
+        addLog("\(String(format: "%p", fullInteger))")
+        addLog("\(fullInteger)")
+        let firstByte = rawPointer.load(as: UInt8.self)      // OK
+        addLog("\(firstByte)")
+        
+        //TODO: Pointer 연산
+        addLog("\(uint8Pointer[6])")
+        addLog("\((uint8Pointer + 6).pointee)")
+        addLog("\(uint8Pointer)")
+        addLog("\(uint8Pointer + 1)")
+        addLog("\(uint64Pointer)")
+        addLog("\(uint64Pointer + 1)")
     }
     
     func withReboundSample() {
