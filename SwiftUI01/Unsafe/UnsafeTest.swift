@@ -39,6 +39,7 @@ struct UnsafeTest: View {
 //            addLog("\(value)")
 
             unsafeMutablePointerTest()
+            unsafeMutablePointerTest1()
         }
     }
 
@@ -109,17 +110,17 @@ struct UnsafeTest: View {
 
     func unsafeMutablePointerTest1() {
         func printInt(atAddress p: UnsafeMutablePointer<Int>) {
-            print(p.pointee)
+            addLog("\(p.pointee)")
         }
         let count = 3
         let stride = MemoryLayout<Int>.stride
         let alignment = MemoryLayout<Int>.alignment
         let byteCount = stride * count
 
-        print("MemoryLayout<Int>.stride: \(stride)")
-        print("MemoryLayout<Int>.alignment: \(alignment)")
-        print("MemoryLayout<Int>.size: \(MemoryLayout<Int>.size)")
-        print("byteCount: \(byteCount)")
+        addLog("MemoryLayout<Int>.stride: \(stride)")
+        addLog("MemoryLayout<Int>.alignment: \(alignment)")
+        addLog("MemoryLayout<Int>.size: \(MemoryLayout<Int>.size)")
+        addLog("byteCount: \(byteCount)")
 
         let pointer = UnsafeMutableRawPointer.allocate(byteCount: byteCount, alignment: alignment)
         defer {
@@ -132,16 +133,16 @@ struct UnsafeTest: View {
 
         let bufferPointer = UnsafeRawBufferPointer(start: pointer, count: byteCount)
         for (index, byte) in bufferPointer.enumerated() {
-            print("byte \(index): \(byte)")
+            addLog("byte \(index): \(byte)")
         }
 
         let intPointer = pointer.bindMemory(to: Int.self, capacity: count)
         print("\(type(of: intPointer))")
         for index in 0..<count {
-            print("pointer \(index): \(intPointer[index])")
+            addLog("pointer \(index): \(intPointer[index])")
         }
         let a = intPointer + 2
-        print("a: \(a.pointee)")
+        addLog("a: \(a.pointee)")
 
         printInt(atAddress: intPointer)
         var vv: Int = 100
