@@ -12,6 +12,7 @@ struct UnsafeMain: View {
         VStack {
             NavigationLink("UnsafePointer", destination: UnsafeTest())
             NavigationLink("UnsafeBufferPointer", destination: UnsafeBufferPointerTest())
+            NavigationLink("UnsafeMutableBufferPointerTest", destination: UnsafeMutableBufferPointerTest())
         }
         .navigationTitle("Unsafe")
     }

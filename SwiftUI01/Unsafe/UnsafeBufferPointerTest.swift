@@ -28,6 +28,9 @@ struct UnsafeBufferPointerTest: View {
             addLog("\(index) : \(value)")
         }
         
+        values.withUnsafeMutableBytes { buffer in
+            addLog("\(type(of: buffer))")
+        }
         
         // convert values to UnsafeBufferPointer using withUnsafeBytes
         values.withUnsafeBytes { buffer in
