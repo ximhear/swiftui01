@@ -13,6 +13,8 @@
 		960969102A0B2EC0004D2041 /* GGGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9609690F2A0B2EC0004D2041 /* GGGViewModel.swift */; };
 		961442532A1756910003643B /* DragGestureTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961442522A1756910003643B /* DragGestureTest.swift */; };
 		961442562A17638A0003643B /* UIViewWrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961442552A17638A0003643B /* UIViewWrap.swift */; };
+		961DC5522A2DB67900E1A915 /* UnsafeMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DC5512A2DB67900E1A915 /* UnsafeMain.swift */; };
+		961DC5542A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DC5532A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift */; };
 		962B7A712A1F070000A2633E /* GenericsMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A702A1F070000A2633E /* GenericsMain.swift */; };
 		962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */; };
 		962B7A752A1F2ECF00A2633E /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */; };
@@ -60,6 +62,8 @@
 		9609690F2A0B2EC0004D2041 /* GGGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GGGViewModel.swift; sourceTree = "<group>"; };
 		961442522A1756910003643B /* DragGestureTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragGestureTest.swift; sourceTree = "<group>"; };
 		961442552A17638A0003643B /* UIViewWrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewWrap.swift; sourceTree = "<group>"; };
+		961DC5512A2DB67900E1A915 /* UnsafeMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeMain.swift; sourceTree = "<group>"; };
+		961DC5532A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeBufferPointerTest.swift; sourceTree = "<group>"; };
 		962B7A702A1F070000A2633E /* GenericsMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsMain.swift; sourceTree = "<group>"; };
 		962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGenerics.swift; sourceTree = "<group>"; };
 		962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				9684759F2A283C29008068FB /* UnsafeTest.swift */,
+				961DC5512A2DB67900E1A915 /* UnsafeMain.swift */,
+				961DC5532A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift */,
 			);
 			path = Unsafe;
 			sourceTree = "<group>";
@@ -345,6 +351,7 @@
 				961442562A17638A0003643B /* UIViewWrap.swift in Sources */,
 				964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */,
 				EC0D36D32A27B4DD009DF78B /* ModalTest.swift in Sources */,
+				961DC5522A2DB67900E1A915 /* UnsafeMain.swift in Sources */,
 				967A92312A14A03600C0D733 /* CustomButton.swift in Sources */,
 				965BCA292A03934F004A3494 /* ContentView.swift in Sources */,
 				961442532A1756910003643B /* DragGestureTest.swift in Sources */,
@@ -361,6 +368,7 @@
 				962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */,
 				9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */,
 				9693F4AF2A08914800ADAE4A /* SystemImageTest.swift in Sources */,
+				961DC5542A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift in Sources */,
 				ECBA61B02A0160A400CF0B12 /* ViewModel.swift in Sources */,
 				ECB7361F29FD7D6E007F6107 /* Test01.swift in Sources */,
 			);
