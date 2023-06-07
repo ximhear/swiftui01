@@ -29,9 +29,13 @@ struct UnsafeMutableBufferPointerTest: View {
                 "\(name) : \(price)"
             }
         }
+        addLog("Coffee size: \(MemoryLayout<Coffee>.size)")
+        addLog("Coffee stride: \(MemoryLayout<Coffee>.stride)")
+        addLog("String stride: \(MemoryLayout<String>.stride)")
+        addLog("Int8 stride: \(MemoryLayout<Int8>.stride)")
         
         var values: [Coffee] = [
-            .init(name: "아메리카노", price: "1500"),
+            .init(name: "II아메리카노", price: "1500"),
             .init(name: "Iced americano", price: "2000"),
             .init(name: "Cold Brew", price: "3000"),
             ]
@@ -40,18 +44,79 @@ struct UnsafeMutableBufferPointerTest: View {
         
         let bp01 = UnsafeMutableBufferPointer<Coffee>.allocate(capacity: 4)
         let result = bp01.initialize(from: values)
-        bp01[0].name = "sss"
         addLog("\(result.index)")
-        bp01[3] = Coffee(name: "gg", price: "11")
+        bp01[3] = Coffee(name: "GggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggG", price: "11")
+        
+        let bp02 = UnsafeMutableBufferPointer(rebasing: bp01[1...])
         
         for (index, value) in bp01.enumerated() {
             addLog("[\(index)] \(value)")
         }
         
+        let bp03 = bp01.baseAddress! + 3
+        
         addLog("\(rp01)")
         addLog("\(bp01)")
+        addLog("\(bp02)")
+        addLog("\(bp03)")
         
-        addLog("\(values)")
+        UnsafeRawPointer(&(bp03.pointee.name)).withMemoryRebound(to: String.self, capacity: 1) { pointer in
+            addLog("\(type(of: pointer))")
+            addLog("\(pointer)")
+            
+        }
+        let namePtr = UnsafePointer<String>.init(&(bp03.pointee.name))
+        addLog("\(namePtr)")
+        
+        //TODO: bp01 -> raw pointer
+        let rp02 = UnsafeRawPointer(bp01.baseAddress!)
+        addLog("\(rp02)")
+        //TODO: bp01 -> mutable raw pointer
+        let rp03 = UnsafeMutableRawPointer(bp01.baseAddress!)
+        addLog("\(rp03)")
+        let mp01 = rp03.withMemoryRebound(to: Coffee.self, capacity: 4) { pointer in
+            return pointer
+        }
+        addLog("\(type(of: mp01))")
+        addLog("\(mp01)")
+        let mp02 = rp03.bindMemory(to: Coffee.self, capacity: 4)
+        addLog("\(type(of: mp02))")
+        addLog("\(mp02)")
+
+        //TODO: convert bp01[0].name String to UnsafeRawPointer
+        let rp04 = UnsafeRawPointer(&(bp01[0].name))
+        addLog("\(type(of: rp04))")
+        addLog("\(rp04)")
+        
+        addLog("\(bp01[1].name)")
+        let rp05 = UnsafeMutableRawPointer(&(bp01[1].name))
+        rp05.storeBytes(of: 65, as: UInt8.self)
+        addLog("\(type(of: rp05))")
+        addLog("\(rp05)")
+        addLog("\(bp01[1].name)")
+        
+        //TODO: convert bp01[1].name String to UnsafeMutablePointer
+        withUnsafeMutablePointer(to: &(bp01[1].name)) { pointer in
+            pointer.pointee = "HelloHelloHello"
+            //TODO: UnsafeMutablePoint to UnsafeMutableRawPointer
+            let rp = UnsafeMutableRawPointer(pointer)
+            (rp + 4).storeBytes(of: 0x4344, toByteOffset: 0, as: UInt16.self)
+        }
+        //TODO: convert bp01[1].name String to UnsafeMutableRawBufferPointer
+        withUnsafeMutableBytes(of: &(bp01[1].name)) { pointer in
+            addLog("\(type(of: pointer))")
+            pointer[0] = 66
+            pointer.storeBytes(of: 0x4142, toByteOffset: 0, as: UInt16.self)
+            if let rp = pointer.baseAddress {
+                addLog("\(type(of: rp))")
+                (rp + 2).storeBytes(of: 0x4142, toByteOffset: 0, as: UInt16.self)
+            }
+        }
+        addLog("\(bp01[1].name)")
+        
+        var iValue: Int32 = 0x01020304
+        addLog("\(iValue)")
+
         bp01.deallocate()
     }
 
