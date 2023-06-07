@@ -13,6 +13,7 @@ struct UnsafeMain: View {
             NavigationLink("UnsafePointer", destination: UnsafeTest())
             NavigationLink("UnsafeBufferPointer", destination: UnsafeBufferPointerTest())
             NavigationLink("UnsafeMutableBufferPointerTest", destination: UnsafeMutableBufferPointerTest())
+            NavigationLink("UnsafeRawPointerTest", destination: UnsafeRawPointerTest())
         }
         .navigationTitle("Unsafe")
     }
