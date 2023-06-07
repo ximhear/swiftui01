@@ -22,6 +22,24 @@ struct UnsafeRawPointerTest: View {
     
     func test() {
         addLog("start test")
+        let bytesPointer = UnsafeMutableRawPointer.allocate(byteCount: 4, alignment: 4)
+        bytesPointer.initializeMemory(as: UInt32.self, repeating: 0, count: 1)
+        bytesPointer.storeBytes(of: 0x0403_0201, toByteOffset: 3, as: UInt32.self)
+
+        addLog("\(bytesPointer)")
+        addLog("\(bytesPointer + 1)")
+
+        // Load a value from the memory referenced by 'bytesPointer'
+        let x1 = bytesPointer.load(as: UInt8.self)       // 255
+        addLog("\(String(format: "%p", x1))")
+        let x2 = bytesPointer.load(as: UInt32.self)       // 255
+        addLog("\(String(format: "%p", x2))")
+
+
+        // Load a value from the last two allocated bytes
+        let offsetPointer = bytesPointer + 2
+        let y = offsetPointer.load(as: UInt16.self)     // 65535
+        addLog("\(String(format: "%p", y))")
     }
     
     func clearLogs() {
