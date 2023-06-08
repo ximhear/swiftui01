@@ -46,36 +46,36 @@ struct UnsafeRawPointerTest: View {
     }
     
     //TODO: UnsafeRawPointer
-//    func test() {
-//        addLog("start test")
-//        let bytesPointer = UnsafeMutableRawPointer.allocate(byteCount: 4, alignment: 4)
-//        bytesPointer.initializeMemory(as: UInt32.self, repeating: 0, count: 1)
-//        //TODO: 메모리를 4바이트 할당하였는데, 2번째 바이트부터 4바이트를 복사하여 할당 범위를 넘었으나 넘긴 영역에 중요한 데이터가 없다면 문제가 발생하지 않는다.
-//        //TODO: 넘기지 얺도록 해야한다.
-//        bytesPointer.storeBytes(of: 0x0403_0201, toByteOffset: 2, as: UInt32.self)
-//
-//        addLog("\(bytesPointer)")
-//        addLog("\(bytesPointer + 1)")
-//
-//        // Load a value from the memory referenced by 'bytesPointer'
-//        let x1 = bytesPointer.load(as: UInt8.self)       // 255
-//        addLog("\(String(format: "%p", x1))")
-//        let x2 = bytesPointer.load(as: UInt32.self)       // 255
-//        addLog("\(String(format: "%p", x2))")
-//        
-//        for x in 0..<4 {
-//            let x1 = (bytesPointer + x).load(as: UInt8.self)
-//            addLog("\(String(format: "%p", x1))")
-//        }
-//
-//
-//        // Load a value from the last two allocated bytes
-//        let offsetPointer = bytesPointer + 2
-//        let y = offsetPointer.load(as: UInt16.self)     // 65535
-//        addLog("\(String(format: "%p", y))")
-//        
-//        bytesPointer.deallocate()
-//    }
+    func test() {
+        addLog("start test")
+        let bytesPointer = UnsafeMutableRawPointer.allocate(byteCount: 4, alignment: 4)
+        bytesPointer.initializeMemory(as: UInt32.self, repeating: 0, count: 1)
+        //TODO: 메모리를 4바이트 할당하였는데, 2번째 바이트부터 4바이트를 복사하여 할당 범위를 넘었으나 넘긴 영역에 중요한 데이터가 없다면 문제가 발생하지 않는다.
+        //TODO: 넘기지 얺도록 해야한다.
+        bytesPointer.storeBytes(of: 0x0403_0201, toByteOffset: 2, as: UInt32.self)
+
+        addLog("\(bytesPointer)")
+        addLog("\(bytesPointer + 1)")
+
+        // Load a value from the memory referenced by 'bytesPointer'
+        let x1 = bytesPointer.load(as: UInt8.self)       // 255
+        addLog("\(String(format: "%p", x1))")
+        let x2 = bytesPointer.load(as: UInt32.self)       // 255
+        addLog("\(String(format: "%p", x2))")
+        
+        for x in 0..<4 {
+            let x1 = (bytesPointer + x).load(as: UInt8.self)
+            addLog("\(String(format: "%p", x1))")
+        }
+
+
+        // Load a value from the last two allocated bytes
+        let offsetPointer = bytesPointer + 2
+        let y = offsetPointer.load(as: UInt16.self)     // 65535
+        addLog("\(String(format: "%p", y))")
+        
+        bytesPointer.deallocate()
+    }
     
     func clearLogs() {
         logs.removeAll()
