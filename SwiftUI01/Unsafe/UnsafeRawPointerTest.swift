@@ -16,33 +16,14 @@ struct UnsafeRawPointerTest: View {
             }
         }
         .onAppear {
-            test1()
+            test()
         }
     }
     
-    //TODO: UnsafeRawMutablePointer
+    //TODO: UnsafeMutableRawPointer
     func test1() {
         addLog("start test")
-        
-        var bytes: [UInt8] = [39, 77, 111, 111, 102, 33, 39, 0]
-        let uint8Pointer = UnsafeMutablePointer<UInt8>.allocate(capacity: 8)
-        uint8Pointer.initialize(from: &bytes, count: 8)
-        
-        let uint64Pointer = UnsafeMutableRawPointer(uint8Pointer)
-                                  .bindMemory(to: UInt64.self, capacity: 1)
-        
-        var fullInteger = uint64Pointer.pointee          // OK
-        addLog("\(fullInteger)")
-        var firstByte = uint8Pointer.pointee             // undefined
-        addLog("\(firstByte)")
-        
-        let rawPointer = UnsafeMutableRawPointer(uint64Pointer)
-        fullInteger = rawPointer.load(as: UInt64.self)   // OK
-        addLog("\(fullInteger)")
-        firstByte = rawPointer.load(as: UInt8.self)      // OK
-        addLog("\(firstByte)")
-        
-        uint64Pointer.deallocate()
+        // 따로 추가할 내용이 없음.
     }
     
     //TODO: UnsafeRawPointer

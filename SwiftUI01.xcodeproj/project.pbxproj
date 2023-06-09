@@ -21,6 +21,7 @@
 		962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */; };
 		962B7A752A1F2ECF00A2633E /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */; };
 		962B7A772A1F494700A2633E /* GenericsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A762A1F494700A2633E /* GenericsTest.swift */; };
+		96468E5D2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96468E5C2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift */; };
 		964ECAC62A09DC99009356DA /* AsyncImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC52A09DC99009356DA /* AsyncImageTest.swift */; };
 		964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC92A0A031F009356DA /* BingoGameView.swift */; };
 		964ECACC2A0A13A8009356DA /* BingoPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECACB2A0A13A8009356DA /* BingoPlayground.swift */; };
@@ -72,6 +73,7 @@
 		962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGenerics.swift; sourceTree = "<group>"; };
 		962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
 		962B7A762A1F494700A2633E /* GenericsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsTest.swift; sourceTree = "<group>"; };
+		96468E5C2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeRawBufferPointerTest.swift; sourceTree = "<group>"; };
 		964ECAC52A09DC99009356DA /* AsyncImageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageTest.swift; sourceTree = "<group>"; };
 		964ECAC92A0A031F009356DA /* BingoGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGameView.swift; sourceTree = "<group>"; };
 		964ECACB2A0A13A8009356DA /* BingoPlayground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoPlayground.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				961DC5532A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift */,
 				961DC5552A2DCC8A00E1A915 /* UnsafeMutableBufferPointerTest.swift */,
 				9610A9582A306BAE0010AC4D /* UnsafeRawPointerTest.swift */,
+				96468E5C2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift */,
 			);
 			path = Unsafe;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				9693F4AD2A0890E500ADAE4A /* ButtonTest.swift in Sources */,
 				9605E22B2A0A4AA400EF0D05 /* GGGView.swift in Sources */,
 				964ECAD92A0A2C52009356DA /* BingoGameViewModel.swift in Sources */,
+				96468E5D2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift in Sources */,
 				962B7A752A1F2ECF00A2633E /* ProtocolTest.swift in Sources */,
 				ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */,
 				96B0A9BE2A137C8000B2C90E /* TextTest.swift in Sources */,

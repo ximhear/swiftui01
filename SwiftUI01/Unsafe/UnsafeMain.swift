@@ -14,6 +14,7 @@ struct UnsafeMain: View {
             NavigationLink("UnsafeBufferPointer", destination: UnsafeBufferPointerTest())
             NavigationLink("UnsafeMutableBufferPointerTest", destination: UnsafeMutableBufferPointerTest())
             NavigationLink("UnsafeRawPointerTest", destination: UnsafeRawPointerTest())
+            NavigationLink("UnsafeRawBufferPointerTest", destination: UnsafeRawBufferPointerTest())
         }
         .navigationTitle("Unsafe")
     }
