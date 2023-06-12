@@ -38,6 +38,9 @@
 		965BCA292A03934F004A3494 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361229FD793B007F6107 /* ContentView.swift */; };
 		965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2A2A039D39004A3494 /* ZStackTest.swift */; };
 		965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */; };
+		9662FFBB2A36FDA0007A0D2B /* NumberTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662FFBA2A36FDA0007A0D2B /* NumberTest.swift */; };
+		9662FFBD2A36FDEB007A0D2B /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662FFBC2A36FDEB007A0D2B /* ViewExtension.swift */; };
+		9662FFC02A370082007A0D2B /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9662FFBF2A370082007A0D2B /* Logger.swift */; };
 		967A92312A14A03600C0D733 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967A92302A14A03600C0D733 /* CustomButton.swift */; };
 		968475A02A283C29008068FB /* UnsafeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9684759F2A283C29008068FB /* UnsafeTest.swift */; };
 		9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693F4AA2A0884C900ADAE4A /* AppStorageTest.swift */; };
@@ -89,6 +92,9 @@
 		965BCA022A03610B004A3494 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		965BCA2A2A039D39004A3494 /* ZStackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStackTest.swift; sourceTree = "<group>"; };
 		965BCA2C2A03AC4F004A3494 /* GetSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSizeModifier.swift; sourceTree = "<group>"; };
+		9662FFBA2A36FDA0007A0D2B /* NumberTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberTest.swift; sourceTree = "<group>"; };
+		9662FFBC2A36FDEB007A0D2B /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		9662FFBF2A370082007A0D2B /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		967A92302A14A03600C0D733 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		9684759F2A283C29008068FB /* UnsafeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeTest.swift; sourceTree = "<group>"; };
 		9693F4AA2A0884C900ADAE4A /* AppStorageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageTest.swift; sourceTree = "<group>"; };
@@ -177,6 +183,22 @@
 			path = Bingo;
 			sourceTree = "<group>";
 		};
+		9662FFB92A36FD8E007A0D2B /* Number */ = {
+			isa = PBXGroup;
+			children = (
+				9662FFBA2A36FDA0007A0D2B /* NumberTest.swift */,
+			);
+			path = Number;
+			sourceTree = "<group>";
+		};
+		9662FFBE2A370077007A0D2B /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				9662FFBF2A370082007A0D2B /* Logger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 		9684759E2A283C17008068FB /* Unsafe */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +248,8 @@
 		ECB7360F29FD793B007F6107 /* SwiftUI01 */ = {
 			isa = PBXGroup;
 			children = (
+				9662FFBE2A370077007A0D2B /* Logger */,
+				9662FFB92A36FD8E007A0D2B /* Number */,
 				9684759E2A283C17008068FB /* Unsafe */,
 				EC0D36D12A27B4CD009DF78B /* Modal */,
 				962B7A6F2A1F06F200A2633E /* Generics */,
@@ -248,6 +272,7 @@
 				965531D02A14AD1200732BBE /* ScrollViewTest.swift */,
 				ECBA61AF2A0160A400CF0B12 /* ViewModel.swift */,
 				ECB7362029FD7F3D007F6107 /* NavigationManager.swift */,
+				9662FFBC2A36FDEB007A0D2B /* ViewExtension.swift */,
 				ECB7361E29FD7D6E007F6107 /* Test01.swift */,
 				ECB7362229FD7FBA007F6107 /* Test02.swift */,
 				ECB7362429FD827A007F6107 /* Test03.swift */,
@@ -346,6 +371,7 @@
 				964ECACF2A0A2B98009356DA /* BingoPlayer.swift in Sources */,
 				965BCA032A03610B004A3494 /* MyScene.swift in Sources */,
 				9602C4772A1D971300EF38E3 /* MagnificationGestureTest.swift in Sources */,
+				9662FFBD2A36FDEB007A0D2B /* ViewExtension.swift in Sources */,
 				964ECADD2A0A2CD1009356DA /* ComputerPlayer.swift in Sources */,
 				965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */,
 				962B7A712A1F070000A2633E /* GenericsMain.swift in Sources */,
@@ -372,6 +398,7 @@
 				96468E5D2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift in Sources */,
 				962B7A752A1F2ECF00A2633E /* ProtocolTest.swift in Sources */,
 				ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */,
+				9662FFBB2A36FDA0007A0D2B /* NumberTest.swift in Sources */,
 				96B0A9BE2A137C8000B2C90E /* TextTest.swift in Sources */,
 				964ECAD12A0A2BC6009356DA /* BingoData.swift in Sources */,
 				965531D12A14AD1200732BBE /* ScrollViewTest.swift in Sources */,
@@ -379,6 +406,7 @@
 				964ECAD32A0A2BE7009356DA /* BingoDataManager.swift in Sources */,
 				962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */,
 				9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */,
+				9662FFC02A370082007A0D2B /* Logger.swift in Sources */,
 				9693F4AF2A08914800ADAE4A /* SystemImageTest.swift in Sources */,
 				961DC5542A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift in Sources */,
 				ECBA61B02A0160A400CF0B12 /* ViewModel.swift in Sources */,
