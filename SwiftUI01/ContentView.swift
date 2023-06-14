@@ -48,7 +48,7 @@ struct ContentView: View {
                 viewLinks = [
                     ViewLink(title: Label("Gesture", systemImage: "chart.bar.fill"), destination: GestureMain()),
                     ViewLink(title: "Modal", destination: ModalTest()),
-                    ViewLink(title: "Number", destination: NumberTest()),
+                    ViewLink(title: "Number", destination: IntTest()),
                     ViewLink(title: "Generics", destination: GenericsMain()),
                     ViewLink(title: "ScrollView", destination: ScrollViewTest()),
                     ViewLink(title: "Font", destination: FontTest()),

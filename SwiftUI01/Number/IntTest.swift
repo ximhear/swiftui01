@@ -1,13 +1,14 @@
 //
-//  NumberTest.swift
+//  IntTest.swift
 //  SwiftUI01
 //
 //  Created by we on 2023/06/12.
 //
 
 import SwiftUI
+import CoreML
 
-struct NumberTest: View {
+struct IntTest: View {
     @ObservedObject var logger: Logger = .init()
     
     var body: some View {
@@ -210,11 +211,96 @@ struct NumberTest: View {
        
         i8 = 127
         logger.addLog(i8.multipliedReportingOverflow(by: 2))
+        logger.addLog(i8.dividedReportingOverflow(by: 2))
+        logger.addLog(i8.remainderReportingOverflow(dividingBy: 3))
+        
+        logger.addLog(i8.multipliedFullWidth(by: 127))
+        // 32767 * 127
+        logger.addLog(Int16.max.multipliedFullWidth(by: 127))
+        
+        i16 = 127
+        logger.addLog(Int16.max)
+        logger.addLog(i16.dividingFullWidth((63, 32641)))
+        logger.addLog(i16.magnitude)
+        
+        logger.addLog(Int16.isSigned)
+        
+        u16 = 0x00FF
+        logger.addLog(u16)
+        logger.addLog(u16.byteSwapped)
+        
+        u16 = 0xFF00
+        logger.addLog(u16)
+        logger.addLog(u16.byteSwapped)
+        
+        u16 = 0x00FF
+        logger.addLog(u16.littleEndian)
+        logger.addLog(u16.bigEndian)
+        
+        i16 = 0x00FF
+        logger.addLog(i16)
+        // -(0xffff - 0xff00 + 1)
+        logger.addLog(i16.byteSwapped)
+        
+        i16 = .init(bitPattern: 0xFF00)
+        logger.addLog(i16)
+        logger.addLog(i16.byteSwapped)
+        logger.addLog(i16.bitWidth)
+        logger.addLog(i16.nonzeroBitCount)
+        logger.addLog(i16.leadingZeroBitCount)
+        logger.addLog(i16.trailingZeroBitCount)
+        
+        var u32: UInt32 = 0xFF0000EE
+        logger.addLog(u32)
+        logger.addLog(u32.words.count)
+        var u64: UInt64 = 0xFF0000EE
+        logger.addLog(u64)
+        logger.addLog(u64.words.count)
+        logger.addLog(u64.words.startIndex)
+        logger.addLog(u64.words.endIndex)
+        logger.addLog(u64.description)
+        
+        var hasher = Hasher()
+        u64.hash(into: &hasher)
+        logger.addLog(hasher.finalize())
+        
+        u64 = 1
+        logger.addLog(u64)
+        logger.addLog(u64.distance(to: 10))
+        logger.addLog(u64.advanced(by: 3))
+        
+        u64 = 0xFFffFFffFFffFFff
+        logger.addLog((u64 >> 1))
+        logger.addLog((u64 &>> 1))
+        
+        u8 = 2
+        u8 >>= 17
+        logger.addLog(u8)
+        
+        // &가 있을 경우에는, &>> 17은 17 % 8 = 1, 즉 >> 1로 변환된다.
+        u8 = 2
+        u8 &>>= 17
+        logger.addLog(u8)
+        
+        u8 = 2
+        u8 &<<= 17
+        logger.addLog(u8)
+        
+        u8 = 0b11110000 ^ 0b00001111
+        logger.addLog(u8)
+        var binaryString = String(u8, radix: 2)
+        logger.addLog(binaryString)
+        
+        u8 = 0b11111000 ^ 0b00011111
+        logger.addLog(u8)
+        binaryString = String(u8, radix: 2)
+        logger.addLog(binaryString)
+        logger.addLog(String(u8, radix: 16))
     }
 }
 
-struct NumberTest_Previews: PreviewProvider {
+struct IntTest_Previews: PreviewProvider {
     static var previews: some View {
-        NumberTest()
+        IntTest()
     }
 }
