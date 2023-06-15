@@ -31,9 +31,14 @@ struct DoubleTest: View {
         var f16: Float16 = 32
         var f32: Float32 = 32
         var f64: Float64 = 32
-        var f80: Float80 = 32
         log(dd)
+#if arch(x86_64)
+    // This code will be compiled for x86_64 architecture
+        var f80: Float80 = 32
         log(Double(f80))
+#elseif arch(arm64)
+    // This code will be compiled for Apple Silicon (arm64) architecture
+#endif
         
         //TODO: 3.2 * 2^-1
         //TODO: Double.radix == 2
