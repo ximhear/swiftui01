@@ -205,6 +205,37 @@ struct DoubleTest: View {
         log(xx)
         let yy = 1.5 + Double.nan
         log(yy)
+        
+        log(Double.ulpOfOne)
+        log(Double.leastNonzeroMagnitude)
+        log(Double(0).ulp)
+        log(Double.leastNormalMagnitude)
+        log(Double.zero)
+        dd = 1.25
+        log(dd.bitPattern)
+        log(String(dd.bitPattern, radix: 16))
+        log(String(dd.significand.bitPattern, radix: 16))
+        log(dd.exponent)
+        log(String(dd.exponentBitPattern, radix: 16))
+        log(Double.significandBitCount)
+        log(Double.exponentBitCount)
+        log(Double.radix)
+        let snan = Double(nan: 1, signaling: true)
+        let nan = Double(nan: 1, signaling: false)
+        log(snan)
+        log(nan)
+        log(snan.isNaN)
+        log(snan.isSignalingNaN)
+        log(nan.isSignalingNaN)
+        log(snan == snan)
+        
+        dd = 0
+        log(dd.isZero)
+        log(dd.isFinite)
+        log(Double.infinity.isInfinite)
+        
+        dd = 2.2
+        log(dd.isNormal)
     }
     
     func log(_ message: @autoclosure () -> Any? = "", lineNumber: Int = #line) {
