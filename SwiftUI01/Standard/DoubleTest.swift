@@ -241,6 +241,20 @@ struct DoubleTest: View {
         
         dd = 2.2
         log(dd.isNormal)
+        log(dd.floatingPointClass)
+        dd = .infinity
+        dd.negate()
+        log(dd.floatingPointClass)
+        log(nan.floatingPointClass)
+        log(snan.floatingPointClass)
+#if arch(x86_64)
+    // This code will be compiled for x86_64 architecture
+        f80 = Float80.infinity
+        log(f80.isCanonical)
+        log(f80.floatingPointClass)
+#elseif arch(arm64)
+    // This code will be compiled for Apple Silicon (arm64) architecture
+#endif
     }
     
     func log(_ message: @autoclosure () -> Any? = "", lineNumber: Int = #line) {
