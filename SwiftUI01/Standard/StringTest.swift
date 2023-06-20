@@ -171,7 +171,29 @@ struct StringTest: View {
         let vowels: Set<Character> = ["a", "e", "i", "o", "u"]
         let disemvoweled = String(str.lazy.filter { !vowels.contains($0) })
         logger.addLog(disemvoweled)
-        logger.addLog(String(["1", "23"]))
+        
+        let temp01 = ["1", "2", "345"]
+        let temp02 = LosslessStringArray(array: temp01)
+        let temp03: [Character] = ["1", "2", "3"]
+        logger.addLog(type(of: temp01))
+        logger.addLog(temp01 is CustomStringConvertible)
+        logger.addLog(temp02 is LosslessStringConvertible)
+        logger.addLog(temp03 is LosslessStringConvertible)
+        logger.addLog(temp03 is (any Sequence))
+        logger.addLog("Hello" is LosslessStringConvertible)
+        logger.addLog("Hello" is (any Sequence))
+        //TODO: init<T>(_ value: T) where T : LosslessStringConvertible
+        logger.addLog(String.init(temp02))
+        //TODO: init<S>(_ other: S) where S : LosslessStringConvertible, S : Sequence, S.Element == Character
+        logger.addLog(String.init("Hello"))
+        
+        var subStr = str[..<str.index(str.startIndex, offsetBy: 5)]
+        logger.addLog(type(of: subStr))
+        logger.addLog(subStr)
+        logger.addLog(String.init(subStr))
+        logger.addLog(String.init(repeating: "Hello", count: 3))
+        logger.addLog(String.init(repeating: Character("C"), count: 3))
+        logger.addLog(String.init(repeating: "C" as Character, count: 3))
     }
 }
 
@@ -180,3 +202,20 @@ struct StringTest_Previews: PreviewProvider {
         StringTest()
     }
 }
+
+struct LosslessStringArray: LosslessStringConvertible {
+    var description: String {
+        return array.joined(separator: ",")
+    }
+
+    let array: [String]
+
+    init?(_ description: String) {
+        self.array = description.components(separatedBy: ",")
+    }
+
+    init(array: [String]) {
+        self.array = array
+    }
+}
+
