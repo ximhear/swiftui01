@@ -25,4 +25,8 @@ class Logger: ObservableObject {
         print("\(lineNumber) : \(notNilObj(message()))")
         logs.append("\(lineNumber) : \(notNilObj(message()))")
     }
+    
+    func log(_ message: @autoclosure () -> Any? = "", lineNumber: Int = #line) {
+        addLog(message(), lineNumber: lineNumber)
+    }
 }

@@ -194,6 +194,193 @@ struct StringTest: View {
         logger.addLog(String.init(repeating: "Hello", count: 3))
         logger.addLog(String.init(repeating: Character("C"), count: 3))
         logger.addLog(String.init(repeating: "C" as Character, count: 3))
+        
+        //TODO: init(unsafeUninitializedCapacity:initializingUTF8With:)
+        initializingUTF8With()
+        
+        //TODO: init(_ scalar: Unicode.Scalar)
+        logger.log(String(Unicode.Scalar.init(65)))
+//        logger.log(String(Unicode.Scalar(unicodeScalarLiteral: "🌍")))
+//        let unicodeScalar: Unicode.Scalar = "🌍"
+//        logger.log(unicodeScalar)
+        
+        //TODO: init(data:encoding:)
+        if let data = name.data(using: .utf8),
+           let str = String.init(data: data, encoding: .utf8) {
+            logger.log(str)
+        }
+        
+        //TODO: init(validatingUTF8:)
+        initValidatingUTF8()
+       
+        //TODO: init(utf16CodeUnits:count:)
+        initUtf16CodeUnits()
+        
+        //TODO: init(decoding:as:)
+        initDecodingAs()
+        
+        //TODO: https://developer.apple.com/documentation/swift/string#creating-a-string-using-formats
+        //TODO: init(format:_:)
+        initFormat()
+        
+        //TODO: init(bytes:encoding:)
+        initBytesEncoding()
+    }
+    
+    func initBytesEncoding() {
+        logger.log(String(bytes: [65, 66, 67], encoding: .ascii))
+        logger.log(String(bytes: [65, 66, 67], encoding: .utf8))
+        
+        let str = "Cafe\u{301} 🌍 Marie Curie"
+        logger.log(Array(str.utf8))
+        logger.log(String(bytes: Array(str.utf8), encoding: .ascii))
+        logger.log(String(bytes: Array(str.utf8), encoding: .utf8))
+        
+        //TODO: 16 bit 유니코드를 8 bit 배열에 넣고, 이를 utf16으로 디코딩시켜본다.
+        logger.log(Array(str.utf16))
+        logger.log(Array(str.utf16).map { $0.bigEndian })
+        Array(str.utf16).withUnsafeBytes { rp in
+            logger.log(type(of: rp))
+            logger.log(rp is (any Sequence))
+            logger.log(String(bytes: rp, encoding: .utf16))
+        }
+        //TODO: 기본이 little endian이어서 big endian으로 바이트 순서를 바꾸니 제대로 나온다.
+        Array(str.utf16).map { $0.bigEndian }.withUnsafeBytes { rp in
+            logger.log(String(bytes: rp, encoding: .utf16))
+        }
+    }
+    
+    func initFormat() {
+        logger.log(String(format: "%d", Int32(10)))
+        logger.log(String(format: "%d", Int64(11)))
+        logger.log(String(format: "%f", Float(12)))
+        logger.log(String(format: "%f", Double(13)))
+        logger.log(String(format: "%.3f", Double(13)))
+        logger.log(String(format: "%@", String("100")))
+        logger.log(String(format: "%03d", Int32(10)))
+        logger.log(String(format: "%p", Int32(8)))
+        logger.log(String(format: "%p", Int32(0xA18)))
+        let hexStr = String(0xA88924E3F, radix: 16, uppercase: true)
+        logger.log(hexStr)
+        let paddedHexStr: String
+        if hexStr.count % 2 == 0 {
+           paddedHexStr = hexStr
+        }
+        else {
+            paddedHexStr = "0" + hexStr
+        }
+        logger.log(paddedHexStr)
+        let arr = Array(paddedHexStr)
+        logger.log(arr)
+        
+        var index = paddedHexStr.startIndex
+        while index < paddedHexStr.endIndex {
+            let temp = paddedHexStr.index(index, offsetBy: 2)
+            let str = paddedHexStr[index..<temp]
+            logger.log(str)
+            index = temp
+        }
+        
+        logger.log(String(format: "%d - %d - %d", arguments: [1, 2, 3]))
+        logger.log(Locale.current)
+        logger.log(String.init(format: "%d %@", locale: .current, 10, Date.now as CVarArg))
+        let l = Locale.init(identifier: "ko_KR")
+        logger.log(String.init(format: "%d %@", locale: l, 10, Date.now as CVarArg))
+        
+        var components = Locale.Components(languageCode: "ko", languageRegion: "KR")
+        components.calendar = Calendar.Identifier.buddhist
+        logger.log(Locale.Collation.availableCollations.map { $0.identifier } )
+        components.collation = Locale.Collation("compact")
+        components.hourCycle = Locale.HourCycle.oneToTwentyFour
+        components.timeZone = TimeZone(identifier: "America/Los_Angeles")
+        components.region = Locale.Region("US")
+        let l1 = Locale(components: components)
+        logger.log(String.init(format: "%d %@", locale: l1, 10, Date.now as CVarArg))
+        logger.log(String.localizedStringWithFormat("%@", Date.now as CVarArg))
+        logger.log("\(Date.now)")
+    }
+    
+    func initDecodingAs() {
+        let str = "🌍 Marie Curie"
+        let scalars = str.unicodeScalars.map( {$0} )
+        // 어떻게 init를 사용하지는 모르겠음.
+    }
+    
+    func initUtf16CodeUnits() {
+        let str = "🌍 Marie Curie"
+        let arr = str.utf16.map { $0 }
+        logger.log(type(of: arr))
+        logger.log(String.init(utf16CodeUnits: arr, count: arr.count))
+    }
+    
+    func initValidatingUTF8() {
+//        let validUTF8: [UInt8] = [0x43, 0x61, 0x66, 0xC3, 0xA9]
+        let c: CChar = -61
+        let uc: UInt8 = .init(bitPattern: c)
+        logger.log(255 - 61 + 1)
+        logger.log(uc)
+        logger.log(0xC3)
+        logger.log(0xA9)
+        let validUTF8: [CChar] = [67, 97, 102, -61, -87, 0]
+        logger.log(String(validatingUTF8: validUTF8))
+        validUTF8.withUnsafeBytes { urbp in
+            if let p = urbp.baseAddress?.bindMemory(to: CChar.self, capacity: urbp.count) {
+                logger.log(String(validatingUTF8: p))
+            }
+        }
+        validUTF8.withUnsafeBufferPointer { ubp in
+            if let p = ubp.baseAddress {
+                logger.log(String(validatingUTF8: p))
+            }
+        }
+        validUTF8.withUnsafeBufferPointer { ptr in
+            let s = String(validatingUTF8: ptr.baseAddress!)
+            logger.log(s)
+        }
+        // Prints "Optional("Café")"
+
+
+        let invalidUTF8: [CChar] = [67, 97, 102, -61, 0]
+        invalidUTF8.withUnsafeBufferPointer { ptr in
+            let s = String(validatingUTF8: ptr.baseAddress!)
+            logger.log(s)
+        }
+        // Prints "nil"
+    }
+    
+    func initializingUTF8With() {
+        let validUTF8: [UInt8] = [0x43, 0x61, 0x66, 0xC3, 0xA9]
+        let invalidUTF8: [UInt8] = [0x43, 0x61, 0x66, 0xC3]
+        
+        let str = String.init(unsafeUninitializedCapacity: validUTF8.count) { umbp in
+            logger.log(umbp.count)
+            let _ = umbp.initialize(from: validUTF8)
+            return validUTF8.count
+        }
+        logger.log(str)
+
+        let cafe1 = String(unsafeUninitializedCapacity: validUTF8.count) {
+            _ = $0.initialize(from: validUTF8)
+            return validUTF8.count
+        }
+        logger.log(cafe1)
+        // cafe1 == "Café"
+
+
+        let cafe2 = String(unsafeUninitializedCapacity: invalidUTF8.count) {
+            _ = $0.initialize(from: invalidUTF8)
+            return invalidUTF8.count
+        }
+        logger.log(cafe2)
+        // cafe2 == "Caf�"
+
+
+        let empty = String(unsafeUninitializedCapacity: 16) { _ in
+            // Can't initialize the buffer (e.g. the capacity is too small).
+            return 0
+        }
+        logger.log(empty)
+        // empty == ""
     }
 }
 
