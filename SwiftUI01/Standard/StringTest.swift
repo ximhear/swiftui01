@@ -248,6 +248,7 @@ struct StringTest: View {
         Array(str.utf16).map { $0.bigEndian }.withUnsafeBytes { rp in
             logger.log(String(bytes: rp, encoding: .utf16))
         }
+        //TODO: 메모리를 찍어보자.
     }
     
     func initFormat() {
