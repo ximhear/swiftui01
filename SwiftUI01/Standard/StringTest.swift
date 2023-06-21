@@ -268,10 +268,100 @@ struct StringTest: View {
         
         //TODO: Removing Substrings
         removeSubstring()
+        
+        //TODO: Changing Case
+        logger.log(str.lowercased())
+        logger.log(str.uppercased())
+        
+        //TODO: Comparing Strings Using Operators
+        compareString()
+        
+        //TODO: Comparing Characters
+        compareCharacters()
+        
+    }
+    
+    func compareCharacters() {
+        
+    }
+    
+    func compareString() {
+        let str1 = "Cafe\u{301}"
+        let str2 = "Café"
+        logger.log(str1 == str2)
+        
+        let str3 = str2[str2.startIndex...]
+        logger.log(type(of: str3))
+        logger.log(str1 == str3)
+        
+        var str = "helloggg"
+        logger.log(str ~= "h")
+        logger.log(0...10 ~= 3)
+        logger.log(5 ~= 5)
     }
     
     func removeSubstring() {
+        var str = "01234567890123456789"
+        var index = str.index(after: str.startIndex)
+        str.remove(at: index)
+        logger.log(str)
         
+        str.removeAll()
+        logger.log(str)
+        
+        str = "01234567890123456789"
+        str.removeAll(where: { $0 == "1" })
+        logger.log(str)
+        
+        str.removeFirst()
+        logger.log(str)
+        
+        str.removeFirst(3)
+        logger.log(str)
+        
+        str.removeLast()
+        logger.log(str)
+        
+        str.removeLast(4)
+        logger.log(str)
+        
+        str = "01234567890123456789"
+        index = str.index(str.startIndex, offsetBy: 4)
+        str.removeSubrange(str.startIndex..<index)
+        logger.log(str)
+        
+        str.removeSubrange(..<index)
+        logger.log(str)
+        
+        str.removeSubrange(str.index(str.startIndex, offsetBy: 2)...)
+        logger.log(str)
+        
+        str = "01234567890123456789"
+        logger.log(str.filter({ $0 > "5" }))
+        
+        str = "01234567890123456789"
+        logger.log(str.filter({ $0 < "5" }))
+        
+        str = "01234567890123456789"
+        logger.log(str.drop(while: { $0 < "5" }))
+        
+        str = "01234567890123456789"
+        logger.log(str.drop(while: { $0 > "5" }))
+        
+        str = "01234567890123456789"
+        logger.log(str.dropFirst(5))
+        logger.log(str)
+        
+        str = "01234567890123456789"
+        logger.log(str.dropLast(5))
+        logger.log(str)
+        
+        str = "01234567890123456789"
+        while str.count > 0 {
+            if let c = str.popLast() {
+                logger.log(str)
+            }
+        }
     }
     
     func replaceSubstring() {

@@ -22,11 +22,14 @@ class Logger: ObservableObject {
     }
     
     func addLog(_ message: @autoclosure () -> Any? = "", lineNumber: Int = #line) {
-        print("\(lineNumber) : \(notNilObj(message()))")
-        logs.append("\(lineNumber) : \(notNilObj(message()))")
+        let v = message()
+        print("\(lineNumber) : \(notNilObj(v))")
+        logs.append("\(lineNumber) : \(notNilObj(v))")
     }
     
     func log(_ message: @autoclosure () -> Any? = "", lineNumber: Int = #line) {
-        addLog(message(), lineNumber: lineNumber)
+        let v = message()
+        print("\(lineNumber) : \(notNilObj(v))")
+        logs.append("\(lineNumber) : \(notNilObj(v))")
     }
 }
