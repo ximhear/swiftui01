@@ -22,6 +22,7 @@
 		962B7A752A1F2ECF00A2633E /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */; };
 		962B7A772A1F494700A2633E /* GenericsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A762A1F494700A2633E /* GenericsTest.swift */; };
 		9640EC7B2A42A33900FE7A76 /* Test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9640EC7A2A42A33900FE7A76 /* Test.txt */; };
+		9640EC7D2A42D1BF00FE7A76 /* MyCustomSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9640EC7C2A42D1BF00FE7A76 /* MyCustomSequence.swift */; };
 		96468E5D2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96468E5C2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift */; };
 		964ECAC62A09DC99009356DA /* AsyncImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC52A09DC99009356DA /* AsyncImageTest.swift */; };
 		964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC92A0A031F009356DA /* BingoGameView.swift */; };
@@ -80,6 +81,7 @@
 		962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
 		962B7A762A1F494700A2633E /* GenericsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsTest.swift; sourceTree = "<group>"; };
 		9640EC7A2A42A33900FE7A76 /* Test.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Test.txt; sourceTree = "<group>"; };
+		9640EC7C2A42D1BF00FE7A76 /* MyCustomSequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomSequence.swift; sourceTree = "<group>"; };
 		96468E5C2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeRawBufferPointerTest.swift; sourceTree = "<group>"; };
 		964ECAC52A09DC99009356DA /* AsyncImageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageTest.swift; sourceTree = "<group>"; };
 		964ECAC92A0A031F009356DA /* BingoGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGameView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				962B7A762A1F494700A2633E /* GenericsTest.swift */,
 				962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */,
 				962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */,
+				9640EC7C2A42D1BF00FE7A76 /* MyCustomSequence.swift */,
 			);
 			path = Generics;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				965BCA032A03610B004A3494 /* MyScene.swift in Sources */,
 				9602C4772A1D971300EF38E3 /* MagnificationGestureTest.swift in Sources */,
 				9662FFBD2A36FDEB007A0D2B /* ViewExtension.swift in Sources */,
+				9640EC7D2A42D1BF00FE7A76 /* MyCustomSequence.swift in Sources */,
 				964ECADD2A0A2CD1009356DA /* ComputerPlayer.swift in Sources */,
 				965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */,
 				962B7A712A1F070000A2633E /* GenericsMain.swift in Sources */,

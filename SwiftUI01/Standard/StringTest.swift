@@ -255,6 +255,118 @@ struct StringTest: View {
         //TODO: append
         append()
         
+        logger.log("string" is any Sequence)
+        logger.log("string" + ["s", "u"])
+        logger.log(["s", "u"] + "string")
+        breakTimeForSequence()
+        
+        //TODO: insert
+        insert()
+        
+        //TODO: Replacing Substrings
+        replaceSubstring()
+        
+        //TODO: Removing Substrings
+        removeSubstring()
+    }
+    
+    func removeSubstring() {
+        
+    }
+    
+    func replaceSubstring() {
+        var str = "0123456789"
+        str.replaceSubrange(str.startIndex..<str.index(str.startIndex, offsetBy: 3), with: "AAA")
+        logger.log(str)
+        
+        str = "0123456789"
+        str.replaceSubrange(str.startIndex..<str.index(str.startIndex, offsetBy: 3), with: "AB")
+        logger.log(str)
+        
+        str = "0123456789"
+        str.replaceSubrange(str.startIndex..<str.index(str.startIndex, offsetBy: 3), with: "ABCD")
+        logger.log(str)
+        
+        if let endIndex = str.index(str.startIndex, offsetBy: 100, limitedBy: str.endIndex) {
+            logger.log(endIndex)
+        }
+        
+        str = "0123456789"
+        str.replaceSubrange(..<str.index(str.startIndex, offsetBy: 3), with: "ABCD")
+        logger.log(str)
+        
+        str = "0123456789"
+        str.replaceSubrange(...str.index(str.startIndex, offsetBy: 3), with: "ABCD")
+        logger.log(str)
+        
+        str = "0123456789"
+        str.replaceSubrange(str.index(str.startIndex, offsetBy: 3)..., with: "ABCD")
+        logger.log(str)
+    }
+    
+    func insert() {
+        var str = "0123456789"
+        logger.log(str is any Collection)
+        str.insert("C" as Character, at: str.endIndex)
+        logger.log(str)
+        str.insert(contentsOf: "DD", at: str.endIndex)
+        logger.log(str)
+        str.insert(contentsOf: "FF", at: str.endIndex)
+        logger.log(str)
+        str.insert(contentsOf: ["E", "E"], at: str.endIndex)
+        logger.log(str)
+        
+    }
+    
+    func breakTimeForSequence() {
+        logger.log((6...10) + [1,2,3])
+        logger.log((6...10) is any Sequence)
+        logger.log([1, 2, 3] is any Sequence)
+        logger.log(["A": 32] is any Sequence)
+        logger.log([String: String].Element.self)
+        logger.log(type(of: ["A": 32, 12: "good"]))
+        logger.log(["A": 32, 12: "good"] + [(key: "now", value: Date.now)])
+        logger.log(type(of: ["A": 32, 12: "good"] + [(key: "now", value: Date.now)]))
+        
+        struct ETest: Sequence {
+            typealias Element = (key: Int, value: String)
+
+            let dictionary: [Int: String]
+
+            func makeIterator() -> AnyIterator<Element> {
+                var iterator = dictionary.makeIterator()
+                return AnyIterator {
+                    return iterator.next()
+                }
+            }
+        }
+        logger.log(ETest(dictionary: [100: "100"]).makeIterator())
+        let rr = ETest(dictionary: [100: "100", 300: "330"]) + [(key: 200, value: "200")]
+        logger.log(type(of: rr))
+        logger.log(rr)
+        
+        let s = MyCustomSequence(value: (key: 900, value: "900"))
+        let ss = s + [(key: 200, value: "200")]
+        logger.log(ss)
+        
+        let s1 = MyCustomIntSequence(value: (key: 100, value: "100"))
+        let ss1 = s1 + [(key: 300, value: "300")]
+        logger.log(ss1)
+        
+        func printSequence(_ sequence: any Sequence) {
+            var it = sequence.makeIterator() as any IteratorProtocol
+            var vv = it.next()
+            while vv != nil {
+                logger.log(vv)
+                vv = it.next()
+            }
+        }
+        
+        var s3: [Int: String] = [300: "300", 400: "400"]
+        printSequence(s3)
+        
+        let s4 = [1, 2, 3]
+        printSequence(s4)
     }
     
     func append() {
