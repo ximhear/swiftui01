@@ -21,6 +21,7 @@
 		962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */; };
 		962B7A752A1F2ECF00A2633E /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */; };
 		962B7A772A1F494700A2633E /* GenericsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A762A1F494700A2633E /* GenericsTest.swift */; };
+		9640EC7B2A42A33900FE7A76 /* Test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9640EC7A2A42A33900FE7A76 /* Test.txt */; };
 		96468E5D2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96468E5C2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift */; };
 		964ECAC62A09DC99009356DA /* AsyncImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC52A09DC99009356DA /* AsyncImageTest.swift */; };
 		964ECACA2A0A031F009356DA /* BingoGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964ECAC92A0A031F009356DA /* BingoGameView.swift */; };
@@ -78,6 +79,7 @@
 		962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGenerics.swift; sourceTree = "<group>"; };
 		962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
 		962B7A762A1F494700A2633E /* GenericsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsTest.swift; sourceTree = "<group>"; };
+		9640EC7A2A42A33900FE7A76 /* Test.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Test.txt; sourceTree = "<group>"; };
 		96468E5C2A33128C00740AB9 /* UnsafeRawBufferPointerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeRawBufferPointerTest.swift; sourceTree = "<group>"; };
 		964ECAC52A09DC99009356DA /* AsyncImageTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageTest.swift; sourceTree = "<group>"; };
 		964ECAC92A0A031F009356DA /* BingoGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingoGameView.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				ECB7362429FD827A007F6107 /* Test03.swift */,
 				964ECACD2A0A2B75009356DA /* Bingo */,
 				ECB7361429FD793C007F6107 /* Assets.xcassets */,
+				9640EC7A2A42A33900FE7A76 /* Test.txt */,
 				ECB7361629FD793C007F6107 /* Preview Content */,
 			);
 			path = SwiftUI01;
@@ -357,6 +360,7 @@
 			files = (
 				ECB7361829FD793C007F6107 /* Preview Assets.xcassets in Resources */,
 				ECB7361529FD793C007F6107 /* Assets.xcassets in Resources */,
+				9640EC7B2A42A33900FE7A76 /* Test.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

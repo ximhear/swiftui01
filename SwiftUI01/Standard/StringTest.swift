@@ -225,6 +225,141 @@ struct StringTest: View {
         
         //TODO: init(bytes:encoding:)
         initBytesEncoding()
+        
+        //TODO: init(cString:)
+        initCString()
+        
+        //TODO: LosslessStringConvertible
+        logger.log(String(LosslessArray.init(array: [1, 2])))
+        
+        //TODO: TextOutputStreamable
+        logger.log(Int(10) is TextOutputStreamable)
+        logger.log("String" is TextOutputStreamable)
+        logger.log(String(describing: TextOutputStreamableArray.init(array: ["1", "2"])))
+        
+        //TODO: CustomStringConvertible
+        logger.log(String(describing: Int(100) as CustomStringConvertible))
+        
+        //TODO: CustomStringConvertible, TextOutputStreamable, CustomDebugStringConvertible
+        logger.log(String(describing: Ggg(value: 123)))
+        //TODO: reflecting, 아마도 CustomDebugStringConvertible 우선
+        logger.log(String(reflecting: Ggg(value: 123)))
+        
+        //TODO: https://developer.apple.com/documentation/swift/string#creating-a-string-from-a-file-or-url
+        //TODO: init(contentsOf:)
+        initContentOf()
+        
+        //TODO: write
+        write()
+        
+        //TODO: append
+        append()
+        
+    }
+    
+    func append() {
+       var str = "Today is "
+        str.append("\(Date.now.description(with: .init(identifier: "ko-KR")))")
+        logger.log(str)
+        
+        var globe = "Globe "
+        logger.log(globe.utf8CString.capacity)
+        globe.append(Character("🌍"))
+        logger.log(globe)
+        
+        globe.append(contentsOf: "ggg")
+        logger.log(globe)
+        
+        let sub = str[str.startIndex..<str.index(str.startIndex, offsetBy: 5)]
+        globe.append(contentsOf: sub)
+        logger.log(globe)
+         
+        let chrs = [Character("a"), Character("b")]
+        globe.append(contentsOf: chrs)
+        logger.log(globe)
+        
+        for _ in 0..<2 {
+            globe.append(Character("🌍"))
+            logger.log("\(globe.utf8.count) - \(globe.utf8CString.capacity)")
+        }
+        
+        globe.reserveCapacity(128)
+        
+        for _ in 0..<2 {
+            globe.append(Character("🌍"))
+            logger.log("\(globe.utf8.count) - \(globe.utf8CString.capacity)")
+        }
+        
+        logger.log(globe.utf8CString)
+    }
+    
+    func write() {
+        var str = "Hello"
+        str.write(", friend")
+        logger.log(str)
+        
+        var a = TextOutputStreamArray(array: [1, 2])
+        "ggg".write(to: &a)
+        logger.log(String(describing: a))
+    }
+    
+    func initContentOf() {
+        guard let url = Bundle.main.url(forResource: "Test", withExtension: "txt") else {
+            return
+        }
+        logger.log(url.absoluteString)
+        do {
+            let str = try String.init(contentsOf: url)
+            logger.log(str)
+            let str1 = try String.init(contentsOf: url, encoding: .utf8)
+            logger.log(str1)
+            let str2 = try String.init(contentsOf: url, encoding: .ascii)
+            logger.log(str2)
+            var encoding: String.Encoding = .isoLatin1
+            let str3 = try String.init(contentsOf: url, usedEncoding: &encoding)
+            logger.log(encoding)
+            logger.log(str3)
+        }
+        catch {
+            logger.log(error)
+        }
+    }
+    
+    func initCString() {
+        // CChar == Int8
+        let validUTF8: [CChar] = [67, 97, 102, -61, -87, 0]
+        validUTF8.withUnsafeBufferPointer { p in
+            logger.log(type(of: p))
+            if let cstr = p.baseAddress {
+                logger.log(type(of: cstr))
+                logger.log(String.init(cString: cstr))
+                
+                cstr.withMemoryRebound(to: UInt8.self, capacity: p.count) { pointer in
+                    logger.log(type(of: pointer))
+                    logger.log(String.init(cString: pointer))
+                }
+            }
+        }
+        validUTF8.withUnsafeBufferPointer { ptr in
+            let s = String(cString: ptr.baseAddress!)
+            print(s)
+        }
+        // Prints "Café"
+
+
+        let invalidUTF8: [CChar] = [67, 97, 102, -61, 0]
+        invalidUTF8.withUnsafeBufferPointer { p in
+            if let cstr = p.baseAddress {
+                logger.log(String.init(cString: cstr))
+            }
+        }
+        invalidUTF8.withUnsafeBufferPointer { ptr in
+            let s = String(cString: ptr.baseAddress!)
+            print(s)
+        }
+        // Prints "Caf�"
+        
+        
     }
     
     func initBytesEncoding() {
@@ -246,9 +381,12 @@ struct StringTest: View {
         }
         //TODO: 기본이 little endian이어서 big endian으로 바이트 순서를 바꾸니 제대로 나온다.
         Array(str.utf16).map { $0.bigEndian }.withUnsafeBytes { rp in
+            logger.log(rp[0])
+            logger.log(rp[1])
+            logger.log(rp[8])
+            logger.log(rp[9])
             logger.log(String(bytes: rp, encoding: .utf16))
         }
-        //TODO: 메모리를 찍어보자.
     }
     
     func initFormat() {
@@ -407,3 +545,65 @@ struct LosslessStringArray: LosslessStringConvertible {
     }
 }
 
+struct LosslessArray<T: LosslessStringConvertible>: LosslessStringConvertible {
+    var description: String {
+        return array.map { $0.description }.joined(separator: ", ")
+    }
+
+    let array: [T]
+
+    init?(_ description: String) {
+        self.array = description.components(separatedBy: ",").compactMap{ T($0) }
+    }
+
+    init(array: [T]) {
+        self.array = array
+    }
+}
+
+fileprivate struct TextOutputStreamableArray<T: TextOutputStreamable>: TextOutputStreamable {
+    
+    let array: [T]
+    
+    init(array: [T]) {
+        self.array = array
+    }
+    
+    func write<Target>(to target: inout Target) where Target : TextOutputStream {
+        for x in array {
+            x.write(to: &target)
+            x.write(to: &target)
+        }
+    }
+}
+
+fileprivate struct Ggg: TextOutputStreamable, CustomStringConvertible, CustomDebugStringConvertible {
+    var debugDescription: String {
+        "debug \(value.description)"
+    }
+    
+    let value: Int
+    func write<Target>(to target: inout Target) where Target : TextOutputStream {
+        target.write(String(value))
+        target.write(String(value))
+        target.write(String(value))
+    }
+    
+    var description: String {
+        value.description
+    }
+}
+
+fileprivate struct TextOutputStreamArray: TextOutputStream, TextOutputStreamable {
+    
+    var array: [CustomStringConvertible]
+    mutating func write(_ string: String) {
+        array.append(string as CustomStringConvertible)
+    }
+    
+    func write<Target>(to target: inout Target) where Target : TextOutputStream {
+        for x in array {
+            target.write(x.description)
+        }
+    }
+}
