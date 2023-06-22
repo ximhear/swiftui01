@@ -283,6 +283,75 @@ struct StringTest: View {
         //TODO: Creating and Applying Differences
         differencesApplying()
         
+        logger.log(str)
+        logger.log(str.hasPrefix("The ra"))
+        logger.log(str.hasSuffix("he plain."))
+        
+        //TODO: Finding Characters
+        findCharacters()
+        
+    }
+    
+    private func findCharacters() {
+        
+        let str = "This example checks to see whether a favorite actor is in an array storing a movie’s cast."
+        logger.log(str.contains("movie"))
+        do {
+            let regex = try Regex("^this")
+            logger.log(str.contains(regex))
+            let regex1 = try Regex("This")
+            logger.log(str.contains(regex1))
+        }
+        catch {
+            logger.log(error)
+        }
+        
+        var digit = "1234567890"
+        var result = digit.allSatisfy { c in
+            c.isNumber
+        }
+        logger.log(result)
+        logger.log(digit.contains { $0.isLetter })
+        
+        digit = "123Hello"
+        result = digit.allSatisfy { $0.isNumber }
+        logger.log(result)
+        result = digit.contains {
+            return $0.isLetter
+        }
+        logger.log(result)
+        
+        let c = digit.first {
+            $0.isLetter
+        }
+        logger.log(c)
+        
+        var index = digit.firstIndex(of: "H")
+        logger.log(index)
+        let str2 = "Caféééééé"
+        let index1 = str2.firstIndex(of: "é")
+        logger.log(index1)
+        logger.log(index1?.samePosition(in: str2.utf8))
+        logger.log(index1?.samePosition(in: str2.utf16))
+        if let index2 = index1?.samePosition(in: str2.utf16) {
+            logger.log(String(str2.utf16[index2...]))
+        }
+        if let index2 = index1?.samePosition(in: str.utf16) {
+            logger.log(String(str.utf16[index2...]))
+        }
+        
+        if let index = digit.firstIndex(where: { $0.isLetter }) {
+            logger.log(digit[index...])
+        }
+        
+        if let index = str2.lastIndex(of: "f") {
+            logger.log(str2[...index])
+        }
+        
+        if let index = digit.lastIndex(where: { $0.isNumber }) {
+            logger.log(digit[...index])
+        }
+        
     }
     
     func differencesApplying() {
