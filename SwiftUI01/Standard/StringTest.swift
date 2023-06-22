@@ -8,6 +8,7 @@
 import SwiftUI
 import Foundation
 import System
+import RegexBuilder
 
 struct StringTest: View {
     @ObservedObject var logger: Logger = .init()
@@ -279,12 +280,135 @@ struct StringTest: View {
         //TODO: Comparing Characters
         compareCharacters()
         
-    }
-    
-    func compareCharacters() {
+        //TODO: Creating and Applying Differences
+        differencesApplying()
         
     }
     
+    func differencesApplying() {
+        let str1 = "hello"
+        let str2 = "hello호"
+        let diff = str1.difference(from: str2)
+        logger.log(diff.insertions)
+        logger.log(diff.removals)
+        let inversed = diff.inverse()
+        logger.log(inversed.insertions)
+        logger.log(inversed.removals)
+        
+        let str3 = "ABCDEFGHIJK"
+        let str4 = str3.applying(diff)
+        let str5 = str3.applying(inversed)
+        logger.log(str3)
+        logger.log(str4)
+        logger.log(str5)
+        
+        let str6 = "GGG"
+        let str7 = str6.applying(diff)
+        let str8 = str6.applying(inversed)
+        logger.log(str6)
+        logger.log(str7)
+        logger.log(str8)
+        
+        let a = [1, 2, 11, 22]
+        let b = [1, 2, 3, 4]
+        let c = [100, 200, 300, 400, 500, 600]
+        let diff1 = a.difference(from: b)
+        logger.log(diff1.insertions)
+        logger.log(diff1.removals)
+        let d = c.applying(diff1)
+        logger.log(d)
+    }
+    
+    func compareCharacters() {
+        let str1 = "Cafe\u{301}"
+        let str2 = "Café"
+        let str3 = "Caf\u{00E9}"
+        logger.log(str1.elementsEqual(str2))
+        logger.log(str1.elementsEqual(str3))
+        let chars = str2.map { $0 }
+        let chars1 = str1.unicodeScalars.map { $0.value }.compactMap { Unicode.Scalar($0) }.map { Character($0) }
+        let chars2 = str2.unicodeScalars.map { $0.value }.compactMap { Unicode.Scalar($0) }.map { Character($0) }
+        let chars3 = str3.unicodeScalars.map { $0.value }.compactMap { Unicode.Scalar($0) }.map { Character($0) }
+        logger.log(chars)
+        logger.log(chars1)
+        logger.log(chars2)
+        logger.log(chars3)
+        
+        logger.log(str1.elementsEqual(chars))
+        logger.log(str2.elementsEqual(chars))
+        logger.log(str3.elementsEqual(chars))
+        
+        logger.log(str1.elementsEqual(chars1))
+        logger.log(str1.elementsEqual(chars3))
+        
+        logger.log(chars.elementsEqual(chars3))
+        logger.log(chars1.elementsEqual(chars3))
+        
+        logger.log(str1[str1.index(before: str1.endIndex)])
+        logger.log(str2[str2.index(before: str2.endIndex)])
+        logger.log(str3[str3.index(before: str3.endIndex)])
+        
+        logger.log(str1[str1.index(before: str1.endIndex)].unicodeScalars.count)
+        logger.log(str2[str2.index(before: str2.endIndex)].unicodeScalars.count)
+        logger.log(str3[str3.index(before: str3.endIndex)].unicodeScalars.count)
+        
+        let lower = "hello nice"
+        let upper = "HELLO NICE"
+        let r1 = lower.elementsEqual(upper) { c1, c2 in
+            c1.lowercased() == c2.lowercased()
+        }
+        logger.log(r1)
+        do {
+            let r = try lower.elementsEqual(upper) { c1, c2 in
+                throw "elementsEqual error"
+            }
+            logger.log(r)
+        } catch {
+            logger.log(error)
+        }
+
+        let koreanFlag = "\u{1F1F0}\u{1F1F7}"
+        logger.log(koreanFlag)
+        logger.log(koreanFlag.count)
+        logger.log(koreanFlag.unicodeScalars.count)
+        
+        logger.log([1, 2, 3].elementsEqual([1, 2, 3]))
+        
+        logger.log(str1.starts(with: "Caf"))
+        logger.log(str1.starts(with: ""))
+       
+        do {
+            let simpleDigits = try Regex("C")
+            logger.log(str1.starts(with: simpleDigits))
+            logger.log(str1.starts(with: RegexBuilder.Anchor.startOfLine))
+            logger.log(str1.starts(with: CharacterClass.generalCategory(.lowercaseLetter)))
+            
+            let str1 = "ABCDEFGHIJK"
+            let str2 = "abc"
+            let r = str1.starts(with: str2) { c1, c2 in
+                c1 == c2
+            }
+            logger.log(r)
+            let r1 = str1.starts(with: str2) { c1, c2 in
+                c1.lowercased() == c2.lowercased()
+            }
+            logger.log(r1)
+        } catch {
+            logger.log(error)
+        }
+        
+        let a = [1, 2, 2, 2]
+        let b = [1, 2, 3, 4]
+        logger.log(a.lexicographicallyPrecedes(b))
+        logger.log(b.lexicographicallyPrecedes(b))
+        logger.log(str1.lexicographicallyPrecedes(str3))
+        logger.log(str3.lexicographicallyPrecedes(str1))
+        logger.log(str1.unicodeScalars.map { $0.value })
+        logger.log(str3.unicodeScalars.map { $0.value })
+        logger.log(chars1.lexicographicallyPrecedes(chars3))
+    }
+
+
     func compareString() {
         let str1 = "Cafe\u{301}"
         let str2 = "Café"
@@ -808,4 +932,8 @@ fileprivate struct TextOutputStreamArray: TextOutputStream, TextOutputStreamable
             target.write(x.description)
         }
     }
+}
+
+extension String: Error {
+    
 }
