@@ -290,6 +290,12 @@ struct StringTest: View {
         //TODO: Finding Characters
         findCharacters()
         
+        //TODO: Getting Substrings
+        
+    }
+    
+    private func getSubstrings() {
+        
     }
     
     private func findCharacters() {
@@ -351,7 +357,11 @@ struct StringTest: View {
         if let index = digit.lastIndex(where: { $0.isNumber }) {
             logger.log(digit[...index])
         }
-        
+        logger.log(digit.max())
+        logger.log(digit.max()?.unicodeScalars.map { $0.value }.first)
+        logger.log(digit.max("C", "H"))
+        logger.log(digit.max { $0 < $1 })
+        logger.log(digit.max { $0 > $1 })
     }
     
     func differencesApplying() {
