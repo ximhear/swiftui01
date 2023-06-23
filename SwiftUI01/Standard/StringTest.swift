@@ -291,11 +291,29 @@ struct StringTest: View {
         findCharacters()
         
         //TODO: Getting Substrings
+        getSubstrings()
         
     }
     
     private func getSubstrings() {
+        let str = "12345678901234567890"
+        let endIndex = String.Index.init(utf16Offset: 9, in: str)
+        logger.log(str[str.index(after: str.startIndex)..<endIndex])
+        logger.log(str[endIndex...])
         
+        logger.log(str.prefix(3))
+        logger.log(str.prefix(30))
+        
+        logger.log(str.prefix(through: str.index(str.startIndex, offsetBy: 9))) // 포함, ...
+        logger.log(str.prefix(upTo: str.index(str.startIndex, offsetBy: 9))) // 미포함, ...<
+        let r = str.prefix { c in
+            c.unicodeScalars.first!.value < 57
+        }
+        logger.log(r)
+        
+        logger.log(str.suffix(3))
+        logger.log(str.suffix(from: endIndex))
+        logger.log(str.suffix(from: str.endIndex))
     }
     
     private func findCharacters() {
