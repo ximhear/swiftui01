@@ -293,6 +293,42 @@ struct StringTest: View {
         //TODO: Getting Substrings
         getSubstrings()
         
+        //TODO: Splitting a String
+        splitString()
+       
+        //TODO: Getting Characters and Bytes
+        getCharactersAndBytes()
+        
+    }
+    
+    private func getCharactersAndBytes() {
+        let str = "123ABCD EF5 G6HIJ KL7L8M9NO"
+        logger.log(str.first)
+        logger.log(str.last)
+        logger.log(str.first { $0.isLetter })
+        logger.log(str.last{$0.isNumber})
+        
+        var g = SystemRandomNumberGenerator()
+        var m = MyRandomNumberGenerator()
+        for _ in 0..<10 {
+            let v0 = str.randomElement()!
+            let v1 = str.randomElement(using: &g)!
+            let v2 = str.randomElement(using: &m)!
+            let v3 = str.randomElement(using: &m)!
+            logger.log("\(v0), \(v1), \(v2), \(v3)")
+        }
+    }
+    
+    private func splitString() {
+        let line = "BLANCHE:   I don't want realism. I want magic!"
+        logger.log(line.split(separator: " "))
+        logger.log(line.split(separator: " ", maxSplits: 1))
+        logger.log(line.split(separator: " ", omittingEmptySubsequences: false))
+        
+        let str = "123ABCD EF5 G6HIJ KL7L8M9NO"
+        logger.log(str.split(omittingEmptySubsequences: false, whereSeparator: { c in
+            c.isNumber
+        }))
     }
     
     private func getSubstrings() {
