@@ -310,7 +310,17 @@ struct StringTest: View {
     }
     
     private func transformStringCharacters() {
+        let str = "abc_Café_한_글"
+        // convert character to uint32
+        let uint32s = str.unicodeScalars.map { $0.value }
+        logger.log(uint32s)
         
+        let nonAsciis = str.compactMap { c -> Character? in
+            let ret: Character? = c.isASCII ? nil : c
+            return ret
+        }
+        logger.log(nonAsciis)
+        logger.log(String(nonAsciis))
     }
     
     private func workWithStringViews() {
