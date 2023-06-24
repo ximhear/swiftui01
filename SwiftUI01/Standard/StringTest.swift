@@ -299,6 +299,142 @@ struct StringTest: View {
         //TODO: Getting Characters and Bytes
         getCharactersAndBytes()
         
+        //TODO: Working with Encodings
+        workWithEncodings()
+        
+        //TODO: Working with String Views
+        workWithStringViews()
+        
+        //TODO: Transforming a String’s Characters
+        transformStringCharacters()
+    }
+    
+    private func transformStringCharacters() {
+        
+    }
+    
+    private func workWithStringViews() {
+        let str = "abc_Café_한_글"
+        logger.log(str.unicodeScalars)
+        let subStr = str[(str.firstIndex(of: "C")!)...]
+        logger.log(type(of: subStr))
+        logger.log(subStr)
+        logger.log(String(subStr.unicodeScalars))
+        var startIndex = str.index(str.startIndex, offsetBy: 4)
+        let a = str.unicodeScalars[startIndex...]
+        logger.log(type(of: a))
+        logger.log(String(a))
+        
+        startIndex = str.utf8.index(str.startIndex, offsetBy: 4)
+        let b = str.utf8[startIndex...]
+        logger.log(type(of: b))
+        logger.log(String(b))
+        
+        startIndex = str.utf8.index(str.utf8.startIndex, offsetBy: 7)
+        let c = str.utf8[startIndex...]
+        logger.log(type(of: c))
+        logger.log(String(c))
+        
+        var index1 = str.index(str.startIndex, offsetBy: 8)
+        var index2 = str.utf8.index(str.utf8.startIndex, offsetBy: 8)
+        var index3 = str.utf16.index(str.utf16.startIndex, offsetBy: 8)
+        logger.log(str[index1...])
+        logger.log(str[index2...])
+        logger.log(str[index3...])
+        
+        logger.log("---")
+        index2 = str.utf8.index(str.utf8.startIndex, offsetBy: 9)
+        index3 = str.utf16.index(str.utf16.startIndex, offsetBy: 9)
+        logger.log(str[index2...])
+        logger.log(str[index3...])
+        
+        logger.log("---")
+        logger.log(str.utf8.map {$0})
+        for (index, x) in str.utf8.enumerated() {
+            logger.log("\(index) - \(x)")
+        }
+        index2 = str.utf8.index(str.utf8.startIndex, offsetBy: 12)
+        // 12번은 '한'의 중간 인덱스이지만 '한'의 처음 인덱스처럼 처리된듯하다.
+        logger.log(str[index2...])
+        
+        logger.log("---")
+        for (index, x) in str.utf16.enumerated() {
+            logger.log("\(index) - \(x)")
+        }
+        index2 = str.utf16.index(str.utf16.startIndex, offsetBy: 10)
+        logger.log(str[index2...])
+        // utf16의 10은 utf8의 11번째에 해당하니, 12번은 '한'의 중간 인덱스이지만 '한'의 처음 인덱스처럼 처리된듯하다.
+        index2 = str.utf8.index(index2, offsetBy: 1)
+        logger.log(str[index2...])
+    }
+    
+    private func workWithEncodings() {
+        logger.log(String.availableStringEncodings)
+        logger.log(String.availableStringEncodings.map {$0.rawValue})
+        logger.log(String.defaultCStringEncoding.rawValue)
+        let names = String.availableStringEncodings.compactMap({ (encoding: String.Encoding) -> String? in
+            let name = String.localizedName(of: encoding)
+            if name.isEmpty {
+                return nil
+            }
+            return name
+        })
+        logger.log(names)
+        
+        var str = "123ABCD EF5 G6HIJ KL7L8M9NO"
+        logger.log(str.isContiguousUTF8)
+        str.makeContiguousUTF8()
+        logger.log(str)
+        
+        let len = str.withUTF8 { p in
+            logger.log(type(of: p))
+            if let pointer = p.baseAddress {
+                return strlen(pointer)
+            }
+            return 0
+        }
+        logger.log(len)
+        
+        str = "1234567890"
+        // to UInt32 array
+        str.withUTF8 { p in
+            for x in p {
+                logger.log(String(x, radix: 16))
+            }
+        }
+        let ret = str.withUTF8 { p -> String? in
+            logger.log(type(of: p))
+            logger.log(p.count)
+            
+            var pp: UnsafeMutableBufferPointer = .init(mutating: p)
+            logger.log(pp)
+            pp[0] = 65
+            pp[1] = 65
+            
+            p.withMemoryRebound(to: UInt16.self) { buffer in
+                for x in buffer {
+                    logger.log(String(x, radix: 16))
+                }
+            }
+            p.withMemoryRebound(to: UInt32.self) { buffer in
+                for x in buffer {
+                    logger.log(String(x, radix: 16))
+                }
+            }
+            p.withMemoryRebound(to: UInt64.self) { buffer in
+                for x in buffer {
+                    logger.log(String(x, radix: 16))
+                }
+            }
+            let rp = UnsafeRawPointer(p.baseAddress)
+            if let a = rp?.bindMemory(to: CChar.self, capacity: p.count) {
+                return String(utf8String: a)
+//                return String(cString: a)
+            }
+            return nil
+        }
+        logger.log(str)
+        logger.log(ret)
     }
     
     private func getCharactersAndBytes() {
