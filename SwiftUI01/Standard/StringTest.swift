@@ -307,6 +307,82 @@ struct StringTest: View {
         
         //TODO: Transforming a String’s Characters
         transformStringCharacters()
+        
+        //TODO: Iterating over a String’s Characters
+        iterateOverStringCharacters()
+        
+        //TODO: Reordering a String’s Characters
+        reorderStringCharacters()
+    }
+    
+    private func reorderStringCharacters() {
+        let str = "abc_Café_한_글"
+        let r1 = str.sorted()
+        logger.log(r1)
+        let r2 = str.sorted { c1, c2 in
+            c1 > c2
+        }
+        logger.log(r2)
+        let r3 = str.sorted(by: >)
+        logger.log(r3)
+
+        // sort using sorted(using:)
+        let comparator1 = StringComparator(order: .forward)
+        let r4 = str.sorted(using: comparator1)
+        logger.log(r4)
+        let comparator2 = StringComparator(order: .reverse)
+        let r5 = str.sorted(using: comparator2)
+        logger.log(r5)
+        
+        //TODO: Order를 단순히 forward, reverse로 하는 것으로는 순서가 바뀌지 않는 것같다.
+        logger.log(["a", "c", "b"].sorted(using: comparator1))
+        logger.log(["a", "c", "b"].sorted(using: comparator2))
+        
+        let ints: [Int] = [4, 3, 6, 2, 9]
+        logger.log(ints.sorted(using: IntComparator(order: .forward)))
+        logger.log(ints.sorted(using: IntComparator(order: .reverse)))
+        
+        let strings = ["2", "32", "22", "101"]
+        logger.log(strings.sorted(using: String.StandardComparator(.lexical)))
+        logger.log(strings.sorted(using: String.StandardComparator(.localized)))
+        logger.log("---")
+        logger.log(strings.sorted(using: String.StandardComparator(.localizedStandard)))
+        logger.log("---")
+        logger.log(strings.sorted())
+        logger.log(Locale.current)
+        logger.log(String(localized: LocalizedStringResource(stringLiteral: "32")))
+        logger.log("101".localizedStandardCompare("2").rawValue)
+        logger.log("101".localizedCompare("2").rawValue)
+        logger.log("101".compare("2").rawValue)
+        
+        logger.log(str.reversed().first)
+        logger.log(String(str.reversed()))
+        
+        logger.log(str.shuffled())
+        var generator = MyRandomNumberGenerator()
+        logger.log(str.shuffled(using: &generator))
+        for x in 0...2 {
+            var generator1 = MyPseudoRandomNumberGenerator(value: UInt64(x))
+            logger.log(str.shuffled(using: &generator1))
+        }
+    }
+    
+    private func iterateOverStringCharacters() {
+        let str = "abc_Café_한_글"
+        str.forEach { c in
+            logger.log(c)
+        }
+        str.enumerated().forEach { e in
+            logger.log("\(e.0) : \(e.1)")
+        }
+        var it = str.makeIterator()
+        while true {
+            let c = it.next()
+            if c == nil { break }
+            logger.log(c)
+        }
+        logger.log(str.count)
+        logger.log(str.underestimatedCount)
     }
     
     private func transformStringCharacters() {
@@ -321,6 +397,33 @@ struct StringTest: View {
         }
         logger.log(nonAsciis)
         logger.log(String(nonAsciis))
+        let r1 =  ["Hello", " ", "Nice"].flatMap { $0 }
+        logger.log(r1)
+        
+        let value: UInt32 = str.reduce(0) { partialResult, c in
+            c.unicodeScalars.reduce(partialResult) { partialResult, s in
+                partialResult + s.value
+            }
+        }
+        let value1 = str.unicodeScalars.reduce(0) { partialResult, s in
+            partialResult + s.value
+        }
+        logger.log(value)
+        logger.log(value1)
+        let r3 = str.reduce(into: []) { partialResult, s in
+            partialResult.append(s)
+        }
+        logger.log(r3)
+        let r4 = str.unicodeScalars.reduce(into: 0) { partialResult, s in
+            partialResult += s.value
+        }
+        logger.log(r4)
+        
+        let r5 = str.lazy.reduce(into: [] as [Character]) { partialResult, s in
+            logger.log(s)
+            partialResult.append(s)
+        }
+        logger.log(r5)
     }
     
     private func workWithStringViews() {

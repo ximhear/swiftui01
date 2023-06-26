@@ -17,6 +17,8 @@
 		961DC5522A2DB67900E1A915 /* UnsafeMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DC5512A2DB67900E1A915 /* UnsafeMain.swift */; };
 		961DC5542A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DC5532A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift */; };
 		961DC5562A2DCC8A00E1A915 /* UnsafeMutableBufferPointerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DC5552A2DCC8A00E1A915 /* UnsafeMutableBufferPointerTest.swift */; };
+		962283852A49336300F63DA0 /* StringComparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962283842A49336300F63DA0 /* StringComparator.swift */; };
+		962283882A493F3F00F63DA0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9622838A2A493F3F00F63DA0 /* Localizable.strings */; };
 		962B7A712A1F070000A2633E /* GenericsMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A702A1F070000A2633E /* GenericsMain.swift */; };
 		962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */; };
 		962B7A752A1F2ECF00A2633E /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */; };
@@ -77,6 +79,8 @@
 		961DC5512A2DB67900E1A915 /* UnsafeMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeMain.swift; sourceTree = "<group>"; };
 		961DC5532A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeBufferPointerTest.swift; sourceTree = "<group>"; };
 		961DC5552A2DCC8A00E1A915 /* UnsafeMutableBufferPointerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeMutableBufferPointerTest.swift; sourceTree = "<group>"; };
+		962283842A49336300F63DA0 /* StringComparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringComparator.swift; sourceTree = "<group>"; };
+		962283892A493F3F00F63DA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		962B7A702A1F070000A2633E /* GenericsMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsMain.swift; sourceTree = "<group>"; };
 		962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGenerics.swift; sourceTree = "<group>"; };
 		962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 				9662FFBA2A36FDA0007A0D2B /* IntTest.swift */,
 				965D11562A399FE000EA5551 /* DoubleTest.swift */,
 				96D30CF32A3C48B400738F6B /* StringTest.swift */,
+				962283842A49336300F63DA0 /* StringComparator.swift */,
 				ECA3B40F2A4586530084B548 /* MyRandomNumberGenerator.swift */,
 			);
 			path = Standard;
@@ -246,6 +251,7 @@
 		ECB7360429FD793B007F6107 = {
 			isa = PBXGroup;
 			children = (
+				9622838A2A493F3F00F63DA0 /* Localizable.strings */,
 				ECB7360F29FD793B007F6107 /* SwiftUI01 */,
 				ECB7360E29FD793B007F6107 /* Products */,
 			);
@@ -365,6 +371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECB7361829FD793C007F6107 /* Preview Assets.xcassets in Resources */,
+				962283882A493F3F00F63DA0 /* Localizable.strings in Resources */,
 				ECB7361529FD793C007F6107 /* Assets.xcassets in Resources */,
 				9640EC7B2A42A33900FE7A76 /* Test.txt in Resources */,
 			);
@@ -424,6 +431,7 @@
 				96D30CF42A3C48B400738F6B /* StringTest.swift in Sources */,
 				960969102A0B2EC0004D2041 /* GGGViewModel.swift in Sources */,
 				964ECAD32A0A2BE7009356DA /* BingoDataManager.swift in Sources */,
+				962283852A49336300F63DA0 /* StringComparator.swift in Sources */,
 				962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */,
 				9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */,
 				9662FFC02A370082007A0D2B /* Logger.swift in Sources */,
@@ -435,6 +443,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9622838A2A493F3F00F63DA0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				962283892A493F3F00F63DA0 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		ECB7361929FD793C007F6107 /* Debug */ = {
