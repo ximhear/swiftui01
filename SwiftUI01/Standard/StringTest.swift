@@ -313,6 +313,39 @@ struct StringTest: View {
         
         //TODO: Reordering a String’s Characters
         reorderStringCharacters()
+        
+        //TODO: Getting C Strings
+        getCStrings()
+    }
+    
+    private func getCStrings() {
+        //TODO: 여기에서 C String은 null terminated string을 의미한다.
+        let str = "abc_Café_한_글"
+        logger.log(str.count)
+        logger.log(str.utf8CString)
+        let len = str.withCString { pointer in
+            strlen(pointer)
+        }
+        logger.log(len)
+        str.withCString(encodedAs: UTF32.self) { pointer in
+            logger.log(type(of: pointer))
+            var length = 0
+            var pos = pointer
+            while true {
+                if pos.pointee == 0 {
+                    break
+                }
+                pos = pos.successor()
+                length += 1
+            }
+            for x in 0..<length {
+                logger.log(pointer.advanced(by: x).pointee)
+            }
+            let bp = UnsafeBufferPointer(start: pointer, count: length)
+            for x in 0..<length {
+                logger.log(bp[x])
+            }
+        }
     }
     
     private func reorderStringCharacters() {
