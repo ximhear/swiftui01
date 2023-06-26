@@ -19,6 +19,7 @@
 		961DC5562A2DCC8A00E1A915 /* UnsafeMutableBufferPointerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DC5552A2DCC8A00E1A915 /* UnsafeMutableBufferPointerTest.swift */; };
 		962283852A49336300F63DA0 /* StringComparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962283842A49336300F63DA0 /* StringComparator.swift */; };
 		962283882A493F3F00F63DA0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9622838A2A493F3F00F63DA0 /* Localizable.strings */; };
+		9622838C2A497EC700F63DA0 /* ArrayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622838B2A497EC700F63DA0 /* ArrayTest.swift */; };
 		962B7A712A1F070000A2633E /* GenericsMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A702A1F070000A2633E /* GenericsMain.swift */; };
 		962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */; };
 		962B7A752A1F2ECF00A2633E /* ProtocolTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */; };
@@ -81,6 +82,7 @@
 		961DC5552A2DCC8A00E1A915 /* UnsafeMutableBufferPointerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsafeMutableBufferPointerTest.swift; sourceTree = "<group>"; };
 		962283842A49336300F63DA0 /* StringComparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringComparator.swift; sourceTree = "<group>"; };
 		962283892A493F3F00F63DA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9622838B2A497EC700F63DA0 /* ArrayTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayTest.swift; sourceTree = "<group>"; };
 		962B7A702A1F070000A2633E /* GenericsMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsMain.swift; sourceTree = "<group>"; };
 		962B7A722A1F0A6A00A2633E /* ProtocolGenerics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolGenerics.swift; sourceTree = "<group>"; };
 		962B7A742A1F2ECF00A2633E /* ProtocolTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolTest.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				96D30CF32A3C48B400738F6B /* StringTest.swift */,
 				962283842A49336300F63DA0 /* StringComparator.swift */,
 				ECA3B40F2A4586530084B548 /* MyRandomNumberGenerator.swift */,
+				9622838B2A497EC700F63DA0 /* ArrayTest.swift */,
 			);
 			path = Standard;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */,
 				964ECACF2A0A2B98009356DA /* BingoPlayer.swift in Sources */,
 				965BCA032A03610B004A3494 /* MyScene.swift in Sources */,
+				9622838C2A497EC700F63DA0 /* ArrayTest.swift in Sources */,
 				9602C4772A1D971300EF38E3 /* MagnificationGestureTest.swift in Sources */,
 				9662FFBD2A36FDEB007A0D2B /* ViewExtension.swift in Sources */,
 				9640EC7D2A42D1BF00FE7A76 /* MyCustomSequence.swift in Sources */,
