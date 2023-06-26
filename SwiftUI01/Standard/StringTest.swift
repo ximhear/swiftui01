@@ -316,6 +316,171 @@ struct StringTest: View {
         
         //TODO: Getting C Strings
         getCStrings()
+        
+        //TODO: Manipulating Indices
+        manipulateIndices()
+        
+        //TODO: Encoding and Decoding
+        encodeDecode()
+        
+        //TODO: Describing a String
+        describeString()
+        
+        //TODO: Using a String as a Data Value
+        useStringAaDataValue()
+        
+        //TODO: Infrequently Used Functionality
+        etc()
+        
+        //TODO: Initializers
+        initializers()
+    }
+    
+    private func initializers() {
+        var str = "abc_Café_한_글"
+        var attributedStr = AttributedString(str)
+        let dic: [NSAttributedString.Key : Any] = [
+            .foregroundColor: UIColor.red,
+            .backgroundColor: UIColor.green,
+        ]
+        let container = AttributeContainer(dic)
+        attributedStr.mergeAttributes(container)
+        logger.log(attributedStr)
+        let i1 = attributedStr.startIndex
+        let i2 = attributedStr.index(afterCharacter: i1)
+        let r1 = attributedStr.characters[i1...i2]
+        logger.log(type(of: r1))
+        logger.log(String(r1))
+        
+        str.withUTF8 { pointer in
+            logger.log(type(of: pointer))
+            logger.log(pointer.count)
+            pointer.baseAddress?.withMemoryRebound(to: CChar.self, capacity: pointer.count, { pointer in
+                logger.log(type(of: pointer))
+                logger.log(pointer.advanced(by: 18).pointee)
+                logger.log(String(cString: pointer, encoding: .ascii))
+                logger.log(String(cString: pointer, encoding: .utf8))
+                logger.log(String(cString: pointer, encoding: .symbol))
+                logger.log(String(cString: pointer, encoding: .utf16BigEndian))
+                logger.log(String(cString: pointer, encoding: .utf16LittleEndian))
+                logger.log(String(cString: pointer, encoding: .unicode))
+                logger.log(String(cString: pointer, encoding: .utf32))
+            })
+        }
+        
+//        logger.log(String.init(decoding: FilePath.Root.))
+        var path: FilePath = "/tmp"
+        let file: FilePath.Component = "foo.txt"
+        path.append(file)
+        path.append(file)
+        logger.log(String(decoding: path))
+        logger.log(String(decoding: path.root!))
+        logger.log(String(decoding: file))
+        logger.log(path.components)
+        logger.log(path.isEmpty)
+        
+        logger.log(String(localized: LocalizedStringResource("32")))
+        logger.log(String(localized: .init("32")))
+        logger.log(String(localized: .init(stringLiteral: "32")))
+        logger.log(String(platformString: [97, 98, 99, 95, 67, 97, 102, 101, -52, -127, 95, -19, -107, -100, 95, -22, -72, -128, 0]))
+        str.withCString { pointer in
+            logger.log(String(utf8String: pointer))
+        }
+        logger.log(String(utf8String: [97, 98, 99, 95, 67, 97, 102, 101, -52, -127, 95, -19, -107, -100, 95, -22, -72, -128, 0]))
+        
+        let invalidUTF8: [CChar] = [67, 97, 102, -61, 0]
+        logger.log(String(validatingPlatformString: invalidUTF8))
+        
+        logger.log((String(validating: path)))
+        logger.log((String(validating: FilePath("c:\\hello"))))
+        
+        logger.log(String(validatingUTF8: invalidUTF8))
+        
+        str.withPlatformString { pointer in
+            logger.log(type(of: pointer))
+            logger.log(strlen(pointer))
+        }
+        
+        var utf8 = str.utf8.map({ $0 })
+        utf8.append(0)
+        let r2 = String.decodeCString(utf8, as: UTF8.self)
+        logger.log(r2)
+        
+        var utf16 = str.utf16.map({ $0 })
+        utf16.append(0)
+        let r3 = String.decodeCString(utf16, as: UTF16.self)
+        logger.log(r3)
+        
+        var utf32 = str.unicodeScalars.map({ $0.value })
+        utf32.append(0)
+        let r4 = String.decodeCString(utf32, as: UTF32.self)
+        logger.log(r4)
+        
+        let invalidUTF8u: [UInt8] = [67, 97, 102, 195, 0]
+        invalidUTF8u.withUnsafeBufferPointer { ptr in
+            let s = String.decodeCString(ptr.baseAddress,
+                                         as: UTF8.self,
+                                         repairingInvalidCodeUnits: true)
+            logger.log(s)
+        }
+    }
+    
+    private func etc() {
+        var str = "abc_Café_한_글"
+        let nsStr = "abc_Café_한_글" as NSString
+        logger.log(type(of: nsStr))
+        logger.log(String(nsStr))
+        
+        logger.log(String.init(unicodeScalarLiteral: "🇮🇳한"))
+        logger.log(String.init(extendedGraphemeClusterLiteral: "🇮🇳한"))
+        let r1 = str.withContiguousStorageIfAvailable { pointer in
+            logger.log(pointer.count)
+            return true
+        }
+        logger.log(r1)
+        str.makeContiguousUTF8()
+        let r2 = str.withContiguousStorageIfAvailable { pointer in
+            logger.log(pointer.count)
+            return true
+        }
+        logger.log(r2)
+    }
+    
+    //TODO: MLDataValue를 어떻게 이용하는지 모르겠다.
+    private func useStringAaDataValue() {
+        
+    }
+    
+    private func describeString() {
+        let str = "abc_Café_한_글"
+        logger.log(str.description)
+        logger.log(str.debugDescription)
+        logger.log(str.customMirror.displayStyle)
+        logger.log(str.customMirror.subjectType)
+        logger.log(str.customMirror)
+        logger.log(str.hashValue)
+        var str1 = str
+        logger.log(str1.hashValue)
+        
+    }
+    
+    //TODO: init(from:), encode(to:)를 어떻게 이용해야하는지 모르겠음. 이를 이용하려면 Encoder, Decoder가 필요한데 이를 구현하는 방법도 모르겠음.
+    private func encodeDecode() {
+        let json = "{\"name\": \"gzonelee\", \"gender\":\"M\"}"
+        logger.log(json)
+        let number = "100"
+        
+    }
+    
+    private func manipulateIndices() {
+        let str = "abc_Café_한_글"
+        var index: String.Index = str.startIndex
+        str.formIndex(after: &index)
+        logger.log(str[index])
+        str.formIndex(&index, offsetBy: 8)
+        logger.log(str[index])
+        logger.log(str.indices.count)
+        logger.log(str.distance(from: index, to: str.startIndex))
     }
     
     private func getCStrings() {
