@@ -20,6 +20,7 @@ struct MyPseudoRandomNumberGenerator: RandomNumberGenerator {
     mutating func next() -> UInt64 {
         let v = value.multipliedReportingOverflow(by: value).partialValue
         value &+= v + 1
+        print("value : \(value)")
         return value
     }
 }
