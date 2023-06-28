@@ -26,6 +26,7 @@ struct SwiftStandardLibraryView: View {
                 
                 ViewLink(title: "Result", destination: EmptyView()),
                 ViewLink(title: "SIMD Vector Types", destination: EmptyView()),
+                
                 ViewLink(title: "Set", destination: EmptyView()),
                 ViewLink(title: "OptionSet", destination: EmptyView()),
                 ViewLink(title: "Time", destination: EmptyView()),
