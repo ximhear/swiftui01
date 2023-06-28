@@ -46,8 +46,11 @@ struct ContentView: View {
                 let a = [Int](1..<100)
                 GZLogFunc(a)
                 viewLinks = [
+                    //TODO: colorEffect, layerEffect, distortionEffect
+                    
                     ViewLink(title: Label("Gesture", systemImage: "chart.bar.fill"), destination: GestureMain()),
                     ViewLink(title: "Modal", destination: ModalTest()),
+                    ViewLink(title: "Dictionary", destination: DictionaryTest()),
                     ViewLink(title: "Array", destination: ArrayTest()),
                     ViewLink(title: "String", destination: StringTest()),
                     ViewLink(title: "Double", destination: DoubleTest()),
