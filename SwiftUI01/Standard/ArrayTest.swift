@@ -59,10 +59,133 @@ struct ArrayTest: View {
         
         //TODO: Comparing Arrays
         compareArrays()
+        
+        //TODO: Manipulating Indices
+        manipulateIndices()
+        
+        //TODO: Accessing Underlying Storage
+        accessUnderlyingStorage()
+    }
+    
+    private func accessUnderlyingStorage() {
+        var numbers1 = [1, 2, 3, 4, 5]
+        let r1 = numbers1.withUnsafeBufferPointer { p in
+            logger.log(p.startIndex)
+            logger.log(p.endIndex)
+            var ret: Int = 0
+            for x in stride(from: p.startIndex, to: p.endIndex, by: 2) {
+               ret += p[x]
+            }
+            return ret
+        }
+        logger.log(r1)
+        numbers1.withUnsafeMutableBufferPointer { p in
+            for x in stride(from: p.startIndex, to: p.endIndex - 1, by: 2) {
+                p.swapAt(x, x + 1)
+            }
+        }
+        logger.log(numbers1)
+        
+        var numbers: [Int32] = [1, 2, 3]
+        var byteBuffer: [UInt8] = []
+        numbers.withUnsafeBytes { p in
+            logger.log(p is any Sequence)
+            logger.log(type(of: p[0]))
+            byteBuffer.append(contentsOf: p)
+        }
+        logger.log(byteBuffer)
+        
+        numbers = [0, 0]
+        var byteValues: [UInt8] = [0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00]
+        numbers.withUnsafeMutableBytes { destBytes in
+            byteValues.withUnsafeBytes { srcBytes in
+                destBytes.copyBytes(from: srcBytes)
+            }
+        }
+        logger.log(numbers)
+        
+        numbers = [0, 0]
+        byteValues = [0x01, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x00]
+        numbers.withUnsafeMutableBytes { p1 in
+            byteValues.withUnsafeBytes { p2 in
+                p1.copyMemory(from: p2)
+            }
+        }
+        logger.log(numbers)
+        
+        let r2: ()? = numbers1.withContiguousStorageIfAvailable { p in
+            logger.log(type(of: p))
+            logger.log(p[0])
+        }
+        logger.log(r2)
+        
+        numbers1.withContiguousMutableStorageIfAvailable { pointer in
+            pointer[0] = 100
+        }
+        logger.log(numbers1)
+        
+        logger.log(numbers.description)
+        logger.log(numbers.debugDescription)
+        logger.log(numbers.hashValue)
+    }
+    
+    private func manipulateIndices() {
+        let numbers1 = [1, 2, 3, 4, 5]
+        logger.log(type(of: numbers1.startIndex))
+        logger.log(numbers1.startIndex)
+        logger.log(numbers1.endIndex)
+        logger.log(numbers1.index(after: numbers1.startIndex))
+        logger.log(numbers1.index(numbers1.startIndex, offsetBy: 100))
+        logger.log(numbers1.index(numbers1.startIndex + 2, offsetBy: -2, limitedBy: numbers1.endIndex))
+        logger.log(numbers1.index(3, offsetBy: -2, limitedBy: 1))
+        logger.log(numbers1.distance(from: 0, to: 2))
+        logger.log(numbers1.distance(from: -2, to: 2))
+        logger.log(numbers1.distance(from: -200, to: 200))
+        
     }
     
     private func compareArrays() {
+        var numbers1 = [1, 2, 3, 4, 5]
+        var numbers2 = [1, 2, 3, 4, 5]
+        logger.log(numbers1 == numbers2)
+        
+        var coffees1: [Coffeee] = []
+        coffees1.append(.init(name: "Americano", from: "Brazil"))
+        var coffees2: [Coffeee] = []
+        coffees2.append(.init(name: "Americano", from: "Korea"))
+        logger.log(coffees1 == coffees2)
+        logger.log(coffees1 != coffees2)
          
+        coffees1.append(.init(name: "Capucinno", from: "US"))
+        
+        let coffees3: Set<Coffeee> =  Set([.init(name: "Americano", from: "Brazil"), .init(name: "Capucinno", from: "US")])
+        let coffees4: Set<Coffeee> =  Set([.init(name: "Capucinno", from: "Brazil"), .init(name: "Americano", from: "US")])
+         
+        //TODO: elementsEqual은 순서도 동일해야 한다. Set일 경우는 순서가 바뀌기 때문에
+        //TODO: 그때 그때 값이 달라진다.
+        logger.log(coffees1.elementsEqual(coffees3))
+        logger.log(coffees1.elementsEqual(coffees4))
+        
+        coffees1 = []
+        coffees1.append(.init(name: "Americano", from: "Brazil"))
+        coffees2 = []
+        coffees2.append(.init(name: "Americano", from: "Korea"))
+        logger.log(coffees1 == coffees2)
+        let r1 = coffees1.elementsEqual(coffees2) { c1, c2 in
+            c1.name == c2.name
+        }
+        logger.log(r1)
+        
+        coffees1.append(.init(name: "Capucinno", from: "US"))
+        let r2 = coffees1.starts(with: [Coffeee.init(name: "Americano", from: "Brazil")])
+        logger.log(r2)
+        
+        let pencils1: [Pencil] = [.init(name: "donga", from: "korean"),
+                                  .init(name: "staedtler", from: "germany")]
+        let pencils2: [Pencil] = [.init(name: "donga", from: "korean"),
+                                  .init(name: "pentel co., ltd", from: "germany")]
+        
+        logger.log(pencils1.lexicographicallyPrecedes(pencils2))
     }
     
     private func createAndApplyDifferences() {
@@ -290,8 +413,9 @@ struct ArrayTest: View {
         logger.log(r4)
         let r5 = coffees.first { $0 == "Express" }
         logger.log(r5)
-        let r6 = coffees.firstIndex(of: .init(name: "Capucinno", from: ""))
-        logger.log(coffees[r6!])
+        if let r6 = coffees.firstIndex(of: .init(name: "Capucinno", from: "")) {
+            logger.log(coffees[r6])
+        }
         
         let r7 = coffees.firstIndex(where: { $0 == "Capucinno"})
         logger.log(coffees[r7!])
@@ -468,13 +592,13 @@ struct ArrayTest_Previews: PreviewProvider {
     }
 }
 
-fileprivate struct Coffeee: Equatable {
+fileprivate struct Coffeee: Hashable {
     let name: String
     let from: String
     
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.name == rhs.name
-    }
+//    static func == (lhs: Self, rhs: Self) -> Bool {
+//        lhs.name == rhs.name
+//    }
     
     static func == (lhs: Self, rhs: String) -> Bool {
         lhs.name == rhs
@@ -484,5 +608,33 @@ fileprivate struct Coffeee: Equatable {
 extension Coffeee: CustomStringConvertible {
     var description: String {
         "\(name) - \(from)"
+    }
+}
+
+//TODO: struct는 stored property가 모두 Hashable이면 Equatable, Hashable을 구현하지 않아도 되지만,
+//TODO: class는 반드시 구현해주어야 한다.
+fileprivate class Pencil: Hashable {
+    static func == (lhs: Pencil, rhs: Pencil) -> Bool {
+        lhs.name == rhs.name && lhs.from == rhs.from
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(from)
+    }
+    
+    let name: String
+    let from: String
+    
+    init(name n: String, from f: String) {
+        name = n
+        from = f
+    }
+    
+}
+
+extension Pencil: Comparable {
+    static func < (lhs: Pencil, rhs: Pencil) -> Bool {
+        lhs.name < rhs.name
     }
 }
