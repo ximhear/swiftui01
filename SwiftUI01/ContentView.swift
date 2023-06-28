@@ -50,6 +50,7 @@ struct ContentView: View {
                     
                     ViewLink(title: Label("Gesture", systemImage: "chart.bar.fill"), destination: GestureMain()),
                     ViewLink(title: "Modal", destination: ModalTest()),
+                    ViewLink(title: "Swift Standard Library", destination: SwiftStandardLibraryView()),
                     ViewLink(title: "Dictionary", destination: DictionaryTest()),
                     ViewLink(title: "Array", destination: ArrayTest()),
                     ViewLink(title: "String", destination: StringTest()),
