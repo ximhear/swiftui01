@@ -58,6 +58,7 @@
 		96D30CF42A3C48B400738F6B /* StringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D30CF32A3C48B400738F6B /* StringTest.swift */; };
 		96D8A6E82A4C0DB5006EBBF1 /* DictionaryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D8A6E72A4C0DB5006EBBF1 /* DictionaryTest.swift */; };
 		EC004D532A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC004D522A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift */; };
+		EC004D552A4CAC890016ECA8 /* OptionalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC004D542A4CAC890016ECA8 /* OptionalTest.swift */; };
 		EC0D36D32A27B4DD009DF78B /* ModalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0D36D22A27B4DD009DF78B /* ModalTest.swift */; };
 		ECA3B4102A4586530084B548 /* MyRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3B40F2A4586530084B548 /* MyRandomNumberGenerator.swift */; };
 		ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361029FD793B007F6107 /* SwiftUI01App.swift */; };
@@ -122,6 +123,7 @@
 		96D30CF32A3C48B400738F6B /* StringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTest.swift; sourceTree = "<group>"; };
 		96D8A6E72A4C0DB5006EBBF1 /* DictionaryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTest.swift; sourceTree = "<group>"; };
 		EC004D522A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStandardLibraryView.swift; sourceTree = "<group>"; };
+		EC004D542A4CAC890016ECA8 /* OptionalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTest.swift; sourceTree = "<group>"; };
 		EC0D36D22A27B4DD009DF78B /* ModalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTest.swift; sourceTree = "<group>"; };
 		ECA3B40F2A4586530084B548 /* MyRandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRandomNumberGenerator.swift; sourceTree = "<group>"; };
 		ECB7360D29FD793B007F6107 /* SwiftUI01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI01.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				EC004D522A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift */,
+				EC004D542A4CAC890016ECA8 /* OptionalTest.swift */,
 			);
 			path = SwiftStandardLibrary;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				962B7A732A1F0A6A00A2633E /* ProtocolGenerics.swift in Sources */,
 				9693F4AB2A0884C900ADAE4A /* AppStorageTest.swift in Sources */,
 				9662FFC02A370082007A0D2B /* Logger.swift in Sources */,
+				EC004D552A4CAC890016ECA8 /* OptionalTest.swift in Sources */,
 				9693F4AF2A08914800ADAE4A /* SystemImageTest.swift in Sources */,
 				961DC5542A2DB6F600E1A915 /* UnsafeBufferPointerTest.swift in Sources */,
 				ECBA61B02A0160A400CF0B12 /* ViewModel.swift in Sources */,
