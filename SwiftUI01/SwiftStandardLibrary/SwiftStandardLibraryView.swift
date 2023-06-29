@@ -25,8 +25,8 @@ struct SwiftStandardLibraryView: View {
                 ViewLink(title: "Optional", destination: OptionalTest()),
                 ViewLink(title: "Result", destination: ResultTest()),
                 ViewLink(title: "SIMD Vector Types", destination: SimdTest()),
+                ViewLink(title: "OptionSet", destination: OptionSetTest()),
                 
-                ViewLink(title: "OptionSet", destination: EmptyView()),
                 ViewLink(title: "Set", destination: EmptyView()),
                 ViewLink(title: "Time", destination: EmptyView()),
                 ViewLink(title: "Codable", destination: EmptyView()),
