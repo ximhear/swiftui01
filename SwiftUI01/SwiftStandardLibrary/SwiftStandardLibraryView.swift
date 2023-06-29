@@ -23,12 +23,11 @@ struct SwiftStandardLibraryView: View {
         .onAppear {
             viewLinks = [
                 ViewLink(title: "Optional", destination: OptionalTest()),
+                ViewLink(title: "Result", destination: ResultTest()),
+                ViewLink(title: "SIMD Vector Types", destination: SimdTest()),
                 
-                ViewLink(title: "Result", destination: EmptyView()),
-                ViewLink(title: "SIMD Vector Types", destination: EmptyView()),
-                
-                ViewLink(title: "Set", destination: EmptyView()),
                 ViewLink(title: "OptionSet", destination: EmptyView()),
+                ViewLink(title: "Set", destination: EmptyView()),
                 ViewLink(title: "Time", destination: EmptyView()),
                 ViewLink(title: "Codable", destination: EmptyView()),
                 ViewLink(title: "Concurrency", destination: EmptyView()),

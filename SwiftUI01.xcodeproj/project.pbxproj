@@ -58,6 +58,7 @@
 		96D30CF42A3C48B400738F6B /* StringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D30CF32A3C48B400738F6B /* StringTest.swift */; };
 		96D8A6E82A4C0DB5006EBBF1 /* DictionaryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D8A6E72A4C0DB5006EBBF1 /* DictionaryTest.swift */; };
 		96DD64942A4D17E9005D3597 /* ResultTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD64932A4D17E9005D3597 /* ResultTest.swift */; };
+		96DD64962A4D2442005D3597 /* SimdTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DD64952A4D2442005D3597 /* SimdTest.swift */; };
 		EC004D532A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC004D522A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift */; };
 		EC004D552A4CAC890016ECA8 /* OptionalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC004D542A4CAC890016ECA8 /* OptionalTest.swift */; };
 		EC0D36D32A27B4DD009DF78B /* ModalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0D36D22A27B4DD009DF78B /* ModalTest.swift */; };
@@ -124,6 +125,7 @@
 		96D30CF32A3C48B400738F6B /* StringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTest.swift; sourceTree = "<group>"; };
 		96D8A6E72A4C0DB5006EBBF1 /* DictionaryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTest.swift; sourceTree = "<group>"; };
 		96DD64932A4D17E9005D3597 /* ResultTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTest.swift; sourceTree = "<group>"; };
+		96DD64952A4D2442005D3597 /* SimdTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimdTest.swift; sourceTree = "<group>"; };
 		EC004D522A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStandardLibraryView.swift; sourceTree = "<group>"; };
 		EC004D542A4CAC890016ECA8 /* OptionalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTest.swift; sourceTree = "<group>"; };
 		EC0D36D22A27B4DD009DF78B /* ModalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTest.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				EC004D522A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift */,
 				EC004D542A4CAC890016ECA8 /* OptionalTest.swift */,
 				96DD64932A4D17E9005D3597 /* ResultTest.swift */,
+				96DD64952A4D2442005D3597 /* SimdTest.swift */,
 			);
 			path = SwiftStandardLibrary;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				9622838C2A497EC700F63DA0 /* ArrayTest.swift in Sources */,
 				9602C4772A1D971300EF38E3 /* MagnificationGestureTest.swift in Sources */,
 				9662FFBD2A36FDEB007A0D2B /* ViewExtension.swift in Sources */,
+				96DD64962A4D2442005D3597 /* SimdTest.swift in Sources */,
 				9640EC7D2A42D1BF00FE7A76 /* MyCustomSequence.swift in Sources */,
 				964ECADD2A0A2CD1009356DA /* ComputerPlayer.swift in Sources */,
 				965BCA2D2A03AC4F004A3494 /* GetSizeModifier.swift in Sources */,
