@@ -22,6 +22,7 @@ struct DragGestureTest: View {
                         .frame(width: 60, height: 60)
                         .offset(x: drag.width * proxy.size.width, y: drag.height * proxy.size.height)
                     UIViewWrap(drag: $drag)
+                        .frame(maxHeight: 60)
                 }
                 .gesture(DragGesture()
                     .onChanged({ value in
