@@ -19,6 +19,7 @@ struct ModalTest: View {
     @State var modalData4: ModalData?
     @State var isPresented5 = false
     @State var modalData6: ModalData?
+    @State var isPresented7 = false
     @State var strings = [
         "1",
         "2",
@@ -67,11 +68,24 @@ struct ModalTest: View {
                         Text(data.text)
                     }
                 }
+                Button("click7") {
+                    GZLogFunc()
+                    isPresented7 = true
+                }
             }
             .padding(8)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.yellow)
+        .modifier(ModalViewModifier(isPresented: $isPresented7, title: {
+            Text("Title")
+        }, body: {
+            Text("Body")
+        }, buttons: {
+            Button("Close") {
+                isPresented7 = false
+            }
+        }))
         .sheet(isPresented: $isPresented1, onDismiss: {
             GZLogFunc()
         }) {
@@ -144,5 +158,50 @@ struct ModalTest: View {
 struct ModalTest_Previews: PreviewProvider {
     static var previews: some View {
         ModalTest()
+    }
+}
+
+
+struct ModalViewModifier<Title: View, Body: View, Buttons: View>: ViewModifier {
+    @Binding var isPresented: Bool
+    let title: Title
+    let body: Body
+    let buttons: Buttons
+    
+    init(isPresented: Binding<Bool>, @ViewBuilder title: () -> Title, @ViewBuilder body: () -> Body, @ViewBuilder buttons: () -> Buttons) {
+        self._isPresented = isPresented
+        self.title = title()
+        self.body = body()
+        self.buttons = buttons()
+    }
+    
+    func body(content: Content) -> some View {
+        ZStack {
+            content
+            
+            if isPresented {
+                Color.black.opacity(0.5)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        isPresented = false
+                    }
+                
+                VStack {
+                    title
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .padding()
+                    
+                    body
+                    
+                    buttons
+                        .padding()
+                }
+                .padding()
+                .background(Color.white)
+                .cornerRadius(10)
+                .shadow(radius: 5)
+            }
+        }
     }
 }
