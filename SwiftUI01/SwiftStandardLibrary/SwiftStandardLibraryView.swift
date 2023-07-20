@@ -31,6 +31,7 @@ struct SwiftStandardLibraryView: View {
                 ViewLink(title: "String", destination: StringTest()),
                 ViewLink(title: "Double", destination: DoubleTest()),
                 ViewLink(title: "Integer", destination: IntTest()),
+                ViewLink(title: "AsyncStream", destination: AsyncStreamTest()),
                 
                 ViewLink(title: "Set", destination: EmptyView()),
                 ViewLink(title: "Time", destination: EmptyView()),

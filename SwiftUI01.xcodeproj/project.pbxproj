@@ -63,6 +63,7 @@
 		EC004D532A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC004D522A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift */; };
 		EC004D552A4CAC890016ECA8 /* OptionalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC004D542A4CAC890016ECA8 /* OptionalTest.swift */; };
 		EC0D36D32A27B4DD009DF78B /* ModalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0D36D22A27B4DD009DF78B /* ModalTest.swift */; };
+		EC6262822A69107A001122F4 /* AsyncStreamTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6262812A69107A001122F4 /* AsyncStreamTest.swift */; };
 		ECA3B4102A4586530084B548 /* MyRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA3B40F2A4586530084B548 /* MyRandomNumberGenerator.swift */; };
 		ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7361029FD793B007F6107 /* SwiftUI01App.swift */; };
 		ECB7361529FD793C007F6107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECB7361429FD793C007F6107 /* Assets.xcassets */; };
@@ -131,6 +132,7 @@
 		EC004D522A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStandardLibraryView.swift; sourceTree = "<group>"; };
 		EC004D542A4CAC890016ECA8 /* OptionalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalTest.swift; sourceTree = "<group>"; };
 		EC0D36D22A27B4DD009DF78B /* ModalTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTest.swift; sourceTree = "<group>"; };
+		EC6262812A69107A001122F4 /* AsyncStreamTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncStreamTest.swift; sourceTree = "<group>"; };
 		ECA3B40F2A4586530084B548 /* MyRandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRandomNumberGenerator.swift; sourceTree = "<group>"; };
 		ECB7360D29FD793B007F6107 /* SwiftUI01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB7361029FD793B007F6107 /* SwiftUI01App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI01App.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				EC004D522A4CA3D70016ECA8 /* SwiftStandardLibraryView.swift */,
+				EC6262812A69107A001122F4 /* AsyncStreamTest.swift */,
 				EC004D542A4CAC890016ECA8 /* OptionalTest.swift */,
 				96DD64932A4D17E9005D3597 /* ResultTest.swift */,
 				96DD64952A4D2442005D3597 /* SimdTest.swift */,
@@ -435,6 +438,7 @@
 				968475A02A283C29008068FB /* UnsafeTest.swift in Sources */,
 				962B7A772A1F494700A2633E /* GenericsTest.swift in Sources */,
 				965D11572A399FE000EA5551 /* DoubleTest.swift in Sources */,
+				EC6262822A69107A001122F4 /* AsyncStreamTest.swift in Sources */,
 				96B0A9BC2A136CA400B2C90E /* FontTest.swift in Sources */,
 				ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */,
 				ECB7362529FD827A007F6107 /* Test03.swift in Sources */,
