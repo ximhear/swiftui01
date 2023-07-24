@@ -55,6 +55,7 @@ struct ContentView: View {
                 viewLinks = [
                     //TODO: colorEffect, layerEffect, distortionEffect
                     
+                    ViewLink(title: Label("Shader", systemImage: "square.stack.3d.down.right"), destination: ShaderMain()),
                     ViewLink(title: Label("Gesture", systemImage: "chart.bar.fill"), destination: GestureMain()),
                     ViewLink(title: "Modal", destination: ModalTest()),
                     ViewLink(title: "Swift Standard Library", destination: SwiftStandardLibraryView()),

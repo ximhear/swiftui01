@@ -74,6 +74,8 @@
 		ECB7362529FD827A007F6107 /* Test03.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7362429FD827A007F6107 /* Test03.swift */; };
 		ECB7362729FD82F6007F6107 /* GZLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB7362629FD82F6007F6107 /* GZLog.swift */; };
 		ECBA61B02A0160A400CF0B12 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBA61AF2A0160A400CF0B12 /* ViewModel.swift */; };
+		ECF114222A6E39930094AD78 /* ShaderMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF114212A6E39930094AD78 /* ShaderMain.swift */; };
+		ECF114242A6E3B580094AD78 /* Shader1.metal in Sources */ = {isa = PBXBuildFile; fileRef = ECF114232A6E3B580094AD78 /* Shader1.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +147,8 @@
 		ECB7362429FD827A007F6107 /* Test03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test03.swift; sourceTree = "<group>"; };
 		ECB7362629FD82F6007F6107 /* GZLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GZLog.swift; sourceTree = "<group>"; };
 		ECBA61AF2A0160A400CF0B12 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		ECF114212A6E39930094AD78 /* ShaderMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShaderMain.swift; sourceTree = "<group>"; };
+		ECF114232A6E3B580094AD78 /* Shader1.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader1.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +303,7 @@
 		ECB7360F29FD793B007F6107 /* SwiftUI01 */ = {
 			isa = PBXGroup;
 			children = (
+				ECF114202A6E398A0094AD78 /* Shader */,
 				EC004D512A4CA3B60016ECA8 /* SwiftStandardLibrary */,
 				9662FFBE2A370077007A0D2B /* Logger */,
 				9662FFB92A36FD8E007A0D2B /* Standard */,
@@ -342,6 +347,15 @@
 				ECB7361729FD793C007F6107 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ECF114202A6E398A0094AD78 /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				ECF114212A6E39930094AD78 /* ShaderMain.swift */,
+				ECF114232A6E3B580094AD78 /* Shader1.metal */,
+			);
+			path = Shader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +437,7 @@
 				964ECACC2A0A13A8009356DA /* BingoPlayground.swift in Sources */,
 				964ECAD72A0A2C34009356DA /* BingoBoard.swift in Sources */,
 				96DD64942A4D17E9005D3597 /* ResultTest.swift in Sources */,
+				ECF114222A6E39930094AD78 /* ShaderMain.swift in Sources */,
 				ECB7362329FD7FBA007F6107 /* Test02.swift in Sources */,
 				965BCA2B2A039D39004A3494 /* ZStackTest.swift in Sources */,
 				964ECACF2A0A2B98009356DA /* BingoPlayer.swift in Sources */,
@@ -465,6 +480,7 @@
 				ECB7361129FD793B007F6107 /* SwiftUI01App.swift in Sources */,
 				9662FFBB2A36FDA0007A0D2B /* IntTest.swift in Sources */,
 				96B0A9BE2A137C8000B2C90E /* TextTest.swift in Sources */,
+				ECF114242A6E3B580094AD78 /* Shader1.metal in Sources */,
 				964ECAD12A0A2BC6009356DA /* BingoData.swift in Sources */,
 				965531D12A14AD1200732BBE /* ScrollViewTest.swift in Sources */,
 				96D30CF42A3C48B400738F6B /* StringTest.swift in Sources */,
@@ -626,6 +642,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -655,6 +672,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
