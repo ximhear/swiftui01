@@ -53,8 +53,6 @@ struct ContentView: View {
                 let a = [Int](1..<100)
                 GZLogFunc(a)
                 viewLinks = [
-                    //TODO: colorEffect, layerEffect, distortionEffect
-                    
                     ViewLink(title: Label("Shader", systemImage: "square.stack.3d.down.right"), destination: ShaderMain()),
                     ViewLink(title: Label("Gesture", systemImage: "chart.bar.fill"), destination: GestureMain()),
                     ViewLink(title: "Modal", destination: ModalTest()),
