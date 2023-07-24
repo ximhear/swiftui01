@@ -26,6 +26,11 @@ struct ViewLink: Identifiable {
 struct ContentView: View {
     @StateObject var vm = ViewModel(value: 10)
     @State var viewLinks: [ViewLink] = []
+    
+    init() {
+        GZLogFunc()
+    }
+    
     var body: some View {
         VStack {
             NavigationView {
@@ -37,9 +42,11 @@ struct ContentView: View {
                     }
                 }
                 .listStyle(.plain)
+                .navigationTitle("Main")
             }
             .onAppear {
                 GZLogFunc()
+                
                 var array = [1, 2, 3]
                 array[1...] = [6, 7, 8, 9, 10]  // Now array is [1, 6, 7, 8, 9, 10]
                 GZLogFunc(array)

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GestureMain: View {
+    
+    
     var body: some View {
         List {
             NavigationLink {
